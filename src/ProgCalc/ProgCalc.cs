@@ -746,5 +746,10 @@ namespace yyscamper.ProgCalc
             FormCustomResult.GetInstance().Show();
             FormCustomResult.GetInstance().UpdateResult();
         }
+
+        private void menuViewCalcBoard_Click(object sender, EventArgs e)
+        {
+            new FormCalcBoard().Show();
+        }
     }
 }
