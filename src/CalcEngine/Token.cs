@@ -36,6 +36,7 @@ namespace CalcEngine
         MULDIV,		// * /
         POWER,		// ^
         LOGIC_BITS_NOT,  //~
+        NUM_MODE,   //@: hex mode
         GROUP,		// ( ) , .
         LITERAL,	// 123.32, "Hello", etc.
         IDENTIFIER  // functions, external objects, bindings
@@ -50,9 +51,10 @@ namespace CalcEngine
         GT, LT, GE, LE, EQ, NE, // COMPARE
         ADD, SUB, // ADDSUB
         LSHIFT, RSHIFT, //SHIFT
-        MUL, DIV, DIVINT, MOD,// MULDIV
+        MUL, DIV, DIVINT,// MULDIV
         POWER, // POWER
         BITSNOT,
+        NUMHEX, NUMBIN, //NUM_MODE
         OPEN, CLOSE, END, COMMA, PERIOD, // GROUP
         ATOM, // LITERAL, IDENTIFIER
     }
@@ -78,4 +80,12 @@ namespace CalcEngine
         CEIL_FINAL,
         FLOOR_FINAL
     };
+
+    public class FormatChar
+    {
+        public const char HEX_NUM = '#';
+        public const char BIN_NUM = '?';
+        public const char DATETIME = '@';
+        public const char STRING = '\"';
+    }
 }

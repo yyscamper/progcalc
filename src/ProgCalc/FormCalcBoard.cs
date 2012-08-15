@@ -13,12 +13,18 @@ namespace yyscamper.ProgCalc
     {
         private const  string m_promptStr = "[ProgCalc] ";
         private int m_promptStrLen;
+        private HistoryController m_histoy;
+        private int m_historyMaxSize;
+        private int m_inputBeginPos;
 
         public FormCalcBoard()
         {
             InitializeComponent();
+            m_historyMaxSize = 20;
             m_promptStrLen = m_promptStr.Length;
             rtboxInputBoard.AppendText(m_promptStr);
+            m_histoy = new HistoryController(m_historyMaxSize, false, false);
+            m_inputBeginPos = rtboxInputBoard.Text.Length;
         }
 
         private void Evaulate()
@@ -33,6 +39,9 @@ namespace yyscamper.ProgCalc
             try
             {
                 string istr = rtboxInputBoard.Text.Substring(i + m_promptStrLen).Trim();
+
+                m_histoy.Add(istr);
+
                 if (istr.Equals("clear"))
                 {
                     rtboxInputBoard.Text = String.Empty;
@@ -64,21 +73,48 @@ namespace yyscamper.ProgCalc
                     Evaulate();
                     rtboxInputBoard.AppendText(System.Environment.NewLine);
                     rtboxInputBoard.AppendText(m_promptStr);
+                    m_inputBeginPos = rtboxInputBoard.Text.Length;
                 }
                 catch
                 {
                     return;
                 }
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                e.Handled = true;
+                string str = m_histoy.Previous();
+                if (str != null)
+                    rtboxInputBoard.AppendText(str);
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                e.Handled = true;
+                string str = m_histoy.Next();
+                if (str != null)
+                    rtboxInputBoard.AppendText(str);
+            }
         }
 
         private void rtboxInputBoard_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (rtboxInputBoard.SelectionStart < rtboxInputBoard.Text.Length)
+            if (rtboxInputBoard.SelectionStart < m_inputBeginPos)
             {
-                e.Handled = true;
+                //rtboxInputBoard.SelectionStart = m_inputBeginPos;
+                //rtboxInputBoard.ScrollToCaret();
+                //e.Handled = true;
                 return;
             }
+        }
+
+        private void FormCalcBoard_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void rtboxInputBoard_SelectionChanged(object sender, EventArgs e)
+        {
+            //rtboxInputBoard.SelectionStart = m_inputBeginPos;
+            //rtboxInputBoard.ScrollToCaret();
         }
     }
 }

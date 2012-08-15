@@ -55,6 +55,7 @@ namespace CalcEngine
             {
                 throw new ArgumentException("Bad expression.");
             }
+
 			return _token.Value;
 		}
         public virtual Expression Optimize()
@@ -150,8 +151,25 @@ namespace CalcEngine
             // handle everything else
             return (DateTime)Convert.ChangeType(v, typeof(DateTime), _ci);
         }
-
         #endregion
+
+        static public Int64 ParseBinStr(string s)
+        {
+            Int64 tmp = 0;
+            Int64 flag = 0x01;
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                char ch = s[i];
+                if (ch == ',' || ch == ' ')
+                    continue;
+                else if (ch == '1')
+                    tmp |= flag;
+                else if (ch != '0')
+                    throw(new ArgumentException("Wrong argument in binary number string!"));
+                flag = (flag << 1);
+            }
+            return tmp;
+        }
 
         //---------------------------------------------------------------------------
         #region ** IComparable<Expression>
@@ -213,6 +231,10 @@ namespace CalcEngine
                     return -(double)_expr;
                 case TKID.BITSNOT:
                     return ~((int)((double)_expr));
+                case TKID.NUMHEX:
+                    return int.Parse((string)_expr, System.Globalization.NumberStyles.HexNumber);
+                case TKID.NUMBIN:
+                    return Expression.ParseBinStr((string)_expr);
 			}
 			throw new ArgumentException("Bad expression.");
 		}
@@ -258,6 +280,26 @@ namespace CalcEngine
                 }
             }
 
+            if (_lft._token.Value.GetType() == typeof(DateTime) || _rgt._token.Value.GetType() == typeof(DateTime))
+            {
+                //Both should be DateTime Format
+                if (_lft._token.Value.GetType() != typeof(DateTime) || _rgt._token.Value.GetType() != typeof(DateTime))
+                {
+                    throw new ArgumentException("Bad expression.");
+                }
+
+                switch (_token.ID)
+                {
+                    case TKID.ADD:
+                        DateTime t = (DateTime)_rgt;
+                        return (DateTime)_lft + new TimeSpan(t.Day, t.Hour, t.Minute, t.Second);
+                    case TKID.SUB:
+                        return (DateTime)_lft - (DateTime)_rgt;
+                    default:
+                        throw new ArgumentException("Bad expression.");
+                }
+            }
+
             // handle everything else
             switch (_token.ID)
 			{
@@ -279,8 +321,6 @@ namespace CalcEngine
                     return (double)((int)_lft << (int)_rgt);
                 case TKID.RSHIFT:
                     return (double)((int)_lft >> (int)_rgt);
-				case TKID.MOD: 
-                    return (double)(int)((double)_lft % (double)_rgt);
 				case TKID.POWER:
                     var a = (double)_lft;
                     var b = (double)_rgt;

@@ -52,9 +52,6 @@ namespace CalcEngine
             _vars = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
             _cache = new ExpressionCache(this);
             _optimize = true;
-#if DEBUG
-            this.Test();
-#endif
         }
         
         #endregion
@@ -264,10 +261,11 @@ namespace CalcEngine
                 AddToken("<>", TKID.NE, TKTYPE.COMPARE);
                 AddToken(">=", TKID.GE, TKTYPE.COMPARE);
                 AddToken("<=", TKID.LE, TKTYPE.COMPARE);
-                AddToken('#', TKID.MOD, TKTYPE.MULDIV);
                 AddToken('&', TKID.BITSAND, TKTYPE.LOGIC_BITS_AND);
                 AddToken('|', TKID.BITSOR, TKTYPE.LOGIC_BITS_OR);
                 AddToken('~', TKID.BITSNOT, TKTYPE.LOGIC_BITS_NOT);
+                AddToken(FormatChar.HEX_NUM, TKID.NUMHEX, TKTYPE.NUM_MODE);
+                AddToken(FormatChar.BIN_NUM, TKID.NUMBIN, TKTYPE.NUM_MODE);
                 
                 // list separator is localized, not necessarily a comma
                 // so it can't be on the static table
@@ -400,7 +398,8 @@ namespace CalcEngine
  		Expression ParseUnary()
 		{ 
 			// unary plus and minus
-			if (_token.ID == TKID.ADD || _token.ID == TKID.SUB ||_token.ID == TKID.BITSNOT)
+			if (_token.ID == TKID.ADD || _token.ID == TKID.SUB ||_token.ID == TKID.BITSNOT
+                 || _token.ID == TKID.NUMHEX || _token.ID == TKID.NUMBIN)
 			{
 				var t = _token;
 		        GetToken();
@@ -538,7 +537,7 @@ namespace CalcEngine
 			// note that operators must start with non-letter/digit characters.
             var isLetter = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
             var isDigit = c >= '0' && c <= '9';
-			if (!isLetter && !isDigit)
+			if (!isLetter && !isDigit && c != FormatChar.HEX_NUM && c != FormatChar.BIN_NUM) //HEX format will be handled later
 			{
 				// if this is a number starting with a decimal, don't parse as operator
                 var nxt = _ptr + 1 < _len ? _expr[_ptr + 1] : 0;
@@ -655,20 +654,20 @@ namespace CalcEngine
 			}
 
 			// parse strings
-			if (c == '\"')
+			if (c == FormatChar.STRING)
 			{
 				// look for end quote, skip double quotes
 				for (i = 1; i + _ptr < _len; i++)
 				{
 					c = _expr[_ptr + i];
-					if (c != '\"') continue;
+					if (c != FormatChar.STRING) continue;
 					char cNext = i + _ptr < _len - 1 ? _expr[_ptr + i + 1]: ' ';
-					if (cNext != '\"') break;
+                    if (cNext != FormatChar.STRING) break;
 					i++;
 				}
 
 				// check that we got the end of the string
-				if (c != '\"')
+                if (c != FormatChar.STRING)
 				{
 					Throw("Can't find final quote.");
 				}
@@ -681,19 +680,19 @@ namespace CalcEngine
 			}
 
 			// parse dates (review)
-			if (c == '#')
+			if (c == FormatChar.DATETIME)
 			{
 				// look for end #
 				for (i = 1; i + _ptr < _len; i++)
 				{
 					c = _expr[_ptr + i];
-					if (c == '#') break;
+                    if (c == FormatChar.DATETIME) break;
 				}
 
 				// check that we got the end of the date
-				if (c != '#') 
+                if (c != FormatChar.DATETIME) 
 				{
-					Throw("Can't find final date delimiter ('#').");
+					Throw("Can't find final date delimiter ('" + FormatChar.DATETIME + "').");
 				}
 
 				// end of date
@@ -702,6 +701,54 @@ namespace CalcEngine
                 _token = new Token(DateTime.Parse(lit, _ci), TKID.ATOM, TKTYPE.LITERAL);
 				return;
 			}
+
+            // parse HEX format
+            if (c == FormatChar.HEX_NUM)
+            {
+                // look for end #
+                for (i = 1; i + _ptr < _len; i++)
+                {
+                    c = _expr[_ptr + i];
+                    if (!(c >= 'a' && c <= 'f' || c >= 'A' && c <= 'F'
+                        || c >= '0' && c <= '9'))
+                        break;
+                }
+
+                // check that we got some chars after @
+                if (i == 1)
+                {
+                    Throw("No characters after HEX format identify '" + FormatChar.HEX_NUM + "'!");
+                }
+
+                var lit = _expr.Substring(_ptr + 1, i - 1);
+                _ptr += i;
+                _token = new Token(int.Parse((string)lit, System.Globalization.NumberStyles.HexNumber),
+                        TKID.ATOM, TKTYPE.LITERAL);
+                return;
+            }
+            else if (c == FormatChar.BIN_NUM)
+            {
+                // look for end
+                for (i = 1; i + _ptr < _len; i++)
+                {
+                    c = _expr[_ptr + i];
+                    if (c != '0' && c != '1')
+                        break;
+                }
+
+                // check that we got some chars after @
+                if (i == 1)
+                {
+                    Throw("No characters after BIN format identify '" + FormatChar.BIN_NUM + "'!");
+                }
+
+                // end of date
+                var lit = _expr.Substring(_ptr + 1, i - 1);
+                _ptr += i;
+                _token = new Token(Expression.ParseBinStr((string)lit),TKID.ATOM, TKTYPE.LITERAL);
+                return;
+
+            }
 
             // identifiers (functions, objects) must start with alpha or underscore
             if (!isLetter && c != '_' && (_idChars == null || _idChars.IndexOf(c) < 0))
@@ -726,6 +773,9 @@ namespace CalcEngine
             _ptr += i;
             _token = new Token(id, TKID.ATOM, TKTYPE.IDENTIFIER);
 		}
+
+
+
         static double ParseDouble(string str, CultureInfo ci)
         {
             if (str.Length > 0 && str[str.Length - 1] == ci.NumberFormat.PercentSymbol[0])

@@ -552,11 +552,13 @@ namespace yyscamper.ProgCalc
                 //this.Text = new DataTable().Compute(tboxInput.Text, "").ToString();
                 //this.Text = Microsoft.JScript.Eval.JScriptEvaluate(tboxInput.Text, Microsoft.JScript.Vsa.VsaEngine.CreateEngine()).ToString();
                 tboxResult.Text = ExpTool.GetInstance().Eva(tboxInput.Text, m_inputMode, true).ToString();
+                labelExpErrorMessage.Text = "";
             }
-            catch
+            catch (Exception err)
             {
                 tboxResult.Text = "ERROR!";
                 UpdateResultToFaultStatus();
+                labelExpErrorMessage.Text = err.Message;
             }
 
             try

@@ -201,17 +201,22 @@
             this.menuViewVariables = new System.Windows.Forms.ToolStripMenuItem();
             this.menuViewHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.menuViewCustomResult = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuViewCalcBoard = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSetting = new System.Windows.Forms.ToolStripButton();
             this.menuHelp = new System.Windows.Forms.ToolStripDropDownButton();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuViewCalcBoard = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusProgCalc = new System.Windows.Forms.StatusStrip();
+            this.labelExpErrorMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpFormatResult.SuspendLayout();
             this.grpInputMode.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.grpInputPanle.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.statusProgCalc.SuspendLayout();
             this.SuspendLayout();
             // 
             // tboxResultDec
@@ -1386,11 +1391,10 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(233, 570);
+            this.label41.Location = new System.Drawing.Point(12, 588);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(164, 19);
+            this.label41.Size = new System.Drawing.Size(0, 19);
             this.label41.TabIndex = 5;
-            this.label41.Text = "Powered by yyscamper";
             // 
             // rbtnCeilMode
             // 
@@ -2059,6 +2063,13 @@
             this.menuViewCustomResult.Text = "Custom Result";
             this.menuViewCustomResult.Click += new System.EventHandler(this.menuViewCustomResult_Click);
             // 
+            // menuViewCalcBoard
+            // 
+            this.menuViewCalcBoard.Name = "menuViewCalcBoard";
+            this.menuViewCalcBoard.Size = new System.Drawing.Size(159, 22);
+            this.menuViewCalcBoard.Text = "Calc Board";
+            this.menuViewCalcBoard.Click += new System.EventHandler(this.menuViewCalcBoard_Click);
+            // 
             // menuSetting
             // 
             this.menuSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -2093,18 +2104,42 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // menuViewCalcBoard
+            // statusProgCalc
             // 
-            this.menuViewCalcBoard.Name = "menuViewCalcBoard";
-            this.menuViewCalcBoard.Size = new System.Drawing.Size(159, 22);
-            this.menuViewCalcBoard.Text = "Calc Board";
-            this.menuViewCalcBoard.Click += new System.EventHandler(this.menuViewCalcBoard_Click);
+            this.statusProgCalc.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.labelExpErrorMessage});
+            this.statusProgCalc.Location = new System.Drawing.Point(0, 575);
+            this.statusProgCalc.Name = "statusProgCalc";
+            this.statusProgCalc.Size = new System.Drawing.Size(617, 22);
+            this.statusProgCalc.TabIndex = 23;
+            this.statusProgCalc.Text = "statusStrip1";
+            // 
+            // labelExpErrorMessage
+            // 
+            this.labelExpErrorMessage.Name = "labelExpErrorMessage";
+            this.labelExpErrorMessage.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(149, 17);
+            this.toolStripStatusLabel1.Text = "Powered by yyscamper";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(17, 17);
+            this.toolStripStatusLabel2.Text = "|||";
             // 
             // ProgCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 598);
+            this.ClientSize = new System.Drawing.Size(617, 597);
+            this.Controls.Add(this.statusProgCalc);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label41);
@@ -2133,6 +2168,8 @@
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusProgCalc.ResumeLayout(false);
+            this.statusProgCalc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2317,6 +2354,10 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuViewCalcBoard;
+        private System.Windows.Forms.StatusStrip statusProgCalc;
+        private System.Windows.Forms.ToolStripStatusLabel labelExpErrorMessage;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 
