@@ -45,6 +45,7 @@
             this.rtboxInputBoard.Size = new System.Drawing.Size(485, 458);
             this.rtboxInputBoard.TabIndex = 0;
             this.rtboxInputBoard.Text = "";
+            this.rtboxInputBoard.SelectionChanged += new System.EventHandler(this.rtboxInputBoard_SelectionChanged);
             this.rtboxInputBoard.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtboxInputBoard_KeyDown);
             this.rtboxInputBoard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtboxInputBoard_KeyPress);
             // 
@@ -96,6 +97,7 @@
             this.Controls.Add(this.rtboxInputBoard);
             this.Name = "FormCalcBoard";
             this.Text = "Calc Board";
+            this.Load += new System.EventHandler(this.FormCalcBoard_Load);
             this.menuCalcBoard.ResumeLayout(false);
             this.menuCalcBoard.PerformLayout();
             this.ResumeLayout(false);
