@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D6323A68-F6C6-4BC6-9BF1-356FC35A2997}"
-EndProject
+# Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcEngine", "CalcEngine\CalcEngine.csproj", "{EE53DAD4-D6C8-4C47-9AD4-5B3BA2900DC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgCalc", "ProgCalc\ProgCalc.csproj", "{0AB19F65-7380-4B21-B5BA-7AF15E68CC9B}"

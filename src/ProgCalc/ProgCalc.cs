@@ -751,5 +751,10 @@ namespace yyscamper.ProgCalc
         {
             new FormCalcBoard().Show();
         }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
