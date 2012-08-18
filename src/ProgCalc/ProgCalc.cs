@@ -203,7 +203,7 @@ namespace yyscamper.ProgCalc
 
         private void BDHCalc_Load(object sender, EventArgs e)
         {
-            //UpdateViewByInputMode();
+            tboxInput.Text = Setting.GetInstance().HomeLastInputExpression;
             tboxInput.Focus();
         }
 
@@ -543,23 +543,43 @@ namespace yyscamper.ProgCalc
             SetBinBox(0);
         }
 
+        private Int64 ParseChars(string str)
+        {
+            Int64 val = 0;
+            int len = Math.Min(str.Length, 8);
+            for (int i = len - 1; i >= 0; i--)
+            {
+                val |= ((Int64)str[i] << ((len - 1 - i) * 8));
+            }
+            return val;
+        }
+
         private void EvalExpression()
         {
             if (tboxInput.Text.Length <= 0)
                 return;
-            try
+
+            if (m_inputMode == NumberType.CHAR)
             {
-                //this.Text = new DataTable().Compute(tboxInput.Text, "").ToString();
-                //this.Text = Microsoft.JScript.Eval.JScriptEvaluate(tboxInput.Text, Microsoft.JScript.Vsa.VsaEngine.CreateEngine()).ToString();
-                tboxResult.Text = ExpTool.GetInstance().Eva(tboxInput.Text, m_inputMode, true).ToString();
-                labelExpErrorMessage.Text = "";
+                Int64 val = ParseChars(tboxInput.Text.Trim());
+                tboxResult.Text = val.ToString();
+                UpdateResult(val);
             }
-            catch (Exception err)
+            else
             {
-                tboxResult.Text = "ERROR!";
-                UpdateResultToFaultStatus();
-                labelExpErrorMessage.Text = err.Message;
-            }
+                try
+                {
+                    //this.Text = new DataTable().Compute(tboxInput.Text, "").ToString();
+                    //this.Text = Microsoft.JScript.Eval.JScriptEvaluate(tboxInput.Text, Microsoft.JScript.Vsa.VsaEngine.CreateEngine()).ToString();
+                    tboxResult.Text = ExpTool.GetInstance().Eva(tboxInput.Text, m_inputMode, true).ToString();
+                    labelExpErrorMessage.Text = "";
+                }
+                catch (Exception err)
+                {
+                    tboxResult.Text = "ERROR!";
+                    UpdateResultToFaultStatus();
+                    labelExpErrorMessage.Text = err.Message;
+                }
 
             try
             {
@@ -569,6 +589,8 @@ namespace yyscamper.ProgCalc
             {
 
             }
+         }
+
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
@@ -752,6 +774,28 @@ namespace yyscamper.ProgCalc
         private void menuViewCalcBoard_Click(object sender, EventArgs e)
         {
             new FormCalcBoard().Show();
+        }
+
+        private void tboxInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)8 //Backspace
+               || e.KeyChar == (char)127)
+                return;
+            if (m_inputMode == NumberType.CHAR && tboxInput.Text.Trim().Length > 8
+                || m_inputMode == NumberType.BIN && tboxInput.Text.Trim().Length > 64)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void menuViewAsciiTable_Click(object sender, EventArgs e)
+        {
+            new FormAsciiTable().Show();
+        }
+
+        private void ProgCalc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Setting.GetInstance().HomeLastInputExpression = tboxInput.Text;
         }
     }
 }

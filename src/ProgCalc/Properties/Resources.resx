@@ -145,4 +145,10 @@
   <data name="strCancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="strConfigFileName" xml:space="preserve">
+    <value>progcalc_config.xml</value>
+  </data>
+  <data name="strXmlCustomResultNodeName" xml:space="preserve">
+    <value>CustomResult</value>
+  </data>
 </root>

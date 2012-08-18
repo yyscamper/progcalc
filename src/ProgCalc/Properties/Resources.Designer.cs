@@ -136,5 +136,23 @@ namespace yyscamper.ProgCalc.Properties {
                 return ResourceManager.GetString("strCancel", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 progcalc_config.xml 的本地化字符串。
+        /// </summary>
+        internal static string strConfigFileName {
+            get {
+                return ResourceManager.GetString("strConfigFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 CustomResult 的本地化字符串。
+        /// </summary>
+        internal static string strXmlCustomResultNodeName {
+            get {
+                return ResourceManager.GetString("strXmlCustomResultNodeName", resourceCulture);
+            }
+        }
     }
 }

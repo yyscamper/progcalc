@@ -202,14 +202,15 @@
             this.menuViewHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.menuViewCustomResult = new System.Windows.Forms.ToolStripMenuItem();
             this.menuViewCalcBoard = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuViewAsciiTable = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSetting = new System.Windows.Forms.ToolStripButton();
             this.menuHelp = new System.Windows.Forms.ToolStripDropDownButton();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusProgCalc = new System.Windows.Forms.StatusStrip();
-            this.labelExpErrorMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelExpErrorMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpFormatResult.SuspendLayout();
             this.grpInputMode.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -1506,6 +1507,7 @@
             this.tboxInput.TabIndex = 0;
             this.tboxInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tboxInput.TextChanged += new System.EventHandler(this.tboxInput_TextChanged);
+            this.tboxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxInput_KeyPress);
             // 
             // rbtnDecMode
             // 
@@ -2037,7 +2039,8 @@
             this.menuViewVariables,
             this.menuViewHistory,
             this.menuViewCustomResult,
-            this.menuViewCalcBoard});
+            this.menuViewCalcBoard,
+            this.menuViewAsciiTable});
             this.menuView.Image = ((System.Drawing.Image)(resources.GetObject("menuView.Image")));
             this.menuView.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.menuView.Name = "menuView";
@@ -2069,6 +2072,13 @@
             this.menuViewCalcBoard.Size = new System.Drawing.Size(159, 22);
             this.menuViewCalcBoard.Text = "Calc Board";
             this.menuViewCalcBoard.Click += new System.EventHandler(this.menuViewCalcBoard_Click);
+            // 
+            // menuViewAsciiTable
+            // 
+            this.menuViewAsciiTable.Name = "menuViewAsciiTable";
+            this.menuViewAsciiTable.Size = new System.Drawing.Size(159, 22);
+            this.menuViewAsciiTable.Text = "ASCII Table";
+            this.menuViewAsciiTable.Click += new System.EventHandler(this.menuViewAsciiTable_Click);
             // 
             // menuSetting
             // 
@@ -2116,11 +2126,6 @@
             this.statusProgCalc.TabIndex = 23;
             this.statusProgCalc.Text = "statusStrip1";
             // 
-            // labelExpErrorMessage
-            // 
-            this.labelExpErrorMessage.Name = "labelExpErrorMessage";
-            this.labelExpErrorMessage.Size = new System.Drawing.Size(0, 17);
-            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -2133,6 +2138,11 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(17, 17);
             this.toolStripStatusLabel2.Text = "|||";
+            // 
+            // labelExpErrorMessage
+            // 
+            this.labelExpErrorMessage.Name = "labelExpErrorMessage";
+            this.labelExpErrorMessage.Size = new System.Drawing.Size(0, 17);
             // 
             // ProgCalc
             // 
@@ -2153,6 +2163,7 @@
             this.Name = "ProgCalc";
             this.Text = "ProgCalc";
             this.Activated += new System.EventHandler(this.ProgCalc_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgCalc_FormClosing);
             this.Load += new System.EventHandler(this.BDHCalc_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BDHCalc_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BDHCalc_KeyPress);
@@ -2358,6 +2369,7 @@
         private System.Windows.Forms.ToolStripStatusLabel labelExpErrorMessage;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripMenuItem menuViewAsciiTable;
     }
 }
 

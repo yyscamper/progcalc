@@ -28,7 +28,9 @@ namespace yyscamper.ProgCalc
 
         private void FormCustomResult_Load(object sender, EventArgs e)
         {
-
+            cboxExp1.Text = Setting.GetInstance().CustomResultExpression[0];
+            cboxExp2.Text = Setting.GetInstance().CustomResultExpression[1];
+            cboxExp3.Text = Setting.GetInstance().CustomResultExpression[2];
         }
 
         private void SetErrorValue(TextBox tbox)
@@ -117,6 +119,9 @@ namespace yyscamper.ProgCalc
         {
             this.Hide();
             e.Cancel = true;
+            Setting.GetInstance().CustomResultExpression[0] = cboxExp1.Text;
+            Setting.GetInstance().CustomResultExpression[1] = cboxExp2.Text;
+            Setting.GetInstance().CustomResultExpression[2] = cboxExp3.Text;
         }
 
         private void cboxExp3_TextChanged(object sender, EventArgs e)

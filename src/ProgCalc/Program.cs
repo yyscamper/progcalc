@@ -15,7 +15,11 @@ namespace yyscamper.ProgCalc
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Setting.GetInstance().Load();
+
             Application.Run(new ProgCalc());
+
+            Setting.GetInstance().Save();
         }
     }
 }
