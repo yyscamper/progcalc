@@ -513,6 +513,36 @@ namespace CalcEngine
 		//---------------------------------------------------------------------------
 		#region ** parser
 
+        bool IsHex(char c)
+        {
+            return (c >= 'A' && c <= 'F' || c >= 'a' && c <= 'f' || c >= '0' && c <= '9');
+        }
+
+        bool IsBin(char c)
+        {
+            return c == '0' || c == '1';
+        }
+
+        int GetHexValue(char c)
+        {
+            if (c >= 'a' && c <= 'f')
+                return (int)(c - 'a' + 10);
+            else if (c >= 'A' && c <= 'F')
+                return (int)(c - 'A' + 10);
+            else if (c >= '0' && c <= '9')
+                return (int)(c - '0');
+            else
+                throw(new ArgumentException("Not a valid hex number!"));
+        }
+
+        int GetBinValue(char c)
+        {
+            if (c == '0' || c == '1')
+                return (int)(c - '0');
+            else
+                throw(new ArgumentException("Not a valid hex number!"));
+        }
+
         void GetToken()
         {
 			// eat white space 
@@ -529,7 +559,7 @@ namespace CalcEngine
 			}
 
 			// prepare to parse
-            int i;
+            int i = 0;
 			var c = _expr[_ptr];
 
 			// operators
@@ -578,71 +608,108 @@ namespace CalcEngine
 
 			// parse numbers
             if (isDigit || c == _decimal)
-			{
-				var sci = false;
-                var pct = false;
+			{             
                 var div = -1.0; // use double, not int (this may get really big)
                 var val = 0.0;
-                for (i = 0; i + _ptr < _len; i++)
-				{
-					c = _expr[_ptr + i];
 
-                    // digits always OK
-                    if (c >= '0' && c <= '9')
-                    {
-                        val = val * 10 + (c - '0');
-                        if (div > -1)
-                        {
-                            div *= 10;
-                        }
-                        continue;
-                    }
-
-					// one decimal is OK
-                    if (c == _decimal && div < 0)
-					{
-						div = 1;
-						continue;
-					}
-                    
-					// scientific notation?
-					if ((c == 'E' || c == 'e') && !sci) 
-					{
-						sci = true;
-						c = _expr[_ptr + i + 1];
-						if (c == '+' || c == '-') i++;
-						continue;
-					}
-
-                    // percentage?
-                    if (c == _percent)
-                    {
-                        pct = true;
-                        i++;
-                        break;
-                    }
-
-					// end of literal
-					break;
-				}
-
-                // end of number, get value
-                if (!sci)
+                int num_fmt = 10;
+                if (c == '0' && _len > 1)
                 {
-                    // much faster than ParseDouble
-                    if (div > 1)
+                    c = _expr[_ptr + 1];
+                    if (c == 'X' || c == 'x')
+                        num_fmt = 16;
+                    else if (c == 'b' || c == 'B')
+                        num_fmt = 2;
+                }
+
+                //Parse hex value that start with "0x" or "0X"
+                if (16 == num_fmt)
+                {
+                    for (i = 2; i + _ptr < _len; i++)
                     {
-                        val /= div;
+                        c = _expr[_ptr + i];
+                        if (IsHex(c))
+                            val = val * 16 + (double)GetHexValue(c);
+                        else
+                            break;
                     }
-                    if (pct)
+                }
+                else if (2 == num_fmt)
+                {
+                    for (i = 2; i + _ptr < _len; i++)
                     {
-                        val /= 100.0;
+                        c = _expr[_ptr + i];
+                        if (IsBin(c))
+                            val = val * 2 + (double)GetBinValue(c);
+                        else
+                            break;
                     }
                 }
                 else
                 {
-                    var lit = _expr.Substring(_ptr, i);
-                    val = ParseDouble(lit, _ci);
+                    var sci = false;
+                    var pct = false;
+                    for (i = 0; i + _ptr < _len; i++)
+                    {
+                        c = _expr[_ptr + i];
+
+                        // digits always OK
+                        if (c >= '0' && c <= '9')
+                        {
+                            val = val * 10 + (c - '0');
+                            if (div > -1)
+                            {
+                                div *= 10;
+                            }
+                            continue;
+                        }
+
+                        // one decimal is OK
+                        if (c == _decimal && div < 0)
+                        {
+                            div = 1;
+                            continue;
+                        }
+
+                        // scientific notation?
+                        if ((c == 'E' || c == 'e') && !sci)
+                        {
+                            sci = true;
+                            c = _expr[_ptr + i + 1];
+                            if (c == '+' || c == '-') i++;
+                            continue;
+                        }
+
+                        // percentage?
+                        if (c == _percent)
+                        {
+                            pct = true;
+                            i++;
+                            break;
+                        }
+
+                        // end of literal
+                        break;
+                    }
+
+                    // end of number, get value
+                    if (!sci)
+                    {
+                        // much faster than ParseDouble
+                        if (div > 1)
+                        {
+                            val /= div;
+                        }
+                        if (pct)
+                        {
+                            val /= 100.0;
+                        }
+                    }
+                    else
+                    {
+                        var lit = _expr.Substring(_ptr, i);
+                        val = ParseDouble(lit, _ci);
+                    }
                 }
 
                 // build token

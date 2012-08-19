@@ -280,7 +280,8 @@ namespace CalcEngine
                 }
             }
 
-            if (_lft._token.Value.GetType() == typeof(DateTime) || _rgt._token.Value.GetType() == typeof(DateTime))
+            if (_lft._token.Value != null &&
+                _rgt._token.Value != null &&(_lft._token.Value.GetType() == typeof(DateTime) || _rgt._token.Value.GetType() == typeof(DateTime)))
             {
                 //Both should be DateTime Format
                 if (_lft._token.Value.GetType() != typeof(DateTime) || _rgt._token.Value.GetType() != typeof(DateTime))
