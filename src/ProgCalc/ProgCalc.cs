@@ -520,14 +520,50 @@ namespace yyscamper.ProgCalc
             UpdateResult(result);
         }
 
+        private Int64 ParseBinStr(string s)
+        {
+            Int64 tmp = 0;
+            Int64 flag = 0x01;
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                char ch = s[i];
+                if (ch == ',' || ch == ' ')
+                    continue;
+                else if (ch == '1')
+                    tmp |= flag;
+                else if (ch != '0')
+                    throw new ArgumentException("Invalid binary char!");
+                flag = (flag << 1);
+            }
+            return tmp;
+        }
+
         private void UpdateResult(String str)
         {
             try
             {
+                if (str.Length > 2 && str[0] == '0')
+                {
+                    Int64 ival = 0;
+                    String substr = str.Substring(2);
+                    if (str[1] == 'X' || str[1] == 'x')
+                    {
+                        ival = Int64.Parse(substr, System.Globalization.NumberStyles.HexNumber);
+                        UpdateResult(ival);
+                        return;
+                    }
+                    else if (str[1] == 'b' || str[1] == 'B')
+                    {
+                        ival = ParseBinStr(substr);
+                        UpdateResult(ival);
+                        return;
+                    }
+                }
                 double fval = Double.Parse(str);
                 UpdateResult(fval);
 
-                FormCustomResult.GetInstance().UpdateResult();
+                if (FormCustomResult.GetInstance().Visible)
+                    FormCustomResult.GetInstance().UpdateResult();
             }
             catch
             {

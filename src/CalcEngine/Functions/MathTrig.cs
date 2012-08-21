@@ -72,7 +72,8 @@ namespace CalcEngine
             ce.RegisterFunction("TRUNC", 1, Trunc);
 
             ce.RegisterFunction("MOD", 2, Mod);
-            ce.RegisterFunction("HEX", 1, Hex);
+            ce.RegisterFunction("TOHEX", 1, ToHex);
+            ce.RegisterFunction("TOBIN", 1, ToBin);
         }
 #if DEBUG
         public static void Test(CalcEngine ce)
@@ -195,9 +196,15 @@ namespace CalcEngine
             return (double)p[0] % (double)p[1];
         }
 
-        static object Hex(List<Expression> p)
+        static object ToHex(List<Expression> p)
         {
-            return Int64.Parse(((int)(p[0])).ToString(), System.Globalization.NumberStyles.HexNumber);
+            return String.Format("0x{0:X}", (Int64)p[0]);
+            //return Int64.Parse(((int)(p[0])).ToString(), System.Globalization.NumberStyles.HexNumber);
+        }
+
+        static object ToBin(List<Expression> p)
+        {
+            return "0b" + Convert.ToString((Int64)p[0], 2);
         }
 
         static Random _rnd = new Random();
