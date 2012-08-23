@@ -144,7 +144,6 @@ namespace yyscamper.ProgCalc
             InitBinBox();
             rbtnDecMode.Checked = true;
             rbtnIntMode.Checked = true;
-            grpFormatResult.Text = GetGroupFormatResultTitle();
 
             //Register Result Mode Change handle
             rbtnFloorMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
@@ -265,11 +264,15 @@ namespace yyscamper.ProgCalc
         private void Input(Char c)
         {
             tboxInput.Text += c;
+            tboxInput.Focus();
+            tboxInput.SelectionLength = 0;
         }
 
         private void Input(String str)
         {
             tboxInput.Text += str;
+            tboxInput.Focus();
+            tboxInput.SelectionLength = 0;
         }
 
         private void BDHCalc_KeyPress(object sender, KeyPressEventArgs e)
@@ -508,7 +511,6 @@ namespace yyscamper.ProgCalc
         private void UpdateResult(double fval)
         {
             Int64 result = 0;
-            grpFormatResult.Text = GetGroupFormatResultTitle();
             if (rbtnIntMode.Checked)
                 result = (Int64)fval;
             else if (rbtnRoundMode.Checked)
@@ -832,6 +834,26 @@ namespace yyscamper.ProgCalc
         private void ProgCalc_FormClosing(object sender, FormClosingEventArgs e)
         {
             Setting.GetInstance().HomeLastInputExpression = tboxInput.Text;
+        }
+
+        private void grpInputMode_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_inputClick(object sender, EventArgs e)
+        {
+            Input(((Button)sender).Text);
+            if (sender == btnPar)
+            {
+                tboxInput.SelectionStart = tboxInput.Text.Length - 1;
+            }
+        }
+
+        private void btnTime_Click(object sender, EventArgs e)
+        {
+            Input("@::@");
+            tboxInput.SelectionStart = tboxInput.Text.Length - 3;
         }
     }
 }
