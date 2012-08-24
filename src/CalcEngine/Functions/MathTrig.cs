@@ -72,8 +72,9 @@ namespace CalcEngine
             ce.RegisterFunction("TRUNC", 1, Trunc);
 
             ce.RegisterFunction("MOD", 2, Mod);
-            ce.RegisterFunction("TOHEX", 1, ToHex);
-            ce.RegisterFunction("TOBIN", 1, ToBin);
+            ce.RegisterFunction("HEX", 1, Hex);
+            ce.RegisterFunction("GCD", 2, Gcd); //Great Common Divisor
+            ce.RegisterFunction("LCM", 2, Lcm); //Least Common Multiple
         }
 #if DEBUG
         public static void Test(CalcEngine ce)
@@ -196,15 +197,9 @@ namespace CalcEngine
             return (double)p[0] % (double)p[1];
         }
 
-        static object ToHex(List<Expression> p)
+        static object Hex(List<Expression> p)
         {
-            return String.Format("0x{0:X}", (Int64)p[0]);
-            //return Int64.Parse(((int)(p[0])).ToString(), System.Globalization.NumberStyles.HexNumber);
-        }
-
-        static object ToBin(List<Expression> p)
-        {
-            return "0b" + Convert.ToString((Int64)p[0], 2);
+            return Int64.Parse(((int)(p[0])).ToString(), System.Globalization.NumberStyles.HexNumber);
         }
 
         static Random _rnd = new Random();
@@ -346,6 +341,42 @@ namespace CalcEngine
         static object Trunc(List<Expression> p)
         {
             return (double)(int)((double)p[0]);
+        }
+
+        //GCD: Greatest Common Divisor
+        static object Gcd(List<Expression> p)
+        {
+            int a = (int)((double)p[0]);
+            int b = (int)((double)p[1]);
+
+            //Algorithm 1
+            /*while (a != b)
+            {
+                if (a > b)
+                    a -= b;
+                else
+                    b -= a;
+            }
+            return a;*/
+
+            //Algorithm 2
+            int r;
+            while (b != 0)
+            {
+                r = a % b;
+                a = b;
+                b = r;
+            }
+            return a;
+        }
+
+        //Least Common Multiple
+        static object Lcm(List<Expression> p)
+        {
+            int a = (int)((double)p[0]);
+            int b = (int)((double)p[1]);
+            int gcd = (int)Gcd(p);
+            return a * b / gcd;
         }
     }
 }
