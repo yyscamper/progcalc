@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CalcEngine;
 
 namespace yyscamper.ProgCalc
 {
@@ -66,7 +67,7 @@ namespace yyscamper.ProgCalc
                     return;
                 }
                     
-                object result = ExpTool.GetInstance().Eva(istr, NumberType.DEC, true);
+                object result = ExpTool.GetInstance().Eva(istr, NumberFormat.DEC, true);
                 AppendAnswerString("ans = " + result.ToString());
             }
             catch

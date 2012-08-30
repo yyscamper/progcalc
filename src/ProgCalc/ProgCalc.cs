@@ -13,7 +13,9 @@ namespace yyscamper.ProgCalc
 {
     public partial class ProgCalc : Form
     {
-        private NumberType m_inputMode;
+        private NumberFormat m_numFmt;
+        private CalcMode m_calcMode;
+
         private Button[] m_bntBinBox = new Button[64];
         private byte[] m_binBoxFlag = new byte[64];
 
@@ -139,97 +141,47 @@ namespace yyscamper.ProgCalc
         public ProgCalc()
         {
             InitializeComponent();
-            m_inputMode = NumberType.DEC;
+            m_numFmt = NumberFormat.DEC;
+            m_calcMode = CalcMode.NATIVE;
             tboxInput.Focus();
             InitBinBox();
-            rbtnDecMode.Checked = true;
-            rbtnIntMode.Checked = true;
+            //rbtnIntMode.Checked = true;
 
             //Register Result Mode Change handle
-            rbtnFloorMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
-            rbtnIntMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
-            rbtnCeilMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
-            rbtnRoundMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
+            //rbtnFloorMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
+            //rbtnIntMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
+            //rbtnCeilMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
+            //rbtnRoundMode.CheckedChanged += new System.EventHandler(this.ResultModeChange);
 
             InitResultMenu();
         }
 
         private void UpdateViewByInputMode()
         {
-            bool decFlag = (m_inputMode == NumberType.DEC);
-            bool hexFlag = (m_inputMode == NumberType.HEX);
-            bool binFlag = (m_inputMode == NumberType.BIN);
-            //tboxResultDec.ReadOnly = !decFlag;
-            //tboxResultHex.ReadOnly = !hexFlag;
-            //tboxResultBin.ReadOnly = !binFlag;
-
-            btnHexA.Enabled = hexFlag;
-            btnHexB.Enabled = hexFlag;
-            btnHexC.Enabled = hexFlag;
-            btnHexD.Enabled = hexFlag;
-            btnHexE.Enabled = hexFlag;
-            btnHexC.Enabled = hexFlag;
-
-            btnDigit2.Enabled = !binFlag;
-            btnDigit3.Enabled = !binFlag;
-            btnDigit4.Enabled = !binFlag;
-            btnDigit5.Enabled = !binFlag;
-            btnDigit6.Enabled = !binFlag;
-            btnDigit7.Enabled = !binFlag;
-            btnDigit8.Enabled = !binFlag;
-            btnDigit9.Enabled = !binFlag;
-
+            bool binFlag = (m_numFmt == NumberFormat.BIN);
             foreach (Button btn in m_bntBinBox)
             {
                 btn.Enabled = binFlag;
             }
         }
 
-        private TextBox GetInputTextbox()
-        {
-            switch (m_inputMode)
-            {
-                case NumberType.DEC:
-                    return tboxResultDec;
-                case NumberType.HEX:
-                    return tboxResultHex;
-                case NumberType.BIN:
-                    return tboxResultBin;
-                default:
-                    return null;
-            }
-        }
-
         private void BDHCalc_Load(object sender, EventArgs e)
         {
             tboxInput.Text = Setting.GetInstance().HomeLastInputExpression;
-            tboxInput.Focus();
-        }
+            tboxInput.Select();
+            tboxInput.SelectionLength = 0;
+            tboxInput.SelectionStart = tboxInput.Text.Length;
+            cboxCalcMode.SelectedIndex = 0;
+            cboxNumFmt.SelectedIndex = 0;
 
+            ToolTip lcmTip = new ToolTip();
+            lcmTip.SetToolTip(btnLcm, "Least Common Multiple");
 
-        private void button65_Click(object sender, EventArgs e)
-        {
+            ToolTip gcdTip = new ToolTip();
+            lcmTip.SetToolTip(btnGcd, "Greatest Common Divisor");
 
-        }
-
-        private void button98_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label43_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnSelectDecInput_CheckedChanged(object sender, EventArgs e)
-        {
-
+            ToolTip timeTip = new ToolTip();
+            timeTip.SetToolTip(btnTime, "Date Time");
         }
 
         private bool IsWithinRect( Point p, Point rectOrigin, Size rectSize)
@@ -238,40 +190,17 @@ namespace yyscamper.ProgCalc
                 && p.Y >= rectOrigin.Y && p.Y <= (rectOrigin.Y + rectSize.Height));
         }
 
-        private void BDHCalc_MouseClick(object sender, MouseEventArgs e)
-        {
-           
-        }
-
-        private void tboxResultDec_MouseClick(object sender, MouseEventArgs e)
-        {
-            //m_inputMode = INPUT_MODE_DEC;
-            //UpdateViewByInputMode();
-        }
-
-        private void tboxResultHex_MouseClick(object sender, MouseEventArgs e)
-        {
-            //m_inputMode = INPUT_MODE_HEX;
-            //UpdateViewByInputMode();
-        }
-
-        private void tboxResultBin_MouseClick(object sender, MouseEventArgs e)
-        {
-            //m_inputMode = INPUT_MODE_BIN;
-            //UpdateViewByInputMode();
-        }
-
         private void Input(Char c)
-        {
-            tboxInput.Text += c;
-            tboxInput.Focus();
+        {          
+            tboxInput.Select();
+            SendKeys.Send(new string(c, 1));
             tboxInput.SelectionLength = 0;
         }
 
         private void Input(String str)
-        {
-            tboxInput.Text += str;
-            tboxInput.Focus();
+        {   
+            tboxInput.Select();
+            SendKeys.Send(str);
             tboxInput.SelectionLength = 0;
         }
 
@@ -295,39 +224,27 @@ namespace yyscamper.ProgCalc
              * */
         }
 
-        private void tboxResultDec_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void BDHCalc_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Alt)
             {
                 if (e.KeyCode == Keys.D1)
                 {
-                    rbtnDecMode.Checked = true;
+                    cboxNumFmt.SelectedIndex = 0;
                 }
                 else if (e.KeyCode == Keys.D2)
                 {
-                    rbtnHexMode.Checked = true;
+                    cboxNumFmt.SelectedIndex = 1;
                 }
                 else if (e.KeyCode == Keys.D3)
                 {
-                    rbtnBinMode.Checked = true;
+                    cboxNumFmt.SelectedIndex = 2;
                 }
                 else if (e.KeyCode == Keys.D4)
                 {
-                    rbtnCharMode.Checked = true;
+                    cboxNumFmt.SelectedIndex = 3;
                 }
             }
-        }
-
-        private void SendKey(String str)
-        {
-            SendKeys.Send(str);
-            //System.Threading.Thread.Sleep(1);
-            SendKeys.Flush();
         }
 
         private void btnDigit0_Click(object sender, EventArgs e)
@@ -412,7 +329,7 @@ namespace yyscamper.ProgCalc
 
         private void btnAddition_Click(object sender, EventArgs e)
         {
-            Input('+');
+            Input("{+}");
         }
 
         private void btnSubstraction_Click(object sender, EventArgs e)
@@ -487,18 +404,6 @@ namespace yyscamper.ProgCalc
             return ce.Evaluate(str).ToString();
         }
 
-        private string GetGroupFormatResultTitle()
-        {
-            if (rbtnIntMode.Checked)
-                return "INT result";
-            else if (rbtnRoundMode.Checked)
-                return "ROUND result";
-            else if (rbtnCeilMode.Checked)
-                return "CEIL result";
-            else
-                return "FLOOR result";
-        }
-
         private void UpdateResult(Int64 val)
         {
             tboxResultDec.Text = Convert.ToString(val, 10);
@@ -511,14 +416,16 @@ namespace yyscamper.ProgCalc
         private void UpdateResult(double fval)
         {
             Int64 result = 0;
-            if (rbtnIntMode.Checked)
+            if (m_calcMode == CalcMode.INT_FINAL)
                 result = (Int64)fval;
-            else if (rbtnRoundMode.Checked)
+            else if (m_calcMode == CalcMode.ROUND_FINAL)
                 result = (Int64)Math.Round(fval);
-            else if (rbtnCeilMode.Checked)
+            else if (m_calcMode == CalcMode.CEIL_FINAL)
                 result = (Int64)Math.Ceiling(fval);
-            else
+            else if (m_calcMode == CalcMode.FLOOR_FINAL)
                 result = (Int64)Math.Floor(fval);
+            else
+                result = (Int64)fval;
             UpdateResult(result);
         }
 
@@ -597,7 +504,7 @@ namespace yyscamper.ProgCalc
             if (tboxInput.Text.Length <= 0)
                 return;
 
-            if (m_inputMode == NumberType.CHAR)
+            if (m_numFmt == NumberFormat.CHAR)
             {
                 Int64 val = ParseChars(tboxInput.Text.Trim());
                 tboxResult.Text = val.ToString();
@@ -609,7 +516,7 @@ namespace yyscamper.ProgCalc
                 {
                     //this.Text = new DataTable().Compute(tboxInput.Text, "").ToString();
                     //this.Text = Microsoft.JScript.Eval.JScriptEvaluate(tboxInput.Text, Microsoft.JScript.Vsa.VsaEngine.CreateEngine()).ToString();
-                    tboxResult.Text = ExpTool.GetInstance().Eva(tboxInput.Text, m_inputMode, true).ToString();
+                    tboxResult.Text = ExpTool.GetInstance().Eva(tboxInput.Text, m_numFmt, true).ToString();
                     labelExpErrorMessage.Text = "";
                 }
                 catch (Exception err)
@@ -636,7 +543,7 @@ namespace yyscamper.ProgCalc
             Int64 val = 0;
             string str = tboxInput.Text;
             int len = Math.Min(str.Length, 8);
-            if (m_inputMode == NumberType.CHAR)
+            if (m_numFmt == NumberFormat.CHAR)
             {
                 for (int i=len-1; i>=0; i--)
                 {
@@ -645,7 +552,7 @@ namespace yyscamper.ProgCalc
                 UpdateResult(val);
                 //tboxResultChar.Text = str;
             }
-            else if (m_inputMode == NumberType.BINBOX)
+            else if (m_numFmt == NumberFormat.BINBOX)
             {
 
             }else
@@ -664,53 +571,7 @@ namespace yyscamper.ProgCalc
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
-            if (tboxInput.Text.Length < 1)
-                return;
-            tboxInput.Text = tboxInput.Text.Substring(0, tboxInput.Text.Length - 1);
-        }
-
-        private void rbtnDecMode_CheckedChanged(object sender, EventArgs e)
-        {
-            tboxInput.Text = String.Empty;
-            m_inputMode = NumberType.DEC;
-            UpdateViewByInputMode();
-            //rbtnDecMode.Checked = true;
-            //rbtnHexMode.Checked = false;
-            //rbtnBinMode.Checked = false;
-            //rbtnCharMode.Checked = false;
-        }
-
-        private void rbtnHexMode_CheckedChanged(object sender, EventArgs e)
-        {
-            tboxInput.Text = String.Empty;
-            m_inputMode = NumberType.HEX;
-            UpdateViewByInputMode();
-            //rbtnDecMode.Checked = false;
-            //rbtnHexMode.Checked = true;
-            //rbtnBinMode.Checked = false;
-            //rbtnCharMode.Checked = false;
-        }
-
-        private void rbtnBinMode_CheckedChanged(object sender, EventArgs e)
-        {
-            tboxInput.Text = String.Empty;
-            m_inputMode = NumberType.BIN;
-            UpdateViewByInputMode();
-            //rbtnDecMode.Checked = false;
-            //rbtnHexMode.Checked = false;
-            //rbtnBinMode.Checked = true;
-            //rbtnCharMode.Checked = false;
-        }
-
-        private void rbtnCharMode_CheckedChanged(object sender, EventArgs e)
-        {
-            tboxInput.Text = String.Empty;
-            m_inputMode = NumberType.CHAR;
-            UpdateViewByInputMode();
-            //rbtnDecMode.Checked = false;
-            //rbtnHexMode.Checked = false;
-            //rbtnBinMode.Checked = false;
-            //rbtnCharMode.Checked = true;
+            Input("{BS}");
         }
 
         private Int64 GetBinBoxValue()
@@ -728,7 +589,7 @@ namespace yyscamper.ProgCalc
 
         private void btnBinBox_Click(object sender, EventArgs e)
         {
-            if (m_inputMode != NumberType.BIN)
+            if (m_numFmt != NumberFormat.BIN)
                 return;
             Button btn = (Button)sender;
 
@@ -740,16 +601,6 @@ namespace yyscamper.ProgCalc
 
             Int64 val = GetBinBoxValue();
             UpdateResult(val);
-        }
-
-        private void groupBox6_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label37_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void UpdateResultWhenResultModeChange()
@@ -783,11 +634,6 @@ namespace yyscamper.ProgCalc
             tboxInput.Focus();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLeftPar_Click(object sender, EventArgs e)
         {
             Input('(');
@@ -796,11 +642,6 @@ namespace yyscamper.ProgCalc
         private void btnRightPar_Click(object sender, EventArgs e)
         {
             Input(')');
-        }
-
-        private void menuSetting_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void menuViewCustomResult_Click(object sender, EventArgs e)
@@ -819,8 +660,8 @@ namespace yyscamper.ProgCalc
             if (e.KeyChar == (char)8 //Backspace
                || e.KeyChar == (char)127)
                 return;
-            if (m_inputMode == NumberType.CHAR && tboxInput.Text.Trim().Length > 8
-                || m_inputMode == NumberType.BIN && tboxInput.Text.Trim().Length > 64)
+            if (m_numFmt == NumberFormat.CHAR && tboxInput.Text.Trim().Length > 8
+                || m_numFmt == NumberFormat.BIN && tboxInput.Text.Trim().Length > 64)
             {
                 e.Handled = true;
             }
@@ -836,24 +677,115 @@ namespace yyscamper.ProgCalc
             Setting.GetInstance().HomeLastInputExpression = tboxInput.Text;
         }
 
-        private void grpInputMode_Enter(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btn_inputClick(object sender, EventArgs e)
-        {
-            Input(((Button)sender).Text);
-            if (sender == btnPar)
-            {
-                tboxInput.SelectionStart = tboxInput.Text.Length - 1;
-            }
-        }
 
         private void btnTime_Click(object sender, EventArgs e)
         {
             Input("@::@");
             tboxInput.SelectionStart = tboxInput.Text.Length - 3;
+        }
+
+        private void cboxCalcMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cboxCalcMode.SelectedIndex)
+            {
+                case 0:
+                    m_calcMode = CalcMode.NATIVE;
+                    break;
+                case 1:
+                    m_calcMode = CalcMode.INT_ANY;
+                    break;
+                case 2:
+                    m_calcMode = CalcMode.ROUND_ANY;
+                    break;
+                case 3:
+                    m_calcMode = CalcMode.CEIL_ANY;
+                    break;
+                case 4:
+                    m_calcMode = CalcMode.FLOOR_ANY;
+                    break;
+                case 5:
+                    m_calcMode = CalcMode.INT_FINAL;
+                    break;
+                case 6:
+                    m_calcMode = CalcMode.ROUND_FINAL;
+                    break;
+                case 7:
+                    m_calcMode = CalcMode.CEIL_FINAL;
+                    break;
+                case 8:
+                    m_calcMode = CalcMode.FLOOR_FINAL;
+                    break;
+                default:
+                    cboxCalcMode.SelectedIndex = 0;
+                    break;
+            }
+            UpdateResult(tboxResult.Text);
+        }
+
+
+
+        private void cboxNumFmt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cboxNumFmt.SelectedIndex)
+            {
+                case 0:
+                    m_numFmt = NumberFormat.DEC;
+                    break;
+                case 1:
+                    m_numFmt = NumberFormat.HEX;
+                    break;
+                case 2:
+                    m_numFmt = NumberFormat.BIN;
+                    break;
+                case 3:
+                    m_numFmt = NumberFormat.CHAR;
+                    break;
+                default:
+                    cboxNumFmt.SelectedIndex = 0;
+                    break;              
+            }
+        }
+
+        private void btn_inputClick(object sender, EventArgs e)
+        {
+            InputText(sender);  
+        }
+
+        private void InputText(object sender)
+        {
+            Input(((Button)sender).Text);
+        }
+
+        private void InputPar()
+        {
+            Input("{(}{)}{LEFT}");
+        }
+
+        private void btnPar_Click(object sender, EventArgs e)
+        {
+            InputPar();
+        }
+
+        private void btnClick_TextWithPar(object sender, EventArgs e)
+        {
+            InputText(sender);
+            InputPar();
+        }
+
+        private void btnPercent_Click(object sender, EventArgs e)
+        {
+            Input("{%}");
+        }
+
+        private void btnBitNot_Click(object sender, EventArgs e)
+        {
+            Input("{~}");
+        }
+
+        private void btnPower_Click(object sender, EventArgs e)
+        {
+            Input("{^}");
         }
     }
 }

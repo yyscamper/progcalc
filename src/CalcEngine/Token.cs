@@ -64,9 +64,11 @@ namespace CalcEngine
         DEC = 0,
         HEX,
         BIN,
+        CHAR,
+        BINBOX
     };
 
-    public enum OperationType : int
+    public enum CalcMode : int
     {
         NATIVE = 0,
 

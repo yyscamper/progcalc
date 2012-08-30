@@ -30,14 +30,14 @@ namespace yyscamper.ProgCalc
 
     public class ExpTool
     {
-        public  NumberType m_numType;
+        public  NumberFormat m_numFmt;
         private  CalcEngine.CalcEngine m_calcEngine;
         private static ExpTool m_instance = null;
         private  Dictionary<string, object> m_varList;
 
         public ExpTool()
         {
-            m_numType = NumberType.DEC;
+            m_numFmt = NumberFormat.DEC;
             m_calcEngine = new CalcEngine.CalcEngine();
             m_varList = new Dictionary<string, object>();
         }
@@ -142,24 +142,24 @@ namespace yyscamper.ProgCalc
             return true;
         }
 
-        public Object Eva(String str, NumberType type, bool updateAnswer)
+        public Object Eva(String str, NumberFormat fmt, bool updateAnswer)
         {
             Int64 result = 0;
             if (str.Length < 1)
                 return false;
             try
             {
-                m_numType = type;
-                switch (type)
+                m_numFmt = fmt;
+                switch (fmt)
                 {
-                    case NumberType.DEC:
+                    case NumberFormat.DEC:
                         Object obj = m_calcEngine.Evaluate(str);
                         if (obj != null && updateAnswer)
                             AddVariable("ans", obj, "Last expression answer");   
                         return obj;
-                    case NumberType.HEX:
+                    case NumberFormat.HEX:
                         return Int64.Parse(str, System.Globalization.NumberStyles.HexNumber);
-                    case NumberType.BIN:
+                    case NumberFormat.BIN:
                         if (ParseBinStr(str, ref result))
                             return result;
                         else
