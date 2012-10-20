@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Collections;
 
 namespace yyscamper.ProgCalc
 {
@@ -12,6 +13,7 @@ namespace yyscamper.ProgCalc
         private static Setting m_instance = null;
         private string m_homeLastInputExpression;
         private string[] m_customResultExpression = new string[3];
+		private ArrayList m_allFavExp = new ArrayList();
 
         public Setting()
         {
@@ -41,6 +43,28 @@ namespace yyscamper.ProgCalc
                 m_customResultExpression = value;
             }
         }
+
+		public ArrayList FavExpressions
+		{
+			get
+			{
+				return m_allFavExp;
+			}
+			set
+			{
+				if (value != null)
+					m_allFavExp = value;
+			}
+		}
+		public void AddFavExp(string str)
+		{
+			m_allFavExp.Add(str);
+		}
+
+		public void ClearFavExp()
+		{
+			m_allFavExp.Clear();
+		}
 
         public void SetDefault()
         {
@@ -89,7 +113,7 @@ namespace yyscamper.ProgCalc
 
             /////////////////BEGIN Custom Result //////////////////////////////
             node = xmlDoc.CreateElement(Properties.Resources.strXmlCustomResultNodeName);
-            rootNode.AppendChild(subNode);
+            rootNode.AppendChild(node);
 
             subNode = xmlDoc.CreateElement("NO.1");
             subNode.InnerText = m_customResultExpression[0];
@@ -103,6 +127,23 @@ namespace yyscamper.ProgCalc
             subNode.InnerText = m_customResultExpression[2];
             node.AppendChild(subNode);
             /////////////////END Custom Result //////////////////////////////
+
+			/////////////////BEGIN Favorite Expression //////////////////////////////
+			node = xmlDoc.CreateElement(Properties.Resources.strXmlFavExpNodeName);
+			rootNode.AppendChild(node);
+
+			if (m_allFavExp != null)
+			{
+				node.SetAttribute("count", m_allFavExp.Count.ToString());
+
+				for (int i = 0; i < m_allFavExp.Count; i++ )
+				{
+					subNode = xmlDoc.CreateElement("NO." + (i+1).ToString());
+					subNode.InnerText = (string)m_allFavExp[i];
+					node.AppendChild(subNode);
+				}
+			}
+			/////////////////END Favorite //////////////////////////////
 
             xmlDoc.Save(Properties.Resources.strConfigFileName);
 
@@ -136,6 +177,22 @@ namespace yyscamper.ProgCalc
                         m_customResultExpression[1] = ele["NO.2"].InnerText;
                         m_customResultExpression[2] = ele["NO.3"].InnerText;
                     }
+					else if (ele.Name == Properties.Resources.strXmlFavExpNodeName)
+					{
+						XmlNodeList allFavExpNode = ele.ChildNodes;
+
+						int len = allFavExpNode.Count;
+						m_allFavExp.Clear();
+						int i = 0;
+
+						foreach(XmlElement favNode in allFavExpNode)
+						{
+							m_allFavExp.Add(favNode.InnerText);
+							i++;
+						}
+
+
+					}
                 }
                 return true;
             }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CalcEngine;
+using System.Collections;
 
 
 namespace yyscamper.ProgCalc
@@ -141,6 +142,11 @@ namespace yyscamper.ProgCalc
         public ProgCalc()
         {
             InitializeComponent();
+
+			this.StartPosition = FormStartPosition.Manual;
+			this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 3;
+			this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 4;
+
             m_numFmt = NumberFormat.DEC;
             m_calcMode = CalcMode.NATIVE;
             tboxInput.Focus();
@@ -173,6 +179,13 @@ namespace yyscamper.ProgCalc
             tboxInput.SelectionStart = tboxInput.Text.Length;
             cboxCalcMode.SelectedIndex = 0;
             cboxNumFmt.SelectedIndex = 0;
+
+			ArrayList allFavExps = Setting.GetInstance().FavExpressions;
+			foreach (string str in allFavExps)
+			{
+				FormFavExp.GetInstance().AddExpression(str);
+			}
+			
 
             ToolTip lcmTip = new ToolTip();
             lcmTip.SetToolTip(btnLcm, "Least Common Multiple");
@@ -675,6 +688,15 @@ namespace yyscamper.ProgCalc
         private void ProgCalc_FormClosing(object sender, FormClosingEventArgs e)
         {
             Setting.GetInstance().HomeLastInputExpression = tboxInput.Text;
+
+			string[] allExp = FormFavExp.GetInstance().GetAllFavExpressions();
+
+			Setting.GetInstance().ClearFavExp();
+			foreach (string str in allExp)
+			{
+				Setting.GetInstance().AddFavExp(str);
+			}
+			Setting.GetInstance().Save();
         }
 
 
@@ -787,5 +809,43 @@ namespace yyscamper.ProgCalc
         {
             Input("{^}");
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.TopMost = !this.TopMost;
+            ((ToolStripMenuItem)sender).Checked = this.TopMost;
+        }
+
+        private void btnFnList_Click(object sender, EventArgs e)
+        {
+            FormFunctionList.GetInstance().Show();
+        }
+
+		private void button13_Click(object sender, EventArgs e)
+		{
+			Input("{^}");
+		}
+
+		private void menuViewFav_Click(object sender, EventArgs e)
+		{
+			if (!FormFavExp.GetInstance().Visible)
+			{
+				FormFavExp.GetInstance().DesktopLocation =
+					new Point(this.DesktopLocation.X + this.Width, this.DesktopLocation.Y);
+
+			}
+			FormFavExp.GetInstance().Show();
+			FormFavExp.GetInstance().Focus();
+		}
+
+		private void btnAddFav_Click(object sender, EventArgs e)
+		{
+			string strExp = tboxInput.Text.Trim();
+
+			if (strExp.Length > 0)
+			{
+				FormFavExp.GetInstance().AddExpression(strExp);
+			}
+		}
     }
 }

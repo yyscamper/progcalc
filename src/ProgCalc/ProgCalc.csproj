@@ -83,6 +83,18 @@
     <Compile Include="FormCalcBoard.Designer.cs">
       <DependentUpon>FormCalcBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFavExp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFavExp.Designer.cs">
+      <DependentUpon>FormFavExp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFunctionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFunctionList.Designer.cs">
+      <DependentUpon>FormFunctionList.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistoryController.cs" />
     <Compile Include="ProgCalc.cs">
       <SubType>Form</SubType>
@@ -112,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCalcBoard.resx">
       <DependentUpon>FormCalcBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFavExp.resx">
+      <DependentUpon>FormFavExp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFunctionList.resx">
+      <DependentUpon>FormFunctionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgCalc.resx">
       <DependentUpon>ProgCalc.cs</DependentUpon>
@@ -151,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Calculator.ico" />
+    <None Include="Resources\add_fav.png" />
     <None Include="Resources\menu\clipboard.png" />
     <None Include="Resources\menu\add_var.png" />
   </ItemGroup>

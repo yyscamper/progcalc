@@ -60,6 +60,13 @@ namespace yyscamper.ProgCalc.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap add_fav {
+            get {
+                object obj = ResourceManager.GetObject("add_fav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap imgAddToClipboard {
             get {
                 object obj = ResourceManager.GetObject("imgAddToClipboard", resourceCulture);
@@ -152,6 +159,15 @@ namespace yyscamper.ProgCalc.Properties {
         internal static string strXmlCustomResultNodeName {
             get {
                 return ResourceManager.GetString("strXmlCustomResultNodeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 FavoriateExpression 的本地化字符串。
+        /// </summary>
+        internal static string strXmlFavExpNodeName {
+            get {
+                return ResourceManager.GetString("strXmlFavExpNodeName", resourceCulture);
             }
         }
     }

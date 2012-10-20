@@ -18,8 +18,6 @@ namespace yyscamper.ProgCalc
             Setting.GetInstance().Load();
 
             Application.Run(new ProgCalc());
-
-            Setting.GetInstance().Save();
         }
     }
 }
