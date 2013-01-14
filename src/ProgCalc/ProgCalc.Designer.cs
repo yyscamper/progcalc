@@ -132,53 +132,24 @@
 			this.btnBinBox63 = new System.Windows.Forms.Button();
 			this.btnBinBox29 = new System.Windows.Forms.Button();
 			this.btnBinBox31 = new System.Windows.Forms.Button();
-			this.btnDigit7 = new System.Windows.Forms.Button();
-			this.btnDigit4 = new System.Windows.Forms.Button();
-			this.btnDigit8 = new System.Windows.Forms.Button();
-			this.btnDigit5 = new System.Windows.Forms.Button();
-			this.btnDigit9 = new System.Windows.Forms.Button();
-			this.btnDigit6 = new System.Windows.Forms.Button();
-			this.btnDigit1 = new System.Windows.Forms.Button();
-			this.btnDigit2 = new System.Windows.Forms.Button();
-			this.btnDigit3 = new System.Windows.Forms.Button();
-			this.btnDot = new System.Windows.Forms.Button();
-			this.btnDigit0 = new System.Windows.Forms.Button();
-			this.btnEqual = new System.Windows.Forms.Button();
-			this.btnDiv = new System.Windows.Forms.Button();
-			this.btnSub = new System.Windows.Forms.Button();
-			this.btnMul = new System.Windows.Forms.Button();
-			this.btnAdd = new System.Windows.Forms.Button();
 			this.label41 = new System.Windows.Forms.Label();
 			this.tboxInput = new System.Windows.Forms.TextBox();
 			this.tboxResult = new System.Windows.Forms.TextBox();
 			this.btnBitNot = new System.Windows.Forms.Button();
-			this.btnHexF = new System.Windows.Forms.Button();
 			this.button80 = new System.Windows.Forms.Button();
-			this.btnComa = new System.Windows.Forms.Button();
 			this.btnGcd = new System.Windows.Forms.Button();
-			this.btnHexE = new System.Windows.Forms.Button();
-			this.btnHexD = new System.Windows.Forms.Button();
 			this.btnReciprocal = new System.Windows.Forms.Button();
-			this.btnHexA = new System.Windows.Forms.Button();
-			this.btnPar = new System.Windows.Forms.Button();
-			this.btnHexC = new System.Windows.Forms.Button();
-			this.btnHexB = new System.Windows.Forms.Button();
-			this.btnClear = new System.Windows.Forms.Button();
-			this.btnBackspace = new System.Windows.Forms.Button();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.menuFile = new System.Windows.Forms.ToolStripDropDownButton();
-			this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuView = new System.Windows.Forms.ToolStripDropDownButton();
 			this.menuViewVariables = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuViewFav = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuViewCustomResult = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuViewCalcBoard = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuViewAsciiTable = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.menuSetting = new System.Windows.Forms.ToolStripButton();
+			this.functionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuSetting = new System.Windows.Forms.ToolStripDropDownButton();
+			this.menuOptions = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuTopMost = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuHelp = new System.Windows.Forms.ToolStripDropDownButton();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -192,55 +163,88 @@
 			this.btnAns = new System.Windows.Forms.Button();
 			this.btnBitOr = new System.Windows.Forms.Button();
 			this.btnRnd = new System.Windows.Forms.Button();
-			this.btnTime = new System.Windows.Forms.Button();
 			this.btnSum = new System.Windows.Forms.Button();
 			this.btn0b = new System.Windows.Forms.Button();
 			this.btnLcm = new System.Windows.Forms.Button();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.btnPercent = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.button25 = new System.Windows.Forms.Button();
-			this.button22 = new System.Windows.Forms.Button();
 			this.button24 = new System.Windows.Forms.Button();
-			this.button21 = new System.Windows.Forms.Button();
-			this.button23 = new System.Windows.Forms.Button();
-			this.button20 = new System.Windows.Forms.Button();
+			this.button22 = new System.Windows.Forms.Button();
 			this.button19 = new System.Windows.Forms.Button();
+			this.button23 = new System.Windows.Forms.Button();
+			this.button21 = new System.Windows.Forms.Button();
 			this.button16 = new System.Windows.Forms.Button();
-			this.btnBitAnd = new System.Windows.Forms.Button();
 			this.button27 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
+			this.button20 = new System.Windows.Forms.Button();
 			this.btmStd = new System.Windows.Forms.Button();
 			this.button26 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
 			this.btnMod = new System.Windows.Forms.Button();
 			this.button13 = new System.Windows.Forms.Button();
+			this.btnBitAnd = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button12 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.btnAddFav = new System.Windows.Forms.Button();
-			this.cboxNumFmt = new System.Windows.Forms.ComboBox();
-			this.cboxCalcMode = new System.Windows.Forms.ComboBox();
 			this.panel5 = new System.Windows.Forms.Panel();
-			this.btnFnList = new System.Windows.Forms.Button();
+			this.meuBinBox = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.enableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.btnOpenResultMenu = new System.Windows.Forms.Button();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.homeRightMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.ctxMenuFnList = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.btnSub = new System.Windows.Forms.Button();
+			this.btnDigit6 = new System.Windows.Forms.Button();
+			this.btnDigit3 = new System.Windows.Forms.Button();
+			this.btnHexD = new System.Windows.Forms.Button();
+			this.btnMul = new System.Windows.Forms.Button();
+			this.btnDiv = new System.Windows.Forms.Button();
+			this.btnDot = new System.Windows.Forms.Button();
+			this.btnDigit9 = new System.Windows.Forms.Button();
+			this.btnHexC = new System.Windows.Forms.Button();
+			this.btnHexE = new System.Windows.Forms.Button();
+			this.btnPercent = new System.Windows.Forms.Button();
+			this.btnDigit5 = new System.Windows.Forms.Button();
+			this.btnAdd = new System.Windows.Forms.Button();
+			this.btnDigit2 = new System.Windows.Forms.Button();
+			this.btnHexB = new System.Windows.Forms.Button();
+			this.btnDigit8 = new System.Windows.Forms.Button();
+			this.btnDigit0 = new System.Windows.Forms.Button();
+			this.btnDigit4 = new System.Windows.Forms.Button();
+			this.btnEqual = new System.Windows.Forms.Button();
+			this.btnDigit1 = new System.Windows.Forms.Button();
+			this.btnPar = new System.Windows.Forms.Button();
+			this.btnDigit7 = new System.Windows.Forms.Button();
+			this.btnBackspace = new System.Windows.Forms.Button();
+			this.btnHexF = new System.Windows.Forms.Button();
+			this.btnComa = new System.Windows.Forms.Button();
+			this.btnHexA = new System.Windows.Forms.Button();
+			this.btnClear = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel7 = new System.Windows.Forms.Panel();
+			this.cboxInputMode = new System.Windows.Forms.ComboBox();
+			this.cboxIntBits = new System.Windows.Forms.ComboBox();
+			this.radioBtnFloat = new System.Windows.Forms.RadioButton();
+			this.radioBtnIntegerSigned = new System.Windows.Forms.RadioButton();
+			this.radioBtnIntegerUnsigned = new System.Windows.Forms.RadioButton();
 			this.toolStrip1.SuspendLayout();
 			this.statusProgCalc.SuspendLayout();
-			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel5.SuspendLayout();
+			this.meuBinBox.SuspendLayout();
 			this.panel4.SuspendLayout();
+			this.panel1.SuspendLayout();
+			this.panel7.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tboxResultDec
 			// 
+			this.tboxResultDec.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tboxResultDec.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tboxResultDec.Location = new System.Drawing.Point(37, 6);
+			this.tboxResultDec.Location = new System.Drawing.Point(32, 6);
 			this.tboxResultDec.Name = "tboxResultDec";
 			this.tboxResultDec.ReadOnly = true;
 			this.tboxResultDec.Size = new System.Drawing.Size(267, 23);
@@ -279,8 +283,9 @@
 			// 
 			// tboxResultBin
 			// 
+			this.tboxResultBin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tboxResultBin.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tboxResultBin.Location = new System.Drawing.Point(37, 33);
+			this.tboxResultBin.Location = new System.Drawing.Point(33, 33);
 			this.tboxResultBin.Name = "tboxResultBin";
 			this.tboxResultBin.ReadOnly = true;
 			this.tboxResultBin.Size = new System.Drawing.Size(525, 23);
@@ -289,8 +294,9 @@
 			// 
 			// tboxResultHex
 			// 
+			this.tboxResultHex.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tboxResultHex.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tboxResultHex.Location = new System.Drawing.Point(336, 6);
+			this.tboxResultHex.Location = new System.Drawing.Point(333, 6);
 			this.tboxResultHex.Name = "tboxResultHex";
 			this.tboxResultHex.ReadOnly = true;
 			this.tboxResultHex.Size = new System.Drawing.Size(226, 23);
@@ -1076,6 +1082,7 @@
 			this.btnBinBox27.Size = new System.Drawing.Size(16, 16);
 			this.btnBinBox27.TabIndex = 2;
 			this.btnBinBox27.UseVisualStyleBackColor = true;
+			this.btnBinBox27.Click += new System.EventHandler(this.btnBinBox27_Click);
 			// 
 			// btnBinBox53
 			// 
@@ -1195,182 +1202,6 @@
 			this.btnBinBox31.TabIndex = 2;
 			this.btnBinBox31.UseVisualStyleBackColor = true;
 			// 
-			// btnDigit7
-			// 
-			this.btnDigit7.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit7.Location = new System.Drawing.Point(72, 4);
-			this.btnDigit7.Name = "btnDigit7";
-			this.btnDigit7.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit7.TabIndex = 3;
-			this.btnDigit7.Text = "7";
-			this.btnDigit7.UseVisualStyleBackColor = true;
-			this.btnDigit7.Click += new System.EventHandler(this.btnDigit7_Click);
-			// 
-			// btnDigit4
-			// 
-			this.btnDigit4.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit4.Location = new System.Drawing.Point(72, 33);
-			this.btnDigit4.Name = "btnDigit4";
-			this.btnDigit4.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit4.TabIndex = 3;
-			this.btnDigit4.Text = "4";
-			this.btnDigit4.UseVisualStyleBackColor = true;
-			this.btnDigit4.Click += new System.EventHandler(this.btnDigit4_Click);
-			// 
-			// btnDigit8
-			// 
-			this.btnDigit8.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit8.Location = new System.Drawing.Point(105, 4);
-			this.btnDigit8.Name = "btnDigit8";
-			this.btnDigit8.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit8.TabIndex = 3;
-			this.btnDigit8.Text = "8";
-			this.btnDigit8.UseVisualStyleBackColor = true;
-			this.btnDigit8.Click += new System.EventHandler(this.btnDigit8_Click);
-			// 
-			// btnDigit5
-			// 
-			this.btnDigit5.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit5.Location = new System.Drawing.Point(105, 33);
-			this.btnDigit5.Name = "btnDigit5";
-			this.btnDigit5.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit5.TabIndex = 3;
-			this.btnDigit5.Text = "5";
-			this.btnDigit5.UseVisualStyleBackColor = true;
-			this.btnDigit5.Click += new System.EventHandler(this.btnDigit5_Click);
-			// 
-			// btnDigit9
-			// 
-			this.btnDigit9.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit9.Location = new System.Drawing.Point(138, 4);
-			this.btnDigit9.Name = "btnDigit9";
-			this.btnDigit9.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit9.TabIndex = 3;
-			this.btnDigit9.Text = "9";
-			this.btnDigit9.UseVisualStyleBackColor = true;
-			this.btnDigit9.Click += new System.EventHandler(this.btnDigit9_Click);
-			// 
-			// btnDigit6
-			// 
-			this.btnDigit6.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit6.Location = new System.Drawing.Point(138, 33);
-			this.btnDigit6.Name = "btnDigit6";
-			this.btnDigit6.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit6.TabIndex = 3;
-			this.btnDigit6.Text = "6";
-			this.btnDigit6.UseVisualStyleBackColor = true;
-			this.btnDigit6.Click += new System.EventHandler(this.btnDigit6_Click);
-			// 
-			// btnDigit1
-			// 
-			this.btnDigit1.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit1.Location = new System.Drawing.Point(72, 62);
-			this.btnDigit1.Name = "btnDigit1";
-			this.btnDigit1.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit1.TabIndex = 3;
-			this.btnDigit1.Text = "1";
-			this.btnDigit1.UseVisualStyleBackColor = true;
-			this.btnDigit1.Click += new System.EventHandler(this.btnDigit1_Click);
-			// 
-			// btnDigit2
-			// 
-			this.btnDigit2.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit2.Location = new System.Drawing.Point(105, 62);
-			this.btnDigit2.Name = "btnDigit2";
-			this.btnDigit2.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit2.TabIndex = 3;
-			this.btnDigit2.Text = "2";
-			this.btnDigit2.UseVisualStyleBackColor = true;
-			this.btnDigit2.Click += new System.EventHandler(this.btnDigit2_Click);
-			// 
-			// btnDigit3
-			// 
-			this.btnDigit3.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit3.Location = new System.Drawing.Point(138, 62);
-			this.btnDigit3.Name = "btnDigit3";
-			this.btnDigit3.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit3.TabIndex = 3;
-			this.btnDigit3.Text = "3";
-			this.btnDigit3.UseVisualStyleBackColor = true;
-			this.btnDigit3.Click += new System.EventHandler(this.btnDigit3_Click);
-			// 
-			// btnDot
-			// 
-			this.btnDot.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.btnDot.Location = new System.Drawing.Point(138, 91);
-			this.btnDot.Name = "btnDot";
-			this.btnDot.Size = new System.Drawing.Size(32, 28);
-			this.btnDot.TabIndex = 3;
-			this.btnDot.Text = ".";
-			this.btnDot.UseVisualStyleBackColor = true;
-			this.btnDot.Click += new System.EventHandler(this.btnDot_Click);
-			// 
-			// btnDigit0
-			// 
-			this.btnDigit0.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDigit0.Location = new System.Drawing.Point(105, 91);
-			this.btnDigit0.Name = "btnDigit0";
-			this.btnDigit0.Size = new System.Drawing.Size(32, 28);
-			this.btnDigit0.TabIndex = 3;
-			this.btnDigit0.Text = "0";
-			this.btnDigit0.UseVisualStyleBackColor = true;
-			this.btnDigit0.Click += new System.EventHandler(this.btnDigit0_Click);
-			// 
-			// btnEqual
-			// 
-			this.btnEqual.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnEqual.Location = new System.Drawing.Point(204, 91);
-			this.btnEqual.Name = "btnEqual";
-			this.btnEqual.Size = new System.Drawing.Size(32, 28);
-			this.btnEqual.TabIndex = 1;
-			this.btnEqual.Text = "=";
-			this.btnEqual.UseVisualStyleBackColor = true;
-			this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
-			// 
-			// btnDiv
-			// 
-			this.btnDiv.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDiv.Location = new System.Drawing.Point(171, 4);
-			this.btnDiv.Name = "btnDiv";
-			this.btnDiv.Size = new System.Drawing.Size(32, 28);
-			this.btnDiv.TabIndex = 3;
-			this.btnDiv.Text = "/";
-			this.btnDiv.UseVisualStyleBackColor = true;
-			this.btnDiv.Click += new System.EventHandler(this.btnDivision_Click);
-			// 
-			// btnSub
-			// 
-			this.btnSub.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSub.Location = new System.Drawing.Point(171, 62);
-			this.btnSub.Name = "btnSub";
-			this.btnSub.Size = new System.Drawing.Size(32, 28);
-			this.btnSub.TabIndex = 3;
-			this.btnSub.Text = "-";
-			this.btnSub.UseVisualStyleBackColor = true;
-			this.btnSub.Click += new System.EventHandler(this.btnSubstraction_Click);
-			// 
-			// btnMul
-			// 
-			this.btnMul.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnMul.Location = new System.Drawing.Point(171, 33);
-			this.btnMul.Name = "btnMul";
-			this.btnMul.Size = new System.Drawing.Size(32, 28);
-			this.btnMul.TabIndex = 3;
-			this.btnMul.Text = "*";
-			this.btnMul.UseVisualStyleBackColor = true;
-			this.btnMul.Click += new System.EventHandler(this.btnMultiplication_Click);
-			// 
-			// btnAdd
-			// 
-			this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAdd.Location = new System.Drawing.Point(171, 91);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(32, 28);
-			this.btnAdd.TabIndex = 3;
-			this.btnAdd.Text = "+";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.Click += new System.EventHandler(this.btnAddition_Click);
-			// 
 			// label41
 			// 
 			this.label41.AutoSize = true;
@@ -1382,12 +1213,13 @@
 			// tboxInput
 			// 
 			this.tboxInput.BackColor = System.Drawing.Color.Azure;
+			this.tboxInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tboxInput.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tboxInput.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.tboxInput.Location = new System.Drawing.Point(68, 7);
+			this.tboxInput.Location = new System.Drawing.Point(39, 7);
 			this.tboxInput.Name = "tboxInput";
 			this.tboxInput.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.tboxInput.Size = new System.Drawing.Size(441, 29);
+			this.tboxInput.Size = new System.Drawing.Size(533, 29);
 			this.tboxInput.TabIndex = 0;
 			this.tboxInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.tboxInput.TextChanged += new System.EventHandler(this.tboxInput_TextChanged);
@@ -1395,18 +1227,19 @@
 			// 
 			// tboxResult
 			// 
+			this.tboxResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tboxResult.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tboxResult.Location = new System.Drawing.Point(110, 41);
+			this.tboxResult.Location = new System.Drawing.Point(39, 41);
 			this.tboxResult.Name = "tboxResult";
 			this.tboxResult.ReadOnly = true;
-			this.tboxResult.Size = new System.Drawing.Size(429, 23);
+			this.tboxResult.Size = new System.Drawing.Size(533, 23);
 			this.tboxResult.TabIndex = 1;
 			this.tboxResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// btnBitNot
 			// 
 			this.btnBitNot.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.btnBitNot.Location = new System.Drawing.Point(291, 33);
+			this.btnBitNot.Location = new System.Drawing.Point(164, 34);
 			this.btnBitNot.Name = "btnBitNot";
 			this.btnBitNot.Size = new System.Drawing.Size(32, 28);
 			this.btnBitNot.TabIndex = 3;
@@ -1414,21 +1247,10 @@
 			this.btnBitNot.UseVisualStyleBackColor = true;
 			this.btnBitNot.Click += new System.EventHandler(this.btnBitNot_Click);
 			// 
-			// btnHexF
-			// 
-			this.btnHexF.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnHexF.Location = new System.Drawing.Point(39, 62);
-			this.btnHexF.Name = "btnHexF";
-			this.btnHexF.Size = new System.Drawing.Size(32, 28);
-			this.btnHexF.TabIndex = 3;
-			this.btnHexF.Text = "F";
-			this.btnHexF.UseVisualStyleBackColor = true;
-			this.btnHexF.Click += new System.EventHandler(this.btnHexF_Click);
-			// 
 			// button80
 			// 
 			this.button80.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button80.Location = new System.Drawing.Point(135, 92);
+			this.button80.Location = new System.Drawing.Point(84, 92);
 			this.button80.Name = "button80";
 			this.button80.Size = new System.Drawing.Size(40, 28);
 			this.button80.TabIndex = 3;
@@ -1436,21 +1258,10 @@
 			this.button80.UseVisualStyleBackColor = true;
 			this.button80.Click += new System.EventHandler(this.btnClick_TextWithPar);
 			// 
-			// btnComa
-			// 
-			this.btnComa.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.btnComa.Location = new System.Drawing.Point(204, 62);
-			this.btnComa.Name = "btnComa";
-			this.btnComa.Size = new System.Drawing.Size(32, 28);
-			this.btnComa.TabIndex = 3;
-			this.btnComa.Text = ",";
-			this.btnComa.UseVisualStyleBackColor = true;
-			this.btnComa.Click += new System.EventHandler(this.btn_inputClick);
-			// 
 			// btnGcd
 			// 
 			this.btnGcd.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGcd.Location = new System.Drawing.Point(178, 3);
+			this.btnGcd.Location = new System.Drawing.Point(44, 34);
 			this.btnGcd.Name = "btnGcd";
 			this.btnGcd.Size = new System.Drawing.Size(40, 28);
 			this.btnGcd.TabIndex = 3;
@@ -1458,147 +1269,28 @@
 			this.btnGcd.UseVisualStyleBackColor = true;
 			this.btnGcd.Click += new System.EventHandler(this.btnClick_TextWithPar);
 			// 
-			// btnHexE
-			// 
-			this.btnHexE.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnHexE.Location = new System.Drawing.Point(6, 62);
-			this.btnHexE.Name = "btnHexE";
-			this.btnHexE.Size = new System.Drawing.Size(32, 28);
-			this.btnHexE.TabIndex = 3;
-			this.btnHexE.Text = "E";
-			this.btnHexE.UseVisualStyleBackColor = true;
-			this.btnHexE.Click += new System.EventHandler(this.btnHexE_Click);
-			// 
-			// btnHexD
-			// 
-			this.btnHexD.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnHexD.Location = new System.Drawing.Point(39, 33);
-			this.btnHexD.Name = "btnHexD";
-			this.btnHexD.Size = new System.Drawing.Size(32, 28);
-			this.btnHexD.TabIndex = 3;
-			this.btnHexD.Text = "D";
-			this.btnHexD.UseVisualStyleBackColor = true;
-			this.btnHexD.Click += new System.EventHandler(this.btnHexD_Click);
-			// 
 			// btnReciprocal
 			// 
 			this.btnReciprocal.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnReciprocal.Location = new System.Drawing.Point(291, 64);
+			this.btnReciprocal.Location = new System.Drawing.Point(164, 63);
 			this.btnReciprocal.Name = "btnReciprocal";
 			this.btnReciprocal.Size = new System.Drawing.Size(32, 28);
 			this.btnReciprocal.TabIndex = 3;
 			this.btnReciprocal.Text = "π";
 			this.btnReciprocal.UseVisualStyleBackColor = true;
 			// 
-			// btnHexA
-			// 
-			this.btnHexA.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnHexA.Location = new System.Drawing.Point(6, 4);
-			this.btnHexA.Name = "btnHexA";
-			this.btnHexA.Size = new System.Drawing.Size(32, 28);
-			this.btnHexA.TabIndex = 3;
-			this.btnHexA.Text = "A";
-			this.btnHexA.UseVisualStyleBackColor = true;
-			this.btnHexA.Click += new System.EventHandler(this.btnHexA_Click);
-			// 
-			// btnPar
-			// 
-			this.btnPar.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnPar.Location = new System.Drawing.Point(39, 91);
-			this.btnPar.Name = "btnPar";
-			this.btnPar.Size = new System.Drawing.Size(32, 28);
-			this.btnPar.TabIndex = 3;
-			this.btnPar.Text = "( )";
-			this.btnPar.UseVisualStyleBackColor = true;
-			this.btnPar.Click += new System.EventHandler(this.btnPar_Click);
-			// 
-			// btnHexC
-			// 
-			this.btnHexC.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnHexC.Location = new System.Drawing.Point(6, 33);
-			this.btnHexC.Name = "btnHexC";
-			this.btnHexC.Size = new System.Drawing.Size(32, 28);
-			this.btnHexC.TabIndex = 3;
-			this.btnHexC.Text = "C";
-			this.btnHexC.UseVisualStyleBackColor = true;
-			this.btnHexC.Click += new System.EventHandler(this.btnHexC_Click);
-			// 
-			// btnHexB
-			// 
-			this.btnHexB.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnHexB.Location = new System.Drawing.Point(39, 4);
-			this.btnHexB.Name = "btnHexB";
-			this.btnHexB.Size = new System.Drawing.Size(32, 28);
-			this.btnHexB.TabIndex = 3;
-			this.btnHexB.Text = "B";
-			this.btnHexB.UseVisualStyleBackColor = true;
-			this.btnHexB.Click += new System.EventHandler(this.btnHexB_Click);
-			// 
-			// btnClear
-			// 
-			this.btnClear.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnClear.Location = new System.Drawing.Point(204, 33);
-			this.btnClear.Name = "btnClear";
-			this.btnClear.Size = new System.Drawing.Size(32, 28);
-			this.btnClear.TabIndex = 1;
-			this.btnClear.Text = "CL";
-			this.btnClear.UseVisualStyleBackColor = true;
-			this.btnClear.Click += new System.EventHandler(this.btnCancle_Click);
-			// 
-			// btnBackspace
-			// 
-			this.btnBackspace.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnBackspace.Location = new System.Drawing.Point(204, 4);
-			this.btnBackspace.Name = "btnBackspace";
-			this.btnBackspace.Size = new System.Drawing.Size(32, 28);
-			this.btnBackspace.TabIndex = 0;
-			this.btnBackspace.Text = "←";
-			this.btnBackspace.UseVisualStyleBackColor = true;
-			this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
-			// 
 			// toolStrip1
 			// 
 			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuFile,
             this.menuView,
             this.menuSetting,
             this.menuHelp});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(601, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(591, 25);
 			this.toolStrip1.TabIndex = 22;
 			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// menuFile
-			// 
-			this.menuFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.menuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.exitToolStripMenuItem});
-			this.menuFile.Image = ((System.Drawing.Image)(resources.GetObject("menuFile.Image")));
-			this.menuFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.menuFile.Name = "menuFile";
-			this.menuFile.Size = new System.Drawing.Size(40, 22);
-			this.menuFile.Text = "File";
-			// 
-			// loadToolStripMenuItem
-			// 
-			this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-			this.loadToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-			this.loadToolStripMenuItem.Text = "Load";
-			// 
-			// saveToolStripMenuItem
-			// 
-			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-			this.saveToolStripMenuItem.Text = "Save";
-			// 
-			// exitToolStripMenuItem
-			// 
-			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-			this.exitToolStripMenuItem.Text = "Exit";
+			this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
 			// 
 			// menuView
 			// 
@@ -1609,19 +1301,19 @@
             this.menuViewCustomResult,
             this.menuViewCalcBoard,
             this.menuViewAsciiTable,
-            this.toolStripSeparator1,
-            this.toolStripMenuItem1});
+            this.functionToolStripMenuItem});
 			this.menuView.Image = ((System.Drawing.Image)(resources.GetObject("menuView.Image")));
 			this.menuView.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.menuView.Name = "menuView";
-			this.menuView.Size = new System.Drawing.Size(48, 22);
-			this.menuView.Text = "View";
+			this.menuView.Size = new System.Drawing.Size(69, 22);
+			this.menuView.Text = "Toolbox";
 			// 
 			// menuViewVariables
 			// 
 			this.menuViewVariables.Name = "menuViewVariables";
 			this.menuViewVariables.Size = new System.Drawing.Size(159, 22);
 			this.menuViewVariables.Text = "Variables";
+			this.menuViewVariables.Click += new System.EventHandler(this.menuViewVariables_Click);
 			// 
 			// menuViewFav
 			// 
@@ -1651,26 +1343,38 @@
 			this.menuViewAsciiTable.Text = "ASCII Table";
 			this.menuViewAsciiTable.Click += new System.EventHandler(this.menuViewAsciiTable_Click);
 			// 
-			// toolStripSeparator1
+			// functionToolStripMenuItem
 			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(156, 6);
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
-			this.toolStripMenuItem1.Text = "TopMost";
-			this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+			this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
+			this.functionToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+			this.functionToolStripMenuItem.Text = "Function";
+			this.functionToolStripMenuItem.Click += new System.EventHandler(this.functionToolStripMenuItem_Click);
 			// 
 			// menuSetting
 			// 
 			this.menuSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.menuSetting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuOptions,
+            this.menuTopMost});
 			this.menuSetting.Image = ((System.Drawing.Image)(resources.GetObject("menuSetting.Image")));
 			this.menuSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.menuSetting.Name = "menuSetting";
-			this.menuSetting.Size = new System.Drawing.Size(52, 22);
+			this.menuSetting.Size = new System.Drawing.Size(61, 22);
 			this.menuSetting.Text = "Setting";
+			this.menuSetting.Click += new System.EventHandler(this.menuSetting_Click);
+			// 
+			// menuOptions
+			// 
+			this.menuOptions.Name = "menuOptions";
+			this.menuOptions.Size = new System.Drawing.Size(133, 22);
+			this.menuOptions.Text = "Options";
+			// 
+			// menuTopMost
+			// 
+			this.menuTopMost.Name = "menuTopMost";
+			this.menuTopMost.Size = new System.Drawing.Size(133, 22);
+			this.menuTopMost.Text = "Top Most";
+			this.menuTopMost.Click += new System.EventHandler(this.menuTopMost_Click);
 			// 
 			// menuHelp
 			// 
@@ -1702,9 +1406,9 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.labelExpErrorMessage});
-			this.statusProgCalc.Location = new System.Drawing.Point(0, 392);
+			this.statusProgCalc.Location = new System.Drawing.Point(0, 425);
 			this.statusProgCalc.Name = "statusProgCalc";
-			this.statusProgCalc.Size = new System.Drawing.Size(601, 22);
+			this.statusProgCalc.Size = new System.Drawing.Size(591, 22);
 			this.statusProgCalc.TabIndex = 23;
 			this.statusProgCalc.Text = "statusStrip1";
 			// 
@@ -1729,7 +1433,7 @@
 			// btnAvg
 			// 
 			this.btnAvg.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAvg.Location = new System.Drawing.Point(92, 3);
+			this.btnAvg.Location = new System.Drawing.Point(124, 34);
 			this.btnAvg.Name = "btnAvg";
 			this.btnAvg.Size = new System.Drawing.Size(40, 28);
 			this.btnAvg.TabIndex = 3;
@@ -1740,9 +1444,9 @@
 			// btnPower
 			// 
 			this.btnPower.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnPower.Location = new System.Drawing.Point(178, 34);
+			this.btnPower.Location = new System.Drawing.Point(164, 5);
 			this.btnPower.Name = "btnPower";
-			this.btnPower.Size = new System.Drawing.Size(40, 28);
+			this.btnPower.Size = new System.Drawing.Size(32, 28);
 			this.btnPower.TabIndex = 3;
 			this.btnPower.Text = "^";
 			this.btnPower.UseVisualStyleBackColor = true;
@@ -1750,8 +1454,8 @@
 			// 
 			// btn0x
 			// 
-			this.btn0x.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btn0x.Location = new System.Drawing.Point(221, 3);
+			this.btn0x.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btn0x.Location = new System.Drawing.Point(71, 5);
 			this.btn0x.Name = "btn0x";
 			this.btn0x.Size = new System.Drawing.Size(32, 28);
 			this.btn0x.TabIndex = 3;
@@ -1761,10 +1465,10 @@
 			// 
 			// btnAns
 			// 
-			this.btnAns.Font = new System.Drawing.Font("Consolas", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAns.Location = new System.Drawing.Point(6, 91);
+			this.btnAns.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnAns.Location = new System.Drawing.Point(124, 5);
 			this.btnAns.Name = "btnAns";
-			this.btnAns.Size = new System.Drawing.Size(32, 28);
+			this.btnAns.Size = new System.Drawing.Size(40, 28);
 			this.btnAns.TabIndex = 3;
 			this.btnAns.Text = "ans";
 			this.btnAns.UseVisualStyleBackColor = true;
@@ -1773,7 +1477,7 @@
 			// btnBitOr
 			// 
 			this.btnBitOr.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnBitOr.Location = new System.Drawing.Point(256, 34);
+			this.btnBitOr.Location = new System.Drawing.Point(196, 121);
 			this.btnBitOr.Name = "btnBitOr";
 			this.btnBitOr.Size = new System.Drawing.Size(32, 28);
 			this.btnBitOr.TabIndex = 3;
@@ -1784,7 +1488,7 @@
 			// btnRnd
 			// 
 			this.btnRnd.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnRnd.Location = new System.Drawing.Point(135, 34);
+			this.btnRnd.Location = new System.Drawing.Point(124, 121);
 			this.btnRnd.Name = "btnRnd";
 			this.btnRnd.Size = new System.Drawing.Size(40, 28);
 			this.btnRnd.TabIndex = 3;
@@ -1792,21 +1496,10 @@
 			this.btnRnd.UseVisualStyleBackColor = true;
 			this.btnRnd.Click += new System.EventHandler(this.btn_inputClick);
 			// 
-			// btnTime
-			// 
-			this.btnTime.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnTime.Location = new System.Drawing.Point(291, 3);
-			this.btnTime.Name = "btnTime";
-			this.btnTime.Size = new System.Drawing.Size(32, 28);
-			this.btnTime.TabIndex = 3;
-			this.btnTime.Text = "T";
-			this.btnTime.UseVisualStyleBackColor = true;
-			this.btnTime.Click += new System.EventHandler(this.btnTime_Click);
-			// 
 			// btnSum
 			// 
 			this.btnSum.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSum.Location = new System.Drawing.Point(92, 33);
+			this.btnSum.Location = new System.Drawing.Point(124, 63);
 			this.btnSum.Name = "btnSum";
 			this.btnSum.Size = new System.Drawing.Size(40, 28);
 			this.btnSum.TabIndex = 3;
@@ -1816,8 +1509,8 @@
 			// 
 			// btn0b
 			// 
-			this.btn0b.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btn0b.Location = new System.Drawing.Point(256, 3);
+			this.btn0b.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btn0b.Location = new System.Drawing.Point(104, 5);
 			this.btn0b.Name = "btn0b";
 			this.btn0b.Size = new System.Drawing.Size(32, 28);
 			this.btn0b.TabIndex = 3;
@@ -1828,7 +1521,7 @@
 			// btnLcm
 			// 
 			this.btnLcm.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLcm.Location = new System.Drawing.Point(135, 3);
+			this.btnLcm.Location = new System.Drawing.Point(44, 5);
 			this.btnLcm.Name = "btnLcm";
 			this.btnLcm.Size = new System.Drawing.Size(40, 28);
 			this.btnLcm.TabIndex = 3;
@@ -1836,99 +1529,50 @@
 			this.btnLcm.UseVisualStyleBackColor = true;
 			this.btnLcm.Click += new System.EventHandler(this.btnClick_TextWithPar);
 			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.LightGray;
-			this.panel1.Controls.Add(this.btnClear);
-			this.panel1.Controls.Add(this.btnHexA);
-			this.panel1.Controls.Add(this.btnComa);
-			this.panel1.Controls.Add(this.btnHexF);
-			this.panel1.Controls.Add(this.btnBackspace);
-			this.panel1.Controls.Add(this.btnDigit7);
-			this.panel1.Controls.Add(this.btnPar);
-			this.panel1.Controls.Add(this.btnDigit1);
-			this.panel1.Controls.Add(this.btnEqual);
-			this.panel1.Controls.Add(this.btnDigit4);
-			this.panel1.Controls.Add(this.btnDigit0);
-			this.panel1.Controls.Add(this.btnDigit8);
-			this.panel1.Controls.Add(this.btnHexB);
-			this.panel1.Controls.Add(this.btnDigit2);
-			this.panel1.Controls.Add(this.btnAdd);
-			this.panel1.Controls.Add(this.btnDigit5);
-			this.panel1.Controls.Add(this.btnPercent);
-			this.panel1.Controls.Add(this.btnHexE);
-			this.panel1.Controls.Add(this.btnHexC);
-			this.panel1.Controls.Add(this.btnAns);
-			this.panel1.Controls.Add(this.btnDigit9);
-			this.panel1.Controls.Add(this.btnDot);
-			this.panel1.Controls.Add(this.btnDiv);
-			this.panel1.Controls.Add(this.btnMul);
-			this.panel1.Controls.Add(this.btnHexD);
-			this.panel1.Controls.Add(this.btnDigit3);
-			this.panel1.Controls.Add(this.btnDigit6);
-			this.panel1.Controls.Add(this.btnSub);
-			this.panel1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.panel1.Location = new System.Drawing.Point(352, 259);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(240, 124);
-			this.panel1.TabIndex = 24;
-			// 
-			// btnPercent
-			// 
-			this.btnPercent.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnPercent.Location = new System.Drawing.Point(72, 91);
-			this.btnPercent.Name = "btnPercent";
-			this.btnPercent.Size = new System.Drawing.Size(32, 28);
-			this.btnPercent.TabIndex = 3;
-			this.btnPercent.Text = "%";
-			this.btnPercent.UseVisualStyleBackColor = true;
-			this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
-			// 
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.Silver;
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.button25);
-			this.panel2.Controls.Add(this.button22);
-			this.panel2.Controls.Add(this.btnTime);
 			this.panel2.Controls.Add(this.button24);
-			this.panel2.Controls.Add(this.button21);
-			this.panel2.Controls.Add(this.button23);
-			this.panel2.Controls.Add(this.btn0b);
-			this.panel2.Controls.Add(this.button20);
 			this.panel2.Controls.Add(this.button80);
 			this.panel2.Controls.Add(this.btnLcm);
-			this.panel2.Controls.Add(this.btn0x);
+			this.panel2.Controls.Add(this.button22);
 			this.panel2.Controls.Add(this.button19);
-			this.panel2.Controls.Add(this.btnBitNot);
-			this.panel2.Controls.Add(this.btnReciprocal);
-			this.panel2.Controls.Add(this.btnBitOr);
 			this.panel2.Controls.Add(this.btnRnd);
-			this.panel2.Controls.Add(this.btnPower);
-			this.panel2.Controls.Add(this.button16);
 			this.panel2.Controls.Add(this.btnGcd);
-			this.panel2.Controls.Add(this.btnBitAnd);
+			this.panel2.Controls.Add(this.btnBitNot);
+			this.panel2.Controls.Add(this.button23);
+			this.panel2.Controls.Add(this.button21);
+			this.panel2.Controls.Add(this.button16);
+			this.panel2.Controls.Add(this.btnReciprocal);
 			this.panel2.Controls.Add(this.button27);
+			this.panel2.Controls.Add(this.btnPower);
 			this.panel2.Controls.Add(this.button9);
+			this.panel2.Controls.Add(this.button20);
 			this.panel2.Controls.Add(this.btmStd);
 			this.panel2.Controls.Add(this.button26);
 			this.panel2.Controls.Add(this.button6);
 			this.panel2.Controls.Add(this.btnMod);
 			this.panel2.Controls.Add(this.button13);
+			this.panel2.Controls.Add(this.btnBitAnd);
 			this.panel2.Controls.Add(this.button5);
+			this.panel2.Controls.Add(this.btnBitOr);
 			this.panel2.Controls.Add(this.btnSum);
 			this.panel2.Controls.Add(this.button12);
 			this.panel2.Controls.Add(this.button4);
 			this.panel2.Controls.Add(this.btnAvg);
+			this.panel2.Controls.Add(this.btnAns);
 			this.panel2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.panel2.Location = new System.Drawing.Point(14, 259);
+			this.panel2.Location = new System.Drawing.Point(138, 263);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(332, 125);
+			this.panel2.Size = new System.Drawing.Size(233, 156);
 			this.panel2.TabIndex = 25;
 			// 
 			// button25
 			// 
 			this.button25.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button25.Location = new System.Drawing.Point(178, 63);
+			this.button25.Location = new System.Drawing.Point(84, 5);
 			this.button25.Name = "button25";
 			this.button25.Size = new System.Drawing.Size(40, 28);
 			this.button25.TabIndex = 3;
@@ -1936,21 +1580,10 @@
 			this.button25.UseVisualStyleBackColor = true;
 			this.button25.Click += new System.EventHandler(this.btnClick_TextWithPar);
 			// 
-			// button22
-			// 
-			this.button22.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button22.Location = new System.Drawing.Point(291, 95);
-			this.button22.Name = "button22";
-			this.button22.Size = new System.Drawing.Size(32, 28);
-			this.button22.TabIndex = 3;
-			this.button22.Text = "Z";
-			this.button22.UseVisualStyleBackColor = true;
-			this.button22.Click += new System.EventHandler(this.btn_inputClick);
-			// 
 			// button24
 			// 
 			this.button24.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button24.Location = new System.Drawing.Point(135, 63);
+			this.button24.Location = new System.Drawing.Point(84, 63);
 			this.button24.Name = "button24";
 			this.button24.Size = new System.Drawing.Size(40, 28);
 			this.button24.TabIndex = 3;
@@ -1958,43 +1591,21 @@
 			this.button24.UseVisualStyleBackColor = true;
 			this.button24.Click += new System.EventHandler(this.btnClick_TextWithPar);
 			// 
-			// button21
+			// button22
 			// 
-			this.button21.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button21.Location = new System.Drawing.Point(256, 95);
-			this.button21.Name = "button21";
-			this.button21.Size = new System.Drawing.Size(32, 28);
-			this.button21.TabIndex = 3;
-			this.button21.Text = "Y";
-			this.button21.UseVisualStyleBackColor = true;
-			this.button21.Click += new System.EventHandler(this.btn_inputClick);
-			// 
-			// button23
-			// 
-			this.button23.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button23.Location = new System.Drawing.Point(256, 63);
-			this.button23.Name = "button23";
-			this.button23.Size = new System.Drawing.Size(32, 28);
-			this.button23.TabIndex = 3;
-			this.button23.Text = "<<";
-			this.button23.UseVisualStyleBackColor = true;
-			this.button23.Click += new System.EventHandler(this.btn_inputClick);
-			// 
-			// button20
-			// 
-			this.button20.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button20.Location = new System.Drawing.Point(221, 93);
-			this.button20.Name = "button20";
-			this.button20.Size = new System.Drawing.Size(32, 28);
-			this.button20.TabIndex = 3;
-			this.button20.Text = "X";
-			this.button20.UseVisualStyleBackColor = true;
-			this.button20.Click += new System.EventHandler(this.btn_inputClick);
+			this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button22.Location = new System.Drawing.Point(196, 63);
+			this.button22.Name = "button22";
+			this.button22.Size = new System.Drawing.Size(32, 28);
+			this.button22.TabIndex = 3;
+			this.button22.Text = "Z";
+			this.button22.UseVisualStyleBackColor = true;
+			this.button22.Click += new System.EventHandler(this.btn_inputClick);
 			// 
 			// button19
 			// 
 			this.button19.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.button19.Location = new System.Drawing.Point(178, 93);
+			this.button19.Location = new System.Drawing.Point(84, 34);
 			this.button19.Name = "button19";
 			this.button19.Size = new System.Drawing.Size(40, 28);
 			this.button19.TabIndex = 3;
@@ -2002,10 +1613,32 @@
 			this.button19.UseVisualStyleBackColor = true;
 			this.button19.Click += new System.EventHandler(this.btnClick_TextWithPar);
 			// 
+			// button23
+			// 
+			this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button23.Location = new System.Drawing.Point(164, 121);
+			this.button23.Name = "button23";
+			this.button23.Size = new System.Drawing.Size(32, 28);
+			this.button23.TabIndex = 3;
+			this.button23.Text = "<<";
+			this.button23.UseVisualStyleBackColor = true;
+			this.button23.Click += new System.EventHandler(this.btn_inputClick);
+			// 
+			// button21
+			// 
+			this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button21.Location = new System.Drawing.Point(196, 34);
+			this.button21.Name = "button21";
+			this.button21.Size = new System.Drawing.Size(32, 28);
+			this.button21.TabIndex = 3;
+			this.button21.Text = "Y";
+			this.button21.UseVisualStyleBackColor = true;
+			this.button21.Click += new System.EventHandler(this.btn_inputClick);
+			// 
 			// button16
 			// 
-			this.button16.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button16.Location = new System.Drawing.Point(221, 63);
+			this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button16.Location = new System.Drawing.Point(164, 92);
 			this.button16.Name = "button16";
 			this.button16.Size = new System.Drawing.Size(32, 28);
 			this.button16.TabIndex = 3;
@@ -2013,21 +1646,10 @@
 			this.button16.UseVisualStyleBackColor = true;
 			this.button16.Click += new System.EventHandler(this.btn_inputClick);
 			// 
-			// btnBitAnd
-			// 
-			this.btnBitAnd.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnBitAnd.Location = new System.Drawing.Point(221, 34);
-			this.btnBitAnd.Name = "btnBitAnd";
-			this.btnBitAnd.Size = new System.Drawing.Size(32, 28);
-			this.btnBitAnd.TabIndex = 3;
-			this.btnBitAnd.Text = "&&";
-			this.btnBitAnd.UseVisualStyleBackColor = true;
-			this.btnBitAnd.Click += new System.EventHandler(this.btn_inputClick);
-			// 
 			// button27
 			// 
 			this.button27.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button27.Location = new System.Drawing.Point(6, 64);
+			this.button27.Location = new System.Drawing.Point(4, 121);
 			this.button27.Name = "button27";
 			this.button27.Size = new System.Drawing.Size(40, 28);
 			this.button27.TabIndex = 3;
@@ -2038,7 +1660,7 @@
 			// button9
 			// 
 			this.button9.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button9.Location = new System.Drawing.Point(49, 64);
+			this.button9.Location = new System.Drawing.Point(44, 121);
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(40, 28);
 			this.button9.TabIndex = 3;
@@ -2046,10 +1668,21 @@
 			this.button9.UseVisualStyleBackColor = true;
 			this.button9.Click += new System.EventHandler(this.btn_inputClick);
 			// 
+			// button20
+			// 
+			this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button20.Location = new System.Drawing.Point(196, 5);
+			this.button20.Name = "button20";
+			this.button20.Size = new System.Drawing.Size(32, 28);
+			this.button20.TabIndex = 3;
+			this.button20.Text = "X";
+			this.button20.UseVisualStyleBackColor = true;
+			this.button20.Click += new System.EventHandler(this.btn_inputClick);
+			// 
 			// btmStd
 			// 
 			this.btmStd.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btmStd.Location = new System.Drawing.Point(92, 64);
+			this.btmStd.Location = new System.Drawing.Point(124, 92);
 			this.btmStd.Name = "btmStd";
 			this.btmStd.Size = new System.Drawing.Size(40, 28);
 			this.btmStd.TabIndex = 3;
@@ -2060,7 +1693,7 @@
 			// button26
 			// 
 			this.button26.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button26.Location = new System.Drawing.Point(6, 92);
+			this.button26.Location = new System.Drawing.Point(4, 92);
 			this.button26.Name = "button26";
 			this.button26.Size = new System.Drawing.Size(40, 28);
 			this.button26.TabIndex = 3;
@@ -2071,7 +1704,7 @@
 			// button6
 			// 
 			this.button6.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button6.Location = new System.Drawing.Point(49, 92);
+			this.button6.Location = new System.Drawing.Point(4, 34);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(40, 28);
 			this.button6.TabIndex = 3;
@@ -2082,7 +1715,7 @@
 			// btnMod
 			// 
 			this.btnMod.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnMod.Location = new System.Drawing.Point(92, 92);
+			this.btnMod.Location = new System.Drawing.Point(84, 121);
 			this.btnMod.Name = "btnMod";
 			this.btnMod.Size = new System.Drawing.Size(40, 28);
 			this.btnMod.TabIndex = 3;
@@ -2093,7 +1726,7 @@
 			// button13
 			// 
 			this.button13.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button13.Location = new System.Drawing.Point(6, 33);
+			this.button13.Location = new System.Drawing.Point(4, 63);
 			this.button13.Name = "button13";
 			this.button13.Size = new System.Drawing.Size(40, 28);
 			this.button13.TabIndex = 3;
@@ -2101,10 +1734,21 @@
 			this.button13.UseVisualStyleBackColor = true;
 			this.button13.Click += new System.EventHandler(this.btnPower_Click);
 			// 
+			// btnBitAnd
+			// 
+			this.btnBitAnd.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnBitAnd.Location = new System.Drawing.Point(196, 92);
+			this.btnBitAnd.Name = "btnBitAnd";
+			this.btnBitAnd.Size = new System.Drawing.Size(32, 28);
+			this.btnBitAnd.TabIndex = 3;
+			this.btnBitAnd.Text = "&&";
+			this.btnBitAnd.UseVisualStyleBackColor = true;
+			this.btnBitAnd.Click += new System.EventHandler(this.btn_inputClick);
+			// 
 			// button5
 			// 
 			this.button5.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button5.Location = new System.Drawing.Point(49, 33);
+			this.button5.Location = new System.Drawing.Point(44, 92);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(40, 28);
 			this.button5.TabIndex = 3;
@@ -2115,7 +1759,7 @@
 			// button12
 			// 
 			this.button12.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button12.Location = new System.Drawing.Point(6, 3);
+			this.button12.Location = new System.Drawing.Point(4, 5);
 			this.button12.Name = "button12";
 			this.button12.Size = new System.Drawing.Size(40, 28);
 			this.button12.TabIndex = 3;
@@ -2126,7 +1770,7 @@
 			// button4
 			// 
 			this.button4.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(49, 3);
+			this.button4.Location = new System.Drawing.Point(44, 63);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(40, 28);
 			this.button4.TabIndex = 3;
@@ -2138,67 +1782,31 @@
 			// 
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel3.Controls.Add(this.btnAddFav);
-			this.panel3.Controls.Add(this.cboxNumFmt);
-			this.panel3.Controls.Add(this.cboxCalcMode);
 			this.panel3.Controls.Add(this.panel5);
-			this.panel3.Controls.Add(this.btnFnList);
 			this.panel3.Controls.Add(this.btnOpenResultMenu);
 			this.panel3.Controls.Add(this.panel4);
 			this.panel3.Controls.Add(this.tboxInput);
 			this.panel3.Controls.Add(this.tboxResult);
-			this.panel3.Location = new System.Drawing.Point(14, 23);
+			this.panel3.Location = new System.Drawing.Point(5, 25);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(577, 232);
+			this.panel3.Size = new System.Drawing.Size(580, 232);
 			this.panel3.TabIndex = 26;
 			// 
 			// btnAddFav
 			// 
 			this.btnAddFav.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAddFav.Location = new System.Drawing.Point(513, 5);
+			this.btnAddFav.Location = new System.Drawing.Point(7, 6);
 			this.btnAddFav.Name = "btnAddFav";
-			this.btnAddFav.Size = new System.Drawing.Size(30, 28);
+			this.btnAddFav.Size = new System.Drawing.Size(28, 28);
 			this.btnAddFav.TabIndex = 22;
 			this.btnAddFav.Text = "+";
 			this.btnAddFav.UseVisualStyleBackColor = true;
 			this.btnAddFav.Click += new System.EventHandler(this.btnAddFav_Click);
 			// 
-			// cboxNumFmt
-			// 
-			this.cboxNumFmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cboxNumFmt.FormattingEnabled = true;
-			this.cboxNumFmt.Items.AddRange(new object[] {
-            "DEC",
-            "HEX",
-            "BIN",
-            "CHAR"});
-			this.cboxNumFmt.Location = new System.Drawing.Point(8, 9);
-			this.cboxNumFmt.Name = "cboxNumFmt";
-			this.cboxNumFmt.Size = new System.Drawing.Size(58, 23);
-			this.cboxNumFmt.TabIndex = 0;
-			this.cboxNumFmt.SelectedIndexChanged += new System.EventHandler(this.cboxNumFmt_SelectedIndexChanged);
-			// 
-			// cboxCalcMode
-			// 
-			this.cboxCalcMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.cboxCalcMode.FormattingEnabled = true;
-			this.cboxCalcMode.Items.AddRange(new object[] {
-            "Native",
-            "INT Any",
-            "Round Any",
-            "Ceil Any",
-            "Floor Any",
-            "INT Final",
-            "Round Final",
-            "Ceil Final",
-            "Floor Final"});
-			this.cboxCalcMode.Location = new System.Drawing.Point(7, 40);
-			this.cboxCalcMode.Name = "cboxCalcMode";
-			this.cboxCalcMode.Size = new System.Drawing.Size(97, 23);
-			this.cboxCalcMode.TabIndex = 0;
-			this.cboxCalcMode.SelectedIndexChanged += new System.EventHandler(this.cboxCalcMode_SelectedIndexChanged);
-			// 
 			// panel5
 			// 
+			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel5.ContextMenuStrip = this.meuBinBox;
 			this.panel5.Controls.Add(this.label3);
 			this.panel5.Controls.Add(this.btnBinBox11);
 			this.panel5.Controls.Add(this.label6);
@@ -2300,25 +1908,29 @@
 			this.panel5.Size = new System.Drawing.Size(565, 81);
 			this.panel5.TabIndex = 21;
 			// 
-			// btnFnList
+			// meuBinBox
 			// 
-			this.btnFnList.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnFnList.Location = new System.Drawing.Point(542, 4);
-			this.btnFnList.Name = "btnFnList";
-			this.btnFnList.Size = new System.Drawing.Size(30, 28);
-			this.btnFnList.TabIndex = 3;
-			this.btnFnList.Text = "F.";
-			this.btnFnList.UseVisualStyleBackColor = true;
-			this.btnFnList.Click += new System.EventHandler(this.btnFnList_Click);
+			this.meuBinBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enableToolStripMenuItem});
+			this.meuBinBox.Name = "meuBinBox";
+			this.meuBinBox.Size = new System.Drawing.Size(116, 26);
+			this.meuBinBox.Opening += new System.ComponentModel.CancelEventHandler(this.meuBinBox_Opening);
+			// 
+			// enableToolStripMenuItem
+			// 
+			this.enableToolStripMenuItem.Name = "enableToolStripMenuItem";
+			this.enableToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+			this.enableToolStripMenuItem.Text = "Enable";
+			this.enableToolStripMenuItem.Click += new System.EventHandler(this.enableToolStripMenuItem_Click);
 			// 
 			// btnOpenResultMenu
 			// 
 			this.btnOpenResultMenu.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnOpenResultMenu.Location = new System.Drawing.Point(542, 35);
+			this.btnOpenResultMenu.Location = new System.Drawing.Point(7, 36);
 			this.btnOpenResultMenu.Name = "btnOpenResultMenu";
-			this.btnOpenResultMenu.Size = new System.Drawing.Size(30, 28);
+			this.btnOpenResultMenu.Size = new System.Drawing.Size(28, 28);
 			this.btnOpenResultMenu.TabIndex = 3;
-			this.btnOpenResultMenu.Text = ">>";
+			this.btnOpenResultMenu.Text = "<";
 			this.btnOpenResultMenu.UseVisualStyleBackColor = true;
 			this.btnOpenResultMenu.Click += new System.EventHandler(this.btnOpenResultMenu_Click);
 			// 
@@ -2332,7 +1944,7 @@
 			this.panel4.Controls.Add(this.tboxResultDec);
 			this.panel4.Controls.Add(this.tboxResultBin);
 			this.panel4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.panel4.Location = new System.Drawing.Point(7, 71);
+			this.panel4.Location = new System.Drawing.Point(8, 71);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(565, 63);
 			this.panel4.TabIndex = 20;
@@ -2347,17 +1959,426 @@
 			this.ctxMenuFnList.Name = "ctxMenuFnList";
 			this.ctxMenuFnList.Size = new System.Drawing.Size(61, 4);
 			// 
+			// btnSub
+			// 
+			this.btnSub.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSub.Location = new System.Drawing.Point(137, 63);
+			this.btnSub.Name = "btnSub";
+			this.btnSub.Size = new System.Drawing.Size(32, 28);
+			this.btnSub.TabIndex = 3;
+			this.btnSub.Text = "-";
+			this.btnSub.UseVisualStyleBackColor = true;
+			this.btnSub.Click += new System.EventHandler(this.btnSubstraction_Click);
+			// 
+			// btnDigit6
+			// 
+			this.btnDigit6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit6.Location = new System.Drawing.Point(104, 63);
+			this.btnDigit6.Name = "btnDigit6";
+			this.btnDigit6.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit6.TabIndex = 3;
+			this.btnDigit6.Text = "6";
+			this.btnDigit6.UseVisualStyleBackColor = true;
+			this.btnDigit6.Click += new System.EventHandler(this.btnDigit6_Click);
+			// 
+			// btnDigit3
+			// 
+			this.btnDigit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit3.Location = new System.Drawing.Point(104, 92);
+			this.btnDigit3.Name = "btnDigit3";
+			this.btnDigit3.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit3.TabIndex = 3;
+			this.btnDigit3.Text = "3";
+			this.btnDigit3.UseVisualStyleBackColor = true;
+			this.btnDigit3.Click += new System.EventHandler(this.btnDigit3_Click);
+			// 
+			// btnHexD
+			// 
+			this.btnHexD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnHexD.Location = new System.Drawing.Point(5, 92);
+			this.btnHexD.Name = "btnHexD";
+			this.btnHexD.Size = new System.Drawing.Size(32, 28);
+			this.btnHexD.TabIndex = 3;
+			this.btnHexD.Text = "D";
+			this.btnHexD.UseVisualStyleBackColor = true;
+			this.btnHexD.Click += new System.EventHandler(this.btnHexD_Click);
+			// 
+			// btnMul
+			// 
+			this.btnMul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnMul.Location = new System.Drawing.Point(137, 34);
+			this.btnMul.Name = "btnMul";
+			this.btnMul.Size = new System.Drawing.Size(32, 28);
+			this.btnMul.TabIndex = 3;
+			this.btnMul.Text = "*";
+			this.btnMul.UseVisualStyleBackColor = true;
+			this.btnMul.Click += new System.EventHandler(this.btnMultiplication_Click);
+			// 
+			// btnDiv
+			// 
+			this.btnDiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDiv.Location = new System.Drawing.Point(137, 5);
+			this.btnDiv.Name = "btnDiv";
+			this.btnDiv.Size = new System.Drawing.Size(32, 28);
+			this.btnDiv.TabIndex = 3;
+			this.btnDiv.Text = "/";
+			this.btnDiv.UseVisualStyleBackColor = true;
+			this.btnDiv.Click += new System.EventHandler(this.btnDivision_Click);
+			// 
+			// btnDot
+			// 
+			this.btnDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnDot.Location = new System.Drawing.Point(38, 121);
+			this.btnDot.Name = "btnDot";
+			this.btnDot.Size = new System.Drawing.Size(32, 28);
+			this.btnDot.TabIndex = 3;
+			this.btnDot.Text = ".";
+			this.btnDot.UseVisualStyleBackColor = true;
+			this.btnDot.Click += new System.EventHandler(this.btnDot_Click);
+			// 
+			// btnDigit9
+			// 
+			this.btnDigit9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit9.Location = new System.Drawing.Point(104, 34);
+			this.btnDigit9.Name = "btnDigit9";
+			this.btnDigit9.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit9.TabIndex = 3;
+			this.btnDigit9.Text = "9";
+			this.btnDigit9.UseVisualStyleBackColor = true;
+			this.btnDigit9.Click += new System.EventHandler(this.btnDigit9_Click);
+			// 
+			// btnHexC
+			// 
+			this.btnHexC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnHexC.Location = new System.Drawing.Point(5, 63);
+			this.btnHexC.Name = "btnHexC";
+			this.btnHexC.Size = new System.Drawing.Size(32, 28);
+			this.btnHexC.TabIndex = 3;
+			this.btnHexC.Text = "C";
+			this.btnHexC.UseVisualStyleBackColor = true;
+			this.btnHexC.Click += new System.EventHandler(this.btnHexC_Click);
+			// 
+			// btnHexE
+			// 
+			this.btnHexE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnHexE.Location = new System.Drawing.Point(5, 121);
+			this.btnHexE.Name = "btnHexE";
+			this.btnHexE.Size = new System.Drawing.Size(32, 28);
+			this.btnHexE.TabIndex = 3;
+			this.btnHexE.Text = "E";
+			this.btnHexE.UseVisualStyleBackColor = true;
+			this.btnHexE.Click += new System.EventHandler(this.btnHexE_Click);
+			// 
+			// btnPercent
+			// 
+			this.btnPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnPercent.Location = new System.Drawing.Point(137, 121);
+			this.btnPercent.Name = "btnPercent";
+			this.btnPercent.Size = new System.Drawing.Size(32, 28);
+			this.btnPercent.TabIndex = 3;
+			this.btnPercent.Text = "%";
+			this.btnPercent.UseVisualStyleBackColor = true;
+			this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
+			// 
+			// btnDigit5
+			// 
+			this.btnDigit5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit5.Location = new System.Drawing.Point(71, 63);
+			this.btnDigit5.Name = "btnDigit5";
+			this.btnDigit5.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit5.TabIndex = 3;
+			this.btnDigit5.Text = "5";
+			this.btnDigit5.UseVisualStyleBackColor = true;
+			this.btnDigit5.Click += new System.EventHandler(this.btnDigit5_Click);
+			// 
+			// btnAdd
+			// 
+			this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnAdd.Location = new System.Drawing.Point(137, 92);
+			this.btnAdd.Name = "btnAdd";
+			this.btnAdd.Size = new System.Drawing.Size(32, 28);
+			this.btnAdd.TabIndex = 3;
+			this.btnAdd.Text = "+";
+			this.btnAdd.UseVisualStyleBackColor = true;
+			this.btnAdd.Click += new System.EventHandler(this.btnAddition_Click);
+			// 
+			// btnDigit2
+			// 
+			this.btnDigit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit2.Location = new System.Drawing.Point(71, 92);
+			this.btnDigit2.Name = "btnDigit2";
+			this.btnDigit2.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit2.TabIndex = 3;
+			this.btnDigit2.Text = "2";
+			this.btnDigit2.UseVisualStyleBackColor = true;
+			this.btnDigit2.Click += new System.EventHandler(this.btnDigit2_Click);
+			// 
+			// btnHexB
+			// 
+			this.btnHexB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnHexB.Location = new System.Drawing.Point(5, 34);
+			this.btnHexB.Name = "btnHexB";
+			this.btnHexB.Size = new System.Drawing.Size(32, 28);
+			this.btnHexB.TabIndex = 3;
+			this.btnHexB.Text = "B";
+			this.btnHexB.UseVisualStyleBackColor = true;
+			this.btnHexB.Click += new System.EventHandler(this.btnHexB_Click);
+			// 
+			// btnDigit8
+			// 
+			this.btnDigit8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit8.Location = new System.Drawing.Point(71, 34);
+			this.btnDigit8.Name = "btnDigit8";
+			this.btnDigit8.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit8.TabIndex = 3;
+			this.btnDigit8.Text = "8";
+			this.btnDigit8.UseVisualStyleBackColor = true;
+			this.btnDigit8.Click += new System.EventHandler(this.btnDigit8_Click);
+			// 
+			// btnDigit0
+			// 
+			this.btnDigit0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit0.Location = new System.Drawing.Point(71, 121);
+			this.btnDigit0.Name = "btnDigit0";
+			this.btnDigit0.Size = new System.Drawing.Size(65, 28);
+			this.btnDigit0.TabIndex = 3;
+			this.btnDigit0.Text = "0";
+			this.btnDigit0.UseVisualStyleBackColor = true;
+			this.btnDigit0.Click += new System.EventHandler(this.btnDigit0_Click);
+			// 
+			// btnDigit4
+			// 
+			this.btnDigit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit4.Location = new System.Drawing.Point(38, 63);
+			this.btnDigit4.Name = "btnDigit4";
+			this.btnDigit4.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit4.TabIndex = 3;
+			this.btnDigit4.Text = "4";
+			this.btnDigit4.UseVisualStyleBackColor = true;
+			this.btnDigit4.Click += new System.EventHandler(this.btnDigit4_Click);
+			// 
+			// btnEqual
+			// 
+			this.btnEqual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnEqual.Location = new System.Drawing.Point(170, 92);
+			this.btnEqual.Name = "btnEqual";
+			this.btnEqual.Size = new System.Drawing.Size(32, 28);
+			this.btnEqual.TabIndex = 1;
+			this.btnEqual.Text = "=";
+			this.btnEqual.UseVisualStyleBackColor = true;
+			this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
+			// 
+			// btnDigit1
+			// 
+			this.btnDigit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit1.Location = new System.Drawing.Point(38, 92);
+			this.btnDigit1.Name = "btnDigit1";
+			this.btnDigit1.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit1.TabIndex = 3;
+			this.btnDigit1.Text = "1";
+			this.btnDigit1.UseVisualStyleBackColor = true;
+			this.btnDigit1.Click += new System.EventHandler(this.btnDigit1_Click);
+			// 
+			// btnPar
+			// 
+			this.btnPar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnPar.Location = new System.Drawing.Point(170, 121);
+			this.btnPar.Name = "btnPar";
+			this.btnPar.Size = new System.Drawing.Size(32, 28);
+			this.btnPar.TabIndex = 3;
+			this.btnPar.Text = "( )";
+			this.btnPar.UseVisualStyleBackColor = true;
+			this.btnPar.Click += new System.EventHandler(this.btnPar_Click);
+			// 
+			// btnDigit7
+			// 
+			this.btnDigit7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnDigit7.Location = new System.Drawing.Point(38, 34);
+			this.btnDigit7.Name = "btnDigit7";
+			this.btnDigit7.Size = new System.Drawing.Size(32, 28);
+			this.btnDigit7.TabIndex = 3;
+			this.btnDigit7.Text = "7";
+			this.btnDigit7.UseVisualStyleBackColor = true;
+			this.btnDigit7.Click += new System.EventHandler(this.btnDigit7_Click);
+			// 
+			// btnBackspace
+			// 
+			this.btnBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnBackspace.Location = new System.Drawing.Point(170, 5);
+			this.btnBackspace.Name = "btnBackspace";
+			this.btnBackspace.Size = new System.Drawing.Size(32, 28);
+			this.btnBackspace.TabIndex = 0;
+			this.btnBackspace.Text = "←";
+			this.btnBackspace.UseVisualStyleBackColor = true;
+			this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
+			// 
+			// btnHexF
+			// 
+			this.btnHexF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnHexF.Location = new System.Drawing.Point(38, 5);
+			this.btnHexF.Name = "btnHexF";
+			this.btnHexF.Size = new System.Drawing.Size(32, 28);
+			this.btnHexF.TabIndex = 3;
+			this.btnHexF.Text = "F";
+			this.btnHexF.UseVisualStyleBackColor = true;
+			this.btnHexF.Click += new System.EventHandler(this.btnHexF_Click);
+			// 
+			// btnComa
+			// 
+			this.btnComa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnComa.Location = new System.Drawing.Point(170, 63);
+			this.btnComa.Name = "btnComa";
+			this.btnComa.Size = new System.Drawing.Size(32, 28);
+			this.btnComa.TabIndex = 3;
+			this.btnComa.Text = ",";
+			this.btnComa.UseVisualStyleBackColor = true;
+			this.btnComa.Click += new System.EventHandler(this.btn_inputClick);
+			// 
+			// btnHexA
+			// 
+			this.btnHexA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnHexA.Location = new System.Drawing.Point(5, 5);
+			this.btnHexA.Name = "btnHexA";
+			this.btnHexA.Size = new System.Drawing.Size(32, 28);
+			this.btnHexA.TabIndex = 3;
+			this.btnHexA.Text = "A";
+			this.btnHexA.UseVisualStyleBackColor = true;
+			this.btnHexA.Click += new System.EventHandler(this.btnHexA_Click);
+			// 
+			// btnClear
+			// 
+			this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.btnClear.Location = new System.Drawing.Point(170, 34);
+			this.btnClear.Name = "btnClear";
+			this.btnClear.Size = new System.Drawing.Size(32, 28);
+			this.btnClear.TabIndex = 1;
+			this.btnClear.Text = "CL";
+			this.btnClear.UseVisualStyleBackColor = true;
+			this.btnClear.Click += new System.EventHandler(this.btnCancle_Click);
+			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.Color.LightGray;
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.btnClear);
+			this.panel1.Controls.Add(this.btnHexA);
+			this.panel1.Controls.Add(this.btnComa);
+			this.panel1.Controls.Add(this.btnBackspace);
+			this.panel1.Controls.Add(this.btnDigit7);
+			this.panel1.Controls.Add(this.btnDigit1);
+			this.panel1.Controls.Add(this.btnHexF);
+			this.panel1.Controls.Add(this.btnEqual);
+			this.panel1.Controls.Add(this.btnDigit4);
+			this.panel1.Controls.Add(this.btnDigit0);
+			this.panel1.Controls.Add(this.btnDigit8);
+			this.panel1.Controls.Add(this.btnHexB);
+			this.panel1.Controls.Add(this.btnDigit2);
+			this.panel1.Controls.Add(this.btnAdd);
+			this.panel1.Controls.Add(this.btn0b);
+			this.panel1.Controls.Add(this.btnDigit5);
+			this.panel1.Controls.Add(this.btnHexE);
+			this.panel1.Controls.Add(this.btnHexC);
+			this.panel1.Controls.Add(this.btnPercent);
+			this.panel1.Controls.Add(this.btnPar);
+			this.panel1.Controls.Add(this.btnDigit9);
+			this.panel1.Controls.Add(this.btn0x);
+			this.panel1.Controls.Add(this.btnDot);
+			this.panel1.Controls.Add(this.btnDiv);
+			this.panel1.Controls.Add(this.btnMul);
+			this.panel1.Controls.Add(this.btnHexD);
+			this.panel1.Controls.Add(this.btnDigit3);
+			this.panel1.Controls.Add(this.btnDigit6);
+			this.panel1.Controls.Add(this.btnSub);
+			this.panel1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.panel1.Location = new System.Drawing.Point(375, 263);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(210, 156);
+			this.panel1.TabIndex = 24;
+			// 
+			// panel7
+			// 
+			this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel7.Controls.Add(this.cboxInputMode);
+			this.panel7.Controls.Add(this.cboxIntBits);
+			this.panel7.Controls.Add(this.radioBtnIntegerUnsigned);
+			this.panel7.Controls.Add(this.radioBtnFloat);
+			this.panel7.Controls.Add(this.radioBtnIntegerSigned);
+			this.panel7.Location = new System.Drawing.Point(5, 263);
+			this.panel7.Name = "panel7";
+			this.panel7.Size = new System.Drawing.Size(130, 156);
+			this.panel7.TabIndex = 28;
+			// 
+			// cboxInputMode
+			// 
+			this.cboxInputMode.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.cboxInputMode.FormattingEnabled = true;
+			this.cboxInputMode.Location = new System.Drawing.Point(5, 113);
+			this.cboxInputMode.Name = "cboxInputMode";
+			this.cboxInputMode.Size = new System.Drawing.Size(121, 25);
+			this.cboxInputMode.TabIndex = 1;
+			this.cboxInputMode.SelectedIndexChanged += new System.EventHandler(this.cboxInputMode_SelectedIndexChanged);
+			// 
+			// cboxIntBits
+			// 
+			this.cboxIntBits.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.cboxIntBits.FormattingEnabled = true;
+			this.cboxIntBits.Location = new System.Drawing.Point(5, 80);
+			this.cboxIntBits.Name = "cboxIntBits";
+			this.cboxIntBits.Size = new System.Drawing.Size(120, 25);
+			this.cboxIntBits.TabIndex = 1;
+			this.cboxIntBits.SelectedIndexChanged += new System.EventHandler(this.cboxIntBits_SelectedIndexChanged);
+			// 
+			// radioBtnFloat
+			// 
+			this.radioBtnFloat.AutoSize = true;
+			this.radioBtnFloat.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.radioBtnFloat.Location = new System.Drawing.Point(5, 6);
+			this.radioBtnFloat.Name = "radioBtnFloat";
+			this.radioBtnFloat.Size = new System.Drawing.Size(54, 21);
+			this.radioBtnFloat.TabIndex = 0;
+			this.radioBtnFloat.TabStop = true;
+			this.radioBtnFloat.Text = "Float";
+			this.radioBtnFloat.UseVisualStyleBackColor = true;
+			this.radioBtnFloat.CheckedChanged += new System.EventHandler(this.radioBtnFloat_CheckedChanged);
+			// 
+			// radioBtnIntegerSigned
+			// 
+			this.radioBtnIntegerSigned.AutoSize = true;
+			this.radioBtnIntegerSigned.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.radioBtnIntegerSigned.Location = new System.Drawing.Point(5, 29);
+			this.radioBtnIntegerSigned.Name = "radioBtnIntegerSigned";
+			this.radioBtnIntegerSigned.Size = new System.Drawing.Size(112, 21);
+			this.radioBtnIntegerSigned.TabIndex = 0;
+			this.radioBtnIntegerSigned.TabStop = true;
+			this.radioBtnIntegerSigned.Text = "Signed Integer";
+			this.radioBtnIntegerSigned.UseVisualStyleBackColor = true;
+			this.radioBtnIntegerSigned.CheckedChanged += new System.EventHandler(this.radioBtnInteger_CheckedChanged);
+			// 
+			// radioBtnIntegerUnsigned
+			// 
+			this.radioBtnIntegerUnsigned.AutoSize = true;
+			this.radioBtnIntegerUnsigned.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.radioBtnIntegerUnsigned.Location = new System.Drawing.Point(5, 52);
+			this.radioBtnIntegerUnsigned.Name = "radioBtnIntegerUnsigned";
+			this.radioBtnIntegerUnsigned.Size = new System.Drawing.Size(127, 21);
+			this.radioBtnIntegerUnsigned.TabIndex = 0;
+			this.radioBtnIntegerUnsigned.TabStop = true;
+			this.radioBtnIntegerUnsigned.Text = "Unsigned Integer";
+			this.radioBtnIntegerUnsigned.UseVisualStyleBackColor = true;
+			this.radioBtnIntegerUnsigned.CheckedChanged += new System.EventHandler(this.radioBtnInteger_CheckedChanged);
+			// 
 			// ProgCalc
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(601, 414);
-			this.Controls.Add(this.panel3);
+			this.ClientSize = new System.Drawing.Size(591, 447);
 			this.Controls.Add(this.statusProgCalc);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.label41);
-			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel7);
 			this.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2376,14 +2397,17 @@
 			this.toolStrip1.PerformLayout();
 			this.statusProgCalc.ResumeLayout(false);
 			this.statusProgCalc.PerformLayout();
-			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
 			this.panel5.ResumeLayout(false);
 			this.panel5.PerformLayout();
+			this.meuBinBox.ResumeLayout(false);
 			this.panel4.ResumeLayout(false);
 			this.panel4.PerformLayout();
+			this.panel1.ResumeLayout(false);
+			this.panel7.ResumeLayout(false);
+			this.panel7.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2489,43 +2513,17 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnDigit7;
-        private System.Windows.Forms.Button btnDigit4;
-        private System.Windows.Forms.Button btnDigit8;
-        private System.Windows.Forms.Button btnDigit5;
-        private System.Windows.Forms.Button btnDigit9;
-        private System.Windows.Forms.Button btnDigit6;
-        private System.Windows.Forms.Button btnDigit1;
-        private System.Windows.Forms.Button btnDigit2;
-        private System.Windows.Forms.Button btnDigit3;
-        private System.Windows.Forms.Button btnDot;
-        private System.Windows.Forms.Button btnDigit0;
-        private System.Windows.Forms.Button btnEqual;
-        private System.Windows.Forms.Button btnDiv;
-        private System.Windows.Forms.Button btnSub;
-        private System.Windows.Forms.Button btnMul;
-        private System.Windows.Forms.Button btnAdd;
+		private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tboxInput;
         private System.Windows.Forms.TextBox tboxResult;
-        private System.Windows.Forms.Button btnBitNot;
-        private System.Windows.Forms.Button btnHexF;
-        private System.Windows.Forms.Button button80;
-        private System.Windows.Forms.Button btnComa;
-        private System.Windows.Forms.Button btnGcd;
-        private System.Windows.Forms.Button btnHexE;
-        private System.Windows.Forms.Button btnHexD;
-        private System.Windows.Forms.Button btnReciprocal;
-        private System.Windows.Forms.Button btnHexA;
-        private System.Windows.Forms.Button btnPar;
-        private System.Windows.Forms.Button btnHexC;
-        private System.Windows.Forms.Button btnHexB;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnBackspace;
+		private System.Windows.Forms.Button btnBitNot;
+		private System.Windows.Forms.Button button80;
+		private System.Windows.Forms.Button btnGcd;
+		private System.Windows.Forms.Button btnReciprocal;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton menuView;
         private System.Windows.Forms.ToolStripMenuItem menuViewFav;
@@ -2533,12 +2531,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuViewVariables;
         private System.Windows.Forms.ToolStripDropDownButton menuHelp;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton menuSetting;
-        private System.Windows.Forms.ToolStripDropDownButton menuFile;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuViewCalcBoard;
         private System.Windows.Forms.StatusStrip statusProgCalc;
         private System.Windows.Forms.ToolStripStatusLabel labelExpErrorMessage;
@@ -2550,12 +2543,10 @@
         private System.Windows.Forms.Button btn0x;
         private System.Windows.Forms.Button btnAns;
         private System.Windows.Forms.Button btnBitOr;
-        private System.Windows.Forms.Button btnRnd;
-        private System.Windows.Forms.Button btnTime;
+		private System.Windows.Forms.Button btnRnd;
         private System.Windows.Forms.Button btnSum;
         private System.Windows.Forms.Button btn0b;
-        private System.Windows.Forms.Button btnLcm;
-        private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Button btnLcm;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button22;
@@ -2571,24 +2562,58 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnOpenResultMenu;
-        private System.Windows.Forms.Button btnPercent;
-        private System.Windows.Forms.Button btnFnList;
-        private System.Windows.Forms.ContextMenuStrip homeRightMenu;
-        private System.Windows.Forms.ComboBox cboxCalcMode;
-        private System.Windows.Forms.ComboBox cboxNumFmt;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button9;
+		private System.Windows.Forms.Button btnOpenResultMenu;
+		private System.Windows.Forms.ContextMenuStrip homeRightMenu;
+		private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.ContextMenuStrip ctxMenuFnList;
 		private System.Windows.Forms.Button btnAddFav;
+		private System.Windows.Forms.ToolStripDropDownButton menuSetting;
+		private System.Windows.Forms.ToolStripMenuItem menuOptions;
+		private System.Windows.Forms.ToolStripMenuItem menuTopMost;
+		private System.Windows.Forms.ContextMenuStrip meuBinBox;
+		private System.Windows.Forms.ToolStripMenuItem enableToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem functionToolStripMenuItem;
+		private System.Windows.Forms.Button btnSub;
+		private System.Windows.Forms.Button btnDigit6;
+		private System.Windows.Forms.Button btnDigit3;
+		private System.Windows.Forms.Button btnHexD;
+		private System.Windows.Forms.Button btnMul;
+		private System.Windows.Forms.Button btnDiv;
+		private System.Windows.Forms.Button btnDot;
+		private System.Windows.Forms.Button btnDigit9;
+		private System.Windows.Forms.Button btnHexC;
+		private System.Windows.Forms.Button btnHexE;
+		private System.Windows.Forms.Button btnPercent;
+		private System.Windows.Forms.Button btnDigit5;
+		private System.Windows.Forms.Button btnAdd;
+		private System.Windows.Forms.Button btnDigit2;
+		private System.Windows.Forms.Button btnHexB;
+		private System.Windows.Forms.Button btnDigit8;
+		private System.Windows.Forms.Button btnDigit0;
+		private System.Windows.Forms.Button btnDigit4;
+		private System.Windows.Forms.Button btnEqual;
+		private System.Windows.Forms.Button btnDigit1;
+		private System.Windows.Forms.Button btnPar;
+		private System.Windows.Forms.Button btnDigit7;
+		private System.Windows.Forms.Button btnBackspace;
+		private System.Windows.Forms.Button btnHexF;
+		private System.Windows.Forms.Button btnComa;
+		private System.Windows.Forms.Button btnHexA;
+		private System.Windows.Forms.Button btnClear;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Button button9;
+		private System.Windows.Forms.Panel panel7;
+		private System.Windows.Forms.ComboBox cboxIntBits;
+		private System.Windows.Forms.RadioButton radioBtnFloat;
+		private System.Windows.Forms.RadioButton radioBtnIntegerSigned;
+		private System.Windows.Forms.ComboBox cboxInputMode;
+		private System.Windows.Forms.RadioButton radioBtnIntegerUnsigned;
     }
 }
 

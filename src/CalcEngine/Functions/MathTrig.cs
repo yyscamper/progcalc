@@ -75,6 +75,20 @@ namespace CalcEngine
             ce.RegisterFunction("HEX", 1, Hex);
             ce.RegisterFunction("GCD", 2, Gcd); //Great Common Divisor
             ce.RegisterFunction("LCM", 2, Lcm); //Least Common Multiple
+
+			ce.RegisterFunction("CHECKSUMU8", 1, int.MaxValue, Checksum_u8);
+			ce.RegisterFunction("CHECKSUMU16", 1, int.MaxValue, Checksum_u16);
+			ce.RegisterFunction("BYTE", 1, UInt_Byte);
+			ce.RegisterFunction("UINT8", 1, UInt_Byte);
+			ce.RegisterFunction("UINT16", 1, UInt_U16);
+			ce.RegisterFunction("UINT32", 1, UInt_U32);
+			ce.RegisterFunction("UINT64", 1, UInt_U64);
+			ce.RegisterFunction("SBYTE", 1, Int_SByte);
+			ce.RegisterFunction("INT8", 1, Int_SByte);
+			ce.RegisterFunction("INT16", 1, Int_U16);
+			ce.RegisterFunction("INT32", 1, Int_U32);
+			ce.RegisterFunction("INT64", 1, Int_U64);
+
         }
 #if DEBUG
         public static void Test(CalcEngine ce)
@@ -378,5 +392,77 @@ namespace CalcEngine
             int gcd = (int)Gcd(p);
             return a * b / gcd;
         }
+
+		static object UInt_Byte(List<Expression> p)
+		{
+			return (Byte)((double)p[0]);
+		}
+
+		static object UInt_U8(List<Expression> p)
+		{
+			return (Byte)((double)p[0]);
+		}
+
+		static object UInt_U16(List<Expression> p)
+		{
+			return (UInt16)((double)p[0]);
+		}
+
+		static object UInt_U32(List<Expression> p)
+		{
+			return (UInt32)((double)p[0]);
+		}
+
+		static object UInt_U64(List<Expression> p)
+		{
+			return (UInt64)((double)p[0]);
+		}
+
+		static object Int_SByte(List<Expression> p)
+		{
+			return (SByte)((double)p[0]);
+		}
+
+		static object Int_U8(List<Expression> p)
+		{
+			return (SByte)((double)p[0]);
+		}
+
+		static object Int_U16(List<Expression> p)
+		{
+			return (Int16)((double)p[0]);
+		}
+
+		static object Int_U32(List<Expression> p)
+		{
+			return (Int32)((double)p[0]);
+		}
+
+		static object Int_U64(List<Expression> p)
+		{
+			return (Int64)((double)p[0]);
+		}
+
+		static object Checksum_u8(List<Expression> p)
+		{
+			Byte sum = 0;
+			for (int i = 0; i < p.Count; i++)
+			{
+				sum += (Byte)((double)p[i]);
+			}
+
+			return (Byte)(0 - sum);
+		}
+
+		static object Checksum_u16(List<Expression> p)
+		{
+			UInt16 sum = 0;
+			for (int i = 0; i < p.Count; i++)
+			{
+				sum += (Byte)((double)p[i]);
+			}
+
+			return (UInt16)( 0 - sum);
+		}
     }
 }

@@ -71,11 +71,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppRes.cs" />
+    <Compile Include="FormAddVar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddVar.Designer.cs">
+      <DependentUpon>FormAddVar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAsciiTable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAsciiTable.Designer.cs">
       <DependentUpon>FormAsciiTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAsciiTableNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAsciiTableNew.Designer.cs">
+      <DependentUpon>FormAsciiTableNew.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCalcBoard.cs">
       <SubType>Form</SubType>
@@ -96,6 +108,13 @@
       <DependentUpon>FormFunctionList.cs</DependentUpon>
     </Compile>
     <Compile Include="HistoryController.cs" />
+    <Compile Include="InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputBox.Designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VariableInputListen.cs" />
     <Compile Include="ProgCalc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,8 +138,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setting.cs" />
+    <Compile Include="StrInputListen.cs" />
+    <EmbeddedResource Include="FormAddVar.resx">
+      <DependentUpon>FormAddVar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAsciiTable.resx">
       <DependentUpon>FormAsciiTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAsciiTableNew.resx">
+      <DependentUpon>FormAsciiTableNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCalcBoard.resx">
       <DependentUpon>FormCalcBoard.cs</DependentUpon>
@@ -130,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFunctionList.resx">
       <DependentUpon>FormFunctionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProgCalc.resx">
       <DependentUpon>ProgCalc.cs</DependentUpon>

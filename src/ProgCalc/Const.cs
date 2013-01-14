@@ -5,13 +5,11 @@ using System.Text;
 
 namespace yyscamper.ProgCalc
 {
-    public enum NumberType : int {
-        DEC = 1,
-        HEX,
-        BIN,
-        BINBOX,
-        CHAR
-    };
+	public enum VarChangeMode : int
+	{
+		ADD_NEW = 1,
+		UPDATE = 2
+	};
 
     /// <summary>
     ///                        8        0

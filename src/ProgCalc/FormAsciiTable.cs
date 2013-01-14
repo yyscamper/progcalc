@@ -10,11 +10,7 @@ using System.IO;
 
 namespace yyscamper.ProgCalc
 {
-    public struct AsciiItem
-    {
-        public string ch;
-        public string desp;
-    }
+
 
     public partial class FormAsciiTable : Form
     {
@@ -30,8 +26,7 @@ namespace yyscamper.ProgCalc
             InitAsciiTableString();
 
             dgvAscii.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvAscii.Columns[0].HeaderText = m_columnNameDetail;
-
+			dgvAscii.Columns[0].HeaderText = m_columnNameDetail;
             dgvAscii.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvAscii.Columns[1].HeaderText = m_columnNameBrief;
 
@@ -156,5 +151,10 @@ namespace yyscamper.ProgCalc
         {
             dgvAscii_KeyDown(dgvAscii, e);
         }
+
+		private void dgvAscii_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			return;
+		}
     }
 }

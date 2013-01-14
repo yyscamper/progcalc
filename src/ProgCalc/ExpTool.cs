@@ -11,105 +11,149 @@ namespace yyscamper.ProgCalc
     {
         public string name;
         public object value;
-        public string description;
 
         public CalcVar()
         {
             this.name = string.Empty;
             this.value = 0;
-            this.description = string.Empty;
         }
 
         public CalcVar(string name, object value, string desp)
         {
             this.name = name == null ? "unname" : name;
             this.value = value == null ? 0 : value;
-            this.description = desp == null ? string.Empty : desp;
         }
+
+		public static object ParseValue(string str)
+		{
+			object varObj = null;
+			try
+			{
+				varObj = Int64.Parse(str);
+			}
+			catch
+			{
+				try
+				{
+					varObj = Double.Parse(str);
+				}
+				catch
+				{
+					varObj = str.Trim();
+				}
+			}
+
+			return varObj;
+		}
+
+		public static string ValidateName(string name)
+		{
+			if (name == null || name.Trim().Length <= 0)
+			{
+				throw new Exception("Variable Name Error: Emptry name");
+			}
+			string s = name.Trim();
+			if (s[0] >= '0' && s[0] <= '9')
+			{
+				throw new Exception("Variable Name Error: First character should not be digit");
+			}
+
+			foreach (char ch in name)
+			{
+				if (ch >= '0' && ch <= '9'
+					|| ch >= 'a' && ch <= 'z'
+					|| ch >= 'A' && ch <= 'Z'
+					|| ch == '_')
+				{
+					continue;
+				}
+
+				throw new Exception("Variable Name Error: Invalid character");
+			}
+
+			return name;
+		}
     }
 
     public class ExpTool
     {
-        public  NumberFormat m_numFmt;
+        public  IntegerFormat m_numFmt;
         private  CalcEngine.CalcEngine m_calcEngine;
         private static ExpTool m_instance = null;
         private  Dictionary<string, object> m_varList;
 
-        public ExpTool()
+        private ExpTool()
         {
-            m_numFmt = NumberFormat.DEC;
+            m_numFmt = IntegerFormat.DEC;
             m_calcEngine = new CalcEngine.CalcEngine();
             m_varList = new Dictionary<string, object>();
         }
 
-        public object this[string str]
-        {
-            get
-            {
-                return m_varList[str];
-            }
-            set
-            {
-                _AddVariable((CalcVar)value);
-            }
-        }
-
         public CalcVar[] GetAllVariables()
         {
-            CalcVar[] allvar = new CalcVar[m_varList.Count];
+            CalcVar[] allvar = new CalcVar[m_calcEngine.Variables.Count];
             int i = 0;
-            foreach (KeyValuePair<string, object> var in m_varList)
+
+			if (m_calcEngine.Variables.ContainsKey("ans"))
+			{
+				allvar[i] = new CalcVar();
+				allvar[i].name = "ans";
+				allvar[i].value = m_calcEngine.Variables["ans"];
+				i++;
+			}
+
+            foreach ( string key in m_calcEngine.Variables.Keys)
             {
-                allvar[i++] = (CalcVar)(var.Value);    
+				if (key.Equals("ans"))
+					continue;
+
+				allvar[i] = new CalcVar();
+
+				allvar[i].name = key;
+				allvar[i].value = m_calcEngine.Variables[key];
+				i++;
             }
             return allvar;
         }
 
         public void SetVariables(CalcVar[] allvar)
         {
-            m_varList.Clear();
+			m_calcEngine.Variables.Clear();
+
             foreach (CalcVar var in allvar)
             {
-                _AddVariable(var);
+				m_calcEngine.Variables.Add(var.name, var.value);
             }
         }
 
-        public void _AddVariable(CalcVar v)
+		public void ClearVariables()
+		{
+			m_calcEngine.Variables.Clear();
+		}
+
+		public void DeleteVariable(string name)
+		{
+			m_calcEngine.Variables.Remove(name);
+		}
+
+        public void AddVariable(string name, object val)
         {
-            if (v.description == null)
-                v.description = String.Empty;
-            m_varList[v.name] = v;
-            m_calcEngine.Variables[v.name] = v.value;           
+			if (name != null && val != null)
+				m_calcEngine.Variables.Add(name, val);
         }
 
-        public void AddVariable(string name, object value, string desc)
-        {
-            _AddVariable(new CalcVar(name, value, desc));
-        }
+		public void UpdateVariable(string name, object val)
+		{
+			if (name == null || val == null)
+				return;
 
-        public string GetNextVarName()
-        {
-            int i = 1;
-            string s;
-            while (true)
-            {
-                s = "r" + i;
-                if (m_varList.ContainsKey(s))
-                    i++;
-                else
-                    break;
-            }
-            return s;
-        }
+			if (m_calcEngine.Variables.ContainsKey(name))
+				m_calcEngine.Variables.Remove(name);
+			else
+				return;
 
-        public void AddVariable(object value)
-        {
-            CalcVar v = new CalcVar();
-            v.name = GetNextVarName();
-            v.value = value;
-            v.description = string.Empty;
-            _AddVariable(v);
-        }
+			m_calcEngine.Variables.Add(name, val);
+		}
 
         public CalcEngine.CalcEngine Engine
         {
@@ -142,7 +186,7 @@ namespace yyscamper.ProgCalc
             return true;
         }
 
-        public Object Eva(String str, NumberFormat fmt, bool updateAnswer)
+        public Object Eva(String str, CalcMode calcMode, IntegerFormat fmt, IntegerBits numBits, bool updateAnswer)
         {
             Int64 result = 0;
             if (str.Length < 1)
@@ -152,14 +196,19 @@ namespace yyscamper.ProgCalc
                 m_numFmt = fmt;
                 switch (fmt)
                 {
-                    case NumberFormat.DEC:
-                        Object obj = m_calcEngine.Evaluate(str);
-                        if (obj != null && updateAnswer)
-                            AddVariable("ans", obj, "Last expression answer");   
+                    case IntegerFormat.DEC:
+                        Object obj = m_calcEngine.Evaluate(str, calcMode, numBits, fmt);
+						if (obj != null && updateAnswer)
+						{
+							if (m_calcEngine.Variables.ContainsKey("ans"))
+								UpdateVariable("ans", obj);
+							else
+								AddVariable("ans", obj);
+						}
                         return obj;
-                    case NumberFormat.HEX:
+                    case IntegerFormat.HEX:
                         return Int64.Parse(str, System.Globalization.NumberStyles.HexNumber);
-                    case NumberFormat.BIN:
+                    case IntegerFormat.BIN:
                         if (ParseBinStr(str, ref result))
                             return result;
                         else

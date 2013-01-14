@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Collections;
+using CalcEngine;
 
 namespace yyscamper.ProgCalc
 {
@@ -14,11 +15,53 @@ namespace yyscamper.ProgCalc
         private string m_homeLastInputExpression;
         private string[] m_customResultExpression = new string[3];
 		private ArrayList m_allFavExp = new ArrayList();
+		private IntegerBits m_intBits = IntegerBits.BITS_64;
+		private IntegerFormat m_intFmt = IntegerFormat.DEC;
+		private CalcMode m_calcMode = CalcMode.FLOAT;
+
+
 
         public Setting()
         {
             SetDefault();
         }
+
+		public CalcMode CurCalcMode
+		{
+			get
+			{
+				return m_calcMode;
+			}
+			set
+			{
+				m_calcMode = value;
+			}
+		}
+
+		public IntegerBits CurIntBits
+		{
+			get
+			{
+				return m_intBits;
+			}
+			set
+			{
+				m_intBits = value;
+			}
+		}
+
+
+		public IntegerFormat CurIntFmt
+		{
+			get
+			{
+				return m_intFmt;
+			}
+			set
+			{
+				m_intFmt = value;
+			}
+		}
 
         public string HomeLastInputExpression
         {
@@ -145,6 +188,25 @@ namespace yyscamper.ProgCalc
 			}
 			/////////////////END Favorite //////////////////////////////
 
+			/////////////////BEGIN Variable //////////////////////////////
+			node = xmlDoc.CreateElement(Properties.Resources.strXmlVarNodeName);
+			rootNode.AppendChild(node);
+
+			CalcVar[] allVar = ExpTool.GetInstance().GetAllVariables();
+			if (allVar != null)
+			{
+				node.SetAttribute("count", allVar.Length.ToString());
+
+				for (int i = 0; i < allVar.Length; i++)
+				{
+					subNode = xmlDoc.CreateElement("NO." + i);
+					subNode.SetAttribute("name", allVar[i].name);
+					subNode.SetAttribute("value", allVar[i].value.ToString());
+					node.AppendChild(subNode);
+				}
+			}
+			/////////////////END Variable //////////////////////////////
+
             xmlDoc.Save(Properties.Resources.strConfigFileName);
 
             return true;
@@ -192,6 +254,26 @@ namespace yyscamper.ProgCalc
 						}
 
 
+					}
+					else if (ele.Name == Properties.Resources.strXmlVarNodeName)
+					{
+						XmlNodeList allVarNodes = ele.ChildNodes;
+						int len = allVarNodes.Count;
+						ExpTool.GetInstance().ClearVariables();
+
+						foreach (XmlElement varNode in allVarNodes)
+						{
+							try
+							{
+								string name = CalcVar.ValidateName(varNode.GetAttribute("name"));
+								object val = CalcVar.ParseValue(varNode.GetAttribute("value"));
+								ExpTool.GetInstance().AddVariable(name, val);
+							}
+							catch
+							{
+								continue;
+							}
+						}
 					}
                 }
                 return true;

@@ -6,17 +6,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
+using CalcEngine;
 
 namespace yyscamper.ProgCalc
 {
-	public partial class FormFavExp : Form
+	public partial class FormFavExp : Form, StrInputListen
 	{
 		public static FormFavExp m_instance = null;
+		private StrInputListen m_strInputListen = null;
+
+		private string m_filterStr = String.Empty;
+
+		private ArrayList m_allFavStr = new ArrayList();
 
 		private FormFavExp()
 		{
 			InitializeComponent();
-			this.StartPosition = FormStartPosition.Manual;
+			this.StartPosition = FormStartPosition.CenterParent;
+			listBoxFavExp.SelectionMode = SelectionMode.MultiExtended;
 		}
 
 		private void FormFavExp_Load(object sender, EventArgs e)
@@ -24,17 +32,49 @@ namespace yyscamper.ProgCalc
 
 		}
 
+		public void SetStrInputListen(StrInputListen lis)
+		{
+
+			m_strInputListen = lis;
+		}
+
 		public void AddExpression(string strExp)
 		{
-			listBoxFavExp.Items.Add(strExp);
+			if (strExp != null && strExp.Trim().Length != 0)
+			{
+				foreach (string str in m_allFavStr)
+				{
+					if (str.Equals(strExp))
+						return;
+				}
+				m_allFavStr.Add(strExp);
+				RefreshListView();
+			}
+		}
+
+		private void RefreshListView()
+		{
+			listBoxFavExp.Items.Clear();
+
+			foreach (string s in m_allFavStr)
+			{
+				if (m_filterStr != null && m_filterStr.Length > 0 
+					&& s.IndexOf(m_filterStr) < 0)
+				{
+					continue;
+				}
+
+				listBoxFavExp.Items.Add(s);
+			}
 		}
 
 		public string[] GetAllFavExpressions()
 		{
-			string[] allExp = new string[this.listBoxFavExp.Items.Count];
-			for (int i = 0; i < this.listBoxFavExp.Items.Count; i++)
+			string[] allExp = new string[m_allFavStr.Count];
+			int i = 0;
+			foreach (string s in m_allFavStr)
 			{
-				allExp[i] = this.listBoxFavExp.Items[i].ToString();
+				allExp[i++] = s;
 			}
 			return allExp;
 		}
@@ -62,5 +102,74 @@ namespace yyscamper.ProgCalc
 			this.Visible = false;
 		}
 
+		private void listBoxFavExp_MouseClick(object sender, MouseEventArgs e)
+		{
+			ListBox lbox = (ListBox)sender;
+			if (lbox.SelectedIndex >= 0 && m_strInputListen != null)
+			{
+				m_strInputListen.AcceptInputString(lbox.SelectedItem.ToString());
+			}
+		}
+
+		private void btnFilter_Click(object sender, EventArgs e)
+		{
+			m_filterStr = tboxFilterStr.Text.Trim();
+			RefreshListView();
+		}
+
+		private void btnAdd_Click(object sender, EventArgs e)
+		{
+			new InputBox("Add Favoriate Expression", "Please input expression here:", (StrInputListen)this).ShowDialog();
+		}
+
+
+		public void AcceptInputString(string str)
+		{
+			try
+			{
+				ExpTool.GetInstance().Eva(str, CalcMode.FLOAT, CalcEngine.IntegerFormat.DEC, IntegerBits.BITS_64, false);
+			}
+			catch
+			{
+				if (DialogResult.No == MessageBox.Show(
+					"The expression cannot be evaluated, do you still want to add it?",
+					"Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+				{
+					return;
+				}
+			}
+
+			AddExpression(str);
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			if (DialogResult.OK != MessageBox.Show("Are you sure want to delete the selected items?",
+				"Confirm", MessageBoxButtons.OKCancel,
+				MessageBoxIcon.Question,
+				MessageBoxDefaultButton.Button2))
+			{
+				return;
+			}
+
+			foreach (int j in listBoxFavExp.SelectedIndices)
+			{
+				string item = listBoxFavExp.Items[j].ToString();
+				for (int i = 0; i < m_allFavStr.Count; i++)
+				{
+					if (((string)m_allFavStr[i]).Equals(item))
+					{
+						m_allFavStr.RemoveAt(i);
+					}
+				}
+
+				listBoxFavExp.Items.RemoveAt(j);
+			}
+		}
+
+		private void listBoxFavExp_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			btnRemove.Enabled = (listBoxFavExp.SelectedItems.Count > 0);
+		}
 	}
 }

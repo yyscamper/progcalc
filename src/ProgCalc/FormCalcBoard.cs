@@ -67,7 +67,7 @@ namespace yyscamper.ProgCalc
                     return;
                 }
                     
-                object result = ExpTool.GetInstance().Eva(istr, NumberFormat.DEC, true);
+                object result = ExpTool.GetInstance().Eva(istr, CalcMode.FLOAT,  IntegerFormat.DEC, IntegerBits.BITS_64, true);
                 AppendAnswerString("ans = " + result.ToString());
             }
             catch

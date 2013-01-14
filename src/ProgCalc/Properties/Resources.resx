@@ -157,4 +157,7 @@
   <data name="strXmlFavExpNodeName" xml:space="preserve">
     <value>FavoriateExpression</value>
   </data>
+  <data name="strXmlVarNodeName" xml:space="preserve">
+    <value>Variables</value>
+  </data>
 </root>

@@ -25,9 +25,50 @@ namespace CalcEngine
 
         internal Token _token;
         static CultureInfo _ci = CultureInfo.InvariantCulture;
+		public static CalcMode _calcMode;
+		public static IntegerBits _intBits;
+		public static IntegerFormat _intFmt;
 
         #endregion
 
+		public static CalcMode CurCalcMode
+		{
+			get
+			{
+				return _calcMode;
+			}
+			set
+			{
+				_calcMode = value;
+			}
+		}
+
+		public static IntegerBits CurIntBits
+		{
+			get
+			{
+				return _intBits;
+			}
+			set
+			{
+				_intBits = value;
+			}
+		}
+
+
+		public static IntegerFormat CurIntFmt
+		{
+			get
+			{
+				return _intFmt;
+			}
+			set
+			{
+				_intFmt = value;
+			}
+		}
+	
+	
         //---------------------------------------------------------------------------
         #region ** ctors
 
@@ -105,6 +146,73 @@ namespace CalcEngine
             // handle everything else
             return (double)Convert.ChangeType(v, typeof(double), _ci);
         }
+
+		public static implicit operator UInt64(Expression x)
+		{
+			// evaluate
+			var v = x.Evaluate();
+
+			// handle doubles
+			if (v is double)
+			{
+				return (UInt64)v;
+			}
+
+			// handle booleans
+			if (v is bool)
+			{
+				return (UInt64)((bool)v ? 1 : 0);
+			}
+
+			// handle dates
+			if (v is DateTime)
+			{
+				return (UInt64)(((DateTime)v).ToOADate());
+			}
+
+			// handle nulls
+			if (v == null)
+			{
+				return (UInt64)0;
+			}
+
+			// handle everything else
+			return (UInt64)Convert.ChangeType(v, typeof(UInt64), _ci);
+		}
+
+		public static implicit operator Int64(Expression x)
+		{
+			// evaluate
+			var v = x.Evaluate();
+
+			// handle doubles
+			if (v is double)
+			{
+				return (Int64)v;
+			}
+
+			// handle booleans
+			if (v is bool)
+			{
+				return (Int64)((bool)v ? 1 : 0);
+			}
+
+			// handle dates
+			if (v is DateTime)
+			{
+				return (Int64)(((DateTime)v).ToOADate());
+			}
+
+			// handle nulls
+			if (v == null)
+			{
+				return (Int64)0;
+			}
+
+			// handle everything else
+			return (Int64)Convert.ChangeType(v, typeof(Int64), _ci);
+		}
+
         public static implicit operator bool(Expression x)
         {
             // evaluate
@@ -223,20 +331,30 @@ namespace CalcEngine
         // ** object model
 		override public object Evaluate()
 		{
+			double val;
             switch (_token.ID)
 			{
 				case TKID.ADD:
-                    return +(double)_expr;
+                    val = +(double)_expr;
+					break;
 				case TKID.SUB:
-                    return -(double)_expr;
+                    val = -(double)_expr;
+					break;
                 case TKID.BITSNOT:
-                    return ~((int)((double)_expr));
+                    val = ~((Int64)((double)_expr));
+					break;
                 case TKID.NUMHEX:
-                    return int.Parse((string)_expr, System.Globalization.NumberStyles.HexNumber);
+                    val = long.Parse((string)_expr, System.Globalization.NumberStyles.HexNumber);
+					break;
                 case TKID.NUMBIN:
-                    return Expression.ParseBinStr((string)_expr);
+                    val = Expression.ParseBinStr((string)_expr);
+					break;
+				default:
+					throw new ArgumentException("Bad expression.");
 			}
-			throw new ArgumentException("Bad expression.");
+
+			return Token.FormatValue(val, Expression.CurCalcMode, Expression.CurIntBits, Expression.CurIntFmt);
+
 		}
         public override Expression Optimize()
         {
@@ -301,39 +419,54 @@ namespace CalcEngine
                 }
             }
 
+			object val;
             // handle everything else
             switch (_token.ID)
 			{
                 case TKID.BITSOR:
-                    return (int)((double)_lft) | (int)((double)_rgt);
+					val = ((UInt64)_lft) | (UInt64)((UInt64)_rgt);
+					break;
                 case TKID.BITSAND:
-                    return (int)((double)_lft) & (int)((double)_rgt);
+					val = ((UInt64)_lft) & (UInt64)((UInt64)_rgt);
+					break;
 				case TKID.ADD: 
-                    return (double)_lft + (double)_rgt;
-				case TKID.SUB: 
-                    return (double)_lft - (double)_rgt;
-				case TKID.MUL: 
-                    return (double)_lft * (double)_rgt;
-				case TKID.DIV: 
-                    return (double)_lft / (double)_rgt;
-				case TKID.DIVINT: 
-                    return (double)(int)((double)_lft / (double)_rgt);
+                    val = (double)_lft + (double)_rgt;
+					break;
+				case TKID.SUB:
+					val = (double)_lft - (double)_rgt;
+					break;
+				case TKID.MUL:
+					val = (double)_lft * (double)_rgt;
+					break;
+				case TKID.DIV:
+					val = (double)_lft / (double)_rgt;
+					break;
+				case TKID.DIVINT:
+					val = (double)(long)((double)_lft / (double)_rgt);
+					break;
                 case TKID.LSHIFT:
-                    return (double)((int)_lft << (int)_rgt);
+					val = (double)((long)_lft << (int)_rgt);
+					break;
                 case TKID.RSHIFT:
-                    return (double)((int)_lft >> (int)_rgt);
+					val = (double)((long)_lft >> (int)_rgt);
+					break;
 				case TKID.POWER:
                     var a = (double)_lft;
                     var b = (double)_rgt;
-                    if (b == 0.0) return 1.0;
-                    if (b == 0.5) return Math.Sqrt(a);
-                    if (b == 1.0) return a;
-                    if (b == 2.0) return a * a;
-                    if (b == 3.0) return a * a * a;
-                    if (b == 4.0) return a * a * a * a;
-                    return Math.Pow((double)_lft, (double)_rgt);
+					if (b == 0.0) val = 1.0;
+					if (b == 0.5) val = Math.Sqrt(a);
+					if (b == 1.0) val = a;
+					if (b == 2.0) val = a * a;
+					if (b == 3.0) val = a * a * a;
+					if (b == 4.0) val = a * a * a * a;
+					val = Math.Pow((double)_lft, (double)_rgt);
+					break;
+
+				default:
+					throw new ArgumentException("Bad expression.");
 			}
-			throw new ArgumentException("Bad expression.");
+
+			return Token.FormatValue(val, Expression.CurCalcMode, Expression.CurIntBits, Expression.CurIntFmt);
 		}
         public override Expression Optimize()
         {

@@ -91,7 +91,10 @@ namespace yyscamper.ProgCalc
                 return null;
             try
             {
-                return ExpTool.GetInstance().Eva(str, NumberFormat.DEC, false);
+                return ExpTool.GetInstance().Eva(str, 
+					Setting.GetInstance().CurCalcMode,
+					Setting.GetInstance().CurIntFmt,
+					Setting.GetInstance().CurIntBits, false);
             }
             catch
             {

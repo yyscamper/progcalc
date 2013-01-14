@@ -56,8 +56,9 @@ namespace CalcEngine
         
         #endregion
 
-        private int m_numberFormat;
-        private int m_operationType;
+		private IntegerBits m_intBits = IntegerBits.BITS_64;
+		private IntegerFormat m_intFmt = IntegerFormat.DEC;
+		private CalcMode m_calcMode = CalcMode.FLOAT;
 
         //---------------------------------------------------------------------------
 		#region ** object model
@@ -111,11 +112,30 @@ namespace CalcEngine
         /// </remarks>
 		public object Evaluate(string expression)
 		{
+			Expression.CurCalcMode = CalcMode.FLOAT;
+			Expression.CurIntBits = IntegerBits.BITS_64;
+			Expression.CurIntFmt = IntegerFormat.DEC;
+
             var x = _cache != null
                 ? _cache[expression]
                 : Parse(expression);
 			return x.Evaluate();
 		}
+
+		public object Evaluate(string expression,
+			CalcMode calMode,
+			IntegerBits intBits,
+			IntegerFormat intFmt)
+		{
+			Expression.CurCalcMode = calMode;
+			Expression.CurIntBits = intBits;
+			Expression.CurIntFmt = intFmt;
+			var x = _cache != null
+				? _cache[expression]
+				: Parse(expression);
+			return Token.FormatValue(x.Evaluate(), calMode, intBits, intFmt);
+		}
+
         /// <summary>
         /// Gets or sets whether the calc engine should keep a cache with parsed
         /// expressions.
@@ -608,7 +628,8 @@ namespace CalcEngine
 
 			// parse numbers
             if (isDigit || c == _decimal)
-			{             
+			{        
+
                 var div = -1.0; // use double, not int (this may get really big)
                 var val = 0.0;
 
@@ -674,6 +695,11 @@ namespace CalcEngine
                         // scientific notation?
                         if ((c == 'E' || c == 'e') && !sci)
                         {
+							if (m_intFmt != IntegerFormat.DEC)
+							{
+								throw new Exception("Not decimal mode, doesn't support scientific notation");
+							}
+
                             sci = true;
                             c = _expr[_ptr + i + 1];
                             if (c == '+' || c == '-') i++;
@@ -712,8 +738,12 @@ namespace CalcEngine
                     }
                 }
 
+
+
                 // build token
-                _token = new Token(val, TKID.ATOM, TKTYPE.LITERAL);
+				object fmtVal = Token.FormatValue(val, Expression.CurCalcMode, 
+					Expression.CurIntBits, Expression.CurIntFmt);
+				_token = new Token(fmtVal, TKID.ATOM, TKTYPE.LITERAL);
 
                 // advance pointer and return
                 _ptr += i;
