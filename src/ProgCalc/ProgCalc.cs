@@ -439,7 +439,7 @@ namespace yyscamper.ProgCalc
         {
 			StringBuilder strDec = new StringBuilder(Convert.ToString(val, 10));
             StringBuilder strHex = new StringBuilder(Convert.ToString(val, 16).ToUpper());
-            StringBuilder strBin = new StringBuilder(tboxResultBin.Text = Convert.ToString(val, 2));
+            StringBuilder strBin = new StringBuilder(Convert.ToString(val, 2));
 
 			int nbit = (int)Setting.GetInstance().CurIntBits;
 			if (Setting.GetInstance().CurCalcMode == CalcMode.FLOAT)
@@ -486,9 +486,14 @@ namespace yyscamper.ProgCalc
 		{
 			try
 			{
-				double dval = double.Parse(val.ToString());
-				long lval = (long)dval;
-				UpdateResult(lval);
+                if (val is string)
+                    UpdateResult((string)val);
+                else
+                {
+
+                    long lval = (long)double.Parse(val.ToString());
+                    UpdateResult(lval);
+                }
 			}
 			catch
 			{
@@ -743,12 +748,14 @@ namespace yyscamper.ProgCalc
 
         private void cboxCalcMode_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
 
 
         private void cboxNumFmt_SelectedIndexChanged(object sender, EventArgs e)
         {
+
         }
 
         private void btn_inputClick(object sender, EventArgs e)

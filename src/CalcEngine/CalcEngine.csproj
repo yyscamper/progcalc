@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalcEngine.cs" />
+    <Compile Include="CalcUtil.cs" />
     <Compile Include="Expression.cs" />
     <Compile Include="ExpressionCache.cs" />
     <Compile Include="FunctionDefinition.cs" />
