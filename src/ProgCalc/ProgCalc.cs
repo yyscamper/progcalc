@@ -969,5 +969,15 @@ namespace yyscamper.ProgCalc
 			this.EvalExpression();
 			*/
 		}
+
+		private void checksumToolToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			new FormCalcChecksum().Show();
+		}
+
+		private void statusProgCalc_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+		{
+
+		}
 	}
 }

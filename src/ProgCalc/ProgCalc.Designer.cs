@@ -226,9 +226,10 @@
 			this.panel7 = new System.Windows.Forms.Panel();
 			this.cboxInputMode = new System.Windows.Forms.ComboBox();
 			this.cboxIntBits = new System.Windows.Forms.ComboBox();
+			this.radioBtnIntegerUnsigned = new System.Windows.Forms.RadioButton();
 			this.radioBtnFloat = new System.Windows.Forms.RadioButton();
 			this.radioBtnIntegerSigned = new System.Windows.Forms.RadioButton();
-			this.radioBtnIntegerUnsigned = new System.Windows.Forms.RadioButton();
+			this.checksumToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
 			this.statusProgCalc.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -1301,7 +1302,8 @@
             this.menuViewCustomResult,
             this.menuViewCalcBoard,
             this.menuViewAsciiTable,
-            this.functionToolStripMenuItem});
+            this.functionToolStripMenuItem,
+            this.checksumToolToolStripMenuItem});
 			this.menuView.Image = ((System.Drawing.Image)(resources.GetObject("menuView.Image")));
 			this.menuView.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.menuView.Name = "menuView";
@@ -1311,42 +1313,42 @@
 			// menuViewVariables
 			// 
 			this.menuViewVariables.Name = "menuViewVariables";
-			this.menuViewVariables.Size = new System.Drawing.Size(159, 22);
+			this.menuViewVariables.Size = new System.Drawing.Size(165, 22);
 			this.menuViewVariables.Text = "Variables";
 			this.menuViewVariables.Click += new System.EventHandler(this.menuViewVariables_Click);
 			// 
 			// menuViewFav
 			// 
 			this.menuViewFav.Name = "menuViewFav";
-			this.menuViewFav.Size = new System.Drawing.Size(159, 22);
+			this.menuViewFav.Size = new System.Drawing.Size(165, 22);
 			this.menuViewFav.Text = "Favoriate";
 			this.menuViewFav.Click += new System.EventHandler(this.menuViewFav_Click);
 			// 
 			// menuViewCustomResult
 			// 
 			this.menuViewCustomResult.Name = "menuViewCustomResult";
-			this.menuViewCustomResult.Size = new System.Drawing.Size(159, 22);
+			this.menuViewCustomResult.Size = new System.Drawing.Size(165, 22);
 			this.menuViewCustomResult.Text = "Custom Result";
 			this.menuViewCustomResult.Click += new System.EventHandler(this.menuViewCustomResult_Click);
 			// 
 			// menuViewCalcBoard
 			// 
 			this.menuViewCalcBoard.Name = "menuViewCalcBoard";
-			this.menuViewCalcBoard.Size = new System.Drawing.Size(159, 22);
+			this.menuViewCalcBoard.Size = new System.Drawing.Size(165, 22);
 			this.menuViewCalcBoard.Text = "Calc Board";
 			this.menuViewCalcBoard.Click += new System.EventHandler(this.menuViewCalcBoard_Click);
 			// 
 			// menuViewAsciiTable
 			// 
 			this.menuViewAsciiTable.Name = "menuViewAsciiTable";
-			this.menuViewAsciiTable.Size = new System.Drawing.Size(159, 22);
+			this.menuViewAsciiTable.Size = new System.Drawing.Size(165, 22);
 			this.menuViewAsciiTable.Text = "ASCII Table";
 			this.menuViewAsciiTable.Click += new System.EventHandler(this.menuViewAsciiTable_Click);
 			// 
 			// functionToolStripMenuItem
 			// 
 			this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
-			this.functionToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+			this.functionToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
 			this.functionToolStripMenuItem.Text = "Function";
 			this.functionToolStripMenuItem.Click += new System.EventHandler(this.functionToolStripMenuItem_Click);
 			// 
@@ -1411,6 +1413,7 @@
 			this.statusProgCalc.Size = new System.Drawing.Size(591, 22);
 			this.statusProgCalc.TabIndex = 23;
 			this.statusProgCalc.Text = "statusStrip1";
+			this.statusProgCalc.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusProgCalc_ItemClicked);
 			// 
 			// toolStripStatusLabel1
 			// 
@@ -2328,6 +2331,19 @@
 			this.cboxIntBits.TabIndex = 1;
 			this.cboxIntBits.SelectedIndexChanged += new System.EventHandler(this.cboxIntBits_SelectedIndexChanged);
 			// 
+			// radioBtnIntegerUnsigned
+			// 
+			this.radioBtnIntegerUnsigned.AutoSize = true;
+			this.radioBtnIntegerUnsigned.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.radioBtnIntegerUnsigned.Location = new System.Drawing.Point(5, 52);
+			this.radioBtnIntegerUnsigned.Name = "radioBtnIntegerUnsigned";
+			this.radioBtnIntegerUnsigned.Size = new System.Drawing.Size(127, 21);
+			this.radioBtnIntegerUnsigned.TabIndex = 0;
+			this.radioBtnIntegerUnsigned.TabStop = true;
+			this.radioBtnIntegerUnsigned.Text = "Unsigned Integer";
+			this.radioBtnIntegerUnsigned.UseVisualStyleBackColor = true;
+			this.radioBtnIntegerUnsigned.CheckedChanged += new System.EventHandler(this.radioBtnInteger_CheckedChanged);
+			// 
 			// radioBtnFloat
 			// 
 			this.radioBtnFloat.AutoSize = true;
@@ -2354,18 +2370,12 @@
 			this.radioBtnIntegerSigned.UseVisualStyleBackColor = true;
 			this.radioBtnIntegerSigned.CheckedChanged += new System.EventHandler(this.radioBtnInteger_CheckedChanged);
 			// 
-			// radioBtnIntegerUnsigned
+			// checksumToolToolStripMenuItem
 			// 
-			this.radioBtnIntegerUnsigned.AutoSize = true;
-			this.radioBtnIntegerUnsigned.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.radioBtnIntegerUnsigned.Location = new System.Drawing.Point(5, 52);
-			this.radioBtnIntegerUnsigned.Name = "radioBtnIntegerUnsigned";
-			this.radioBtnIntegerUnsigned.Size = new System.Drawing.Size(127, 21);
-			this.radioBtnIntegerUnsigned.TabIndex = 0;
-			this.radioBtnIntegerUnsigned.TabStop = true;
-			this.radioBtnIntegerUnsigned.Text = "Unsigned Integer";
-			this.radioBtnIntegerUnsigned.UseVisualStyleBackColor = true;
-			this.radioBtnIntegerUnsigned.CheckedChanged += new System.EventHandler(this.radioBtnInteger_CheckedChanged);
+			this.checksumToolToolStripMenuItem.Name = "checksumToolToolStripMenuItem";
+			this.checksumToolToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.checksumToolToolStripMenuItem.Text = "Checksum Tool";
+			this.checksumToolToolStripMenuItem.Click += new System.EventHandler(this.checksumToolToolStripMenuItem_Click);
 			// 
 			// ProgCalc
 			// 
@@ -2614,6 +2624,7 @@
 		private System.Windows.Forms.RadioButton radioBtnIntegerSigned;
 		private System.Windows.Forms.ComboBox cboxInputMode;
 		private System.Windows.Forms.RadioButton radioBtnIntegerUnsigned;
+		private System.Windows.Forms.ToolStripMenuItem checksumToolToolStripMenuItem;
     }
 }
 
