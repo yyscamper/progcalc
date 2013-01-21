@@ -95,6 +95,12 @@
     <Compile Include="FormCalcBoard.Designer.cs">
       <DependentUpon>FormCalcBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCalcChecksum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalcChecksum.Designer.cs">
+      <DependentUpon>FormCalcChecksum.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFavExp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCalcBoard.resx">
       <DependentUpon>FormCalcBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCalcChecksum.resx">
+      <DependentUpon>FormCalcChecksum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFavExp.resx">
       <DependentUpon>FormFavExp.cs</DependentUpon>

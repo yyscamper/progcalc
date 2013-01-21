@@ -30,6 +30,9 @@ namespace CalcEngine
 		{
 			double v;
 
+            if (val is string)
+                return val;
+
 			if (val is double)
 			{
 				v = (double)val;

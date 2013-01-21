@@ -76,8 +76,8 @@ namespace CalcEngine
             ce.RegisterFunction("GCD", 2, Gcd); //Great Common Divisor
             ce.RegisterFunction("LCM", 2, Lcm); //Least Common Multiple
 
-			ce.RegisterFunction("CHECKSUMU8", 1, int.MaxValue, Checksum_u8);
-			ce.RegisterFunction("CHECKSUMU16", 1, int.MaxValue, Checksum_u16);
+			ce.RegisterFunction("CHKSUM8", 1, int.MaxValue, Checksum_u8);
+			ce.RegisterFunction("CHKSUM16", 1, int.MaxValue, Checksum_u16);
 			ce.RegisterFunction("BYTE", 1, UInt_Byte);
 			ce.RegisterFunction("UINT8", 1, UInt_Byte);
 			ce.RegisterFunction("UINT16", 1, UInt_U16);
@@ -88,6 +88,9 @@ namespace CalcEngine
 			ce.RegisterFunction("INT16", 1, Int_U16);
 			ce.RegisterFunction("INT32", 1, Int_U32);
 			ce.RegisterFunction("INT64", 1, Int_U64);
+
+            ce.RegisterFunction("TOHEX", 1, ToHex);
+            ce.RegisterFunction("TOBIN", 1, ToBin);
 
         }
 #if DEBUG
@@ -464,5 +467,17 @@ namespace CalcEngine
 
 			return (UInt16)( 0 - sum);
 		}
+
+        static object ToHex(List<Expression> p)
+        {
+            Int64 ival = (Int64)((double)p[0]);
+            return "0x" + Convert.ToString(ival, 16).ToUpper(); 
+        }
+
+        static object ToBin(List<Expression> p)
+        {
+            Int64 ival = (Int64)((double)p[0]);
+            return "0b" + Convert.ToString(ival, 2).ToUpper(); 
+        }
     }
 }
