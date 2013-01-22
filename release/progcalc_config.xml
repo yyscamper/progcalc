@@ -1,0 +1,19 @@
+<ProgCalc>
+  <Home>
+    <LastInputExpression>
+    </LastInputExpression>
+    <InputMode>HEX</InputMode>
+    <FormatResult>Round</FormatResult>
+  </Home>
+  <CalcBoardHistory max="10">
+    <NO.1>Sin(2)+2/2 +2</NO.1>
+    <NO.2>cos(2)+2/2 +2</NO.2>
+  </CalcBoardHistory>
+  <CustomResult>
+    <NO.1>ans+1</NO.1>
+    <NO.2>ans*2</NO.2>
+    <NO.3>ans/2 + sin(pi/3)</NO.3>
+  </CustomResult>
+  <FavoriateExpression count="0" />
+  <Variables count="0" />
+</ProgCalc>

@@ -22,7 +22,8 @@ namespace yyscamper.ProgCalc
         {
             InitializeComponent();
             CalcBoardColorScheme.GetInstance().LoadSchemes();
-            m_colorScheme = CalcBoardColorScheme.GetInstance()["dark"];     
+            m_colorScheme = CalcBoardColorScheme.GetInstance()["dark"];
+			rtboxInputBoard.Font = m_colorScheme.Font;
             rtboxInputBoard.SelectionFont = m_colorScheme.Font;
             rtboxInputBoard.BackColor = m_colorScheme.BackColor;
             m_historyMaxSize = 20;
@@ -30,8 +31,17 @@ namespace yyscamper.ProgCalc
             AppendPromptString();
         }
 
+
+		private void menuColorSchemeItems_Click(object sender, EventArgs e)
+		{
+
+		}
+
         private void AppendPromptString()
         {
+			rtboxInputBoard.SelectionStart = rtboxInputBoard.TextLength;
+			rtboxInputBoard.SelectionLength = 0;
+
             rtboxInputBoard.SelectionColor = m_colorScheme.PromptColor;
             rtboxInputBoard.AppendText(m_promptStr);
             rtboxInputBoard.SelectionColor = m_colorScheme.InputColor;
@@ -40,8 +50,12 @@ namespace yyscamper.ProgCalc
 
         private void AppendAnswerString(string ans)
         {
+			rtboxInputBoard.SelectionStart = rtboxInputBoard.TextLength;
+			rtboxInputBoard.SelectionLength = 0;
+
             rtboxInputBoard.SelectionColor = m_colorScheme.AnswerColor;
             rtboxInputBoard.AppendText(ans);
+			rtboxInputBoard.SelectionColor = m_colorScheme.InputColor;
         }
 
         private void Evaulate()
@@ -53,10 +67,12 @@ namespace yyscamper.ProgCalc
             try
             {
                 string istr = GetInputText().Trim();
+				if (istr.Length <= 0)
+					return;
 
                 m_histoy.Add(istr);
 
-                if (istr.Equals("clear"))
+                if (istr.Equals("clear") || istr.Equals("cls"))
                 {
                     rtboxInputBoard.Text = String.Empty;
                     return;
@@ -68,7 +84,7 @@ namespace yyscamper.ProgCalc
                 }
                     
                 object result = ExpTool.GetInstance().Eva(istr, CalcMode.FLOAT,  IntegerFormat.DEC, IntegerBits.BITS_64, true);
-                AppendAnswerString("ans = " + result.ToString());
+                AppendAnswerString("ans = " + result.ToString() + Environment.NewLine);
             }
             catch
             {
@@ -100,9 +116,9 @@ namespace yyscamper.ProgCalc
                 try
                 {
                     e.Handled = true;
-                    AppendAnswerString(System.Environment.NewLine);
+					rtboxInputBoard.AppendText(System.Environment.NewLine);
                     Evaulate();
-                    AppendAnswerString(System.Environment.NewLine);
+					rtboxInputBoard.AppendText(System.Environment.NewLine);
                     AppendPromptString();
                 }
                 catch
@@ -153,10 +169,12 @@ namespace yyscamper.ProgCalc
                 foreach (string str in allSchemeNames)
                 {
                     menuCalcBoardSettingColorScheme.DropDownItems.Add(str);
-                    ((ToolStripDropDownItem)menuCalcBoardSettingColorScheme.DropDownItems[i++]).MouseHover += 
+                    ((ToolStripDropDownItem)menuCalcBoardSettingColorScheme.DropDownItems[i]).MouseHover += 
                         new System.EventHandler(this.MouseHoverEventHandle);
-                    ((ToolStripDropDownItem)menuCalcBoardSettingColorScheme.DropDownItems[i++]).Click +=
-                        new System.EventHandler(this.MouseClickEventHandle);
+                    ((ToolStripDropDownItem)menuCalcBoardSettingColorScheme.DropDownItems[i]).Click +=
+                        new System.EventHandler(this.ColorSchemeMenuMouseClickEventHandle);
+
+					i++;
                 }
 
             }
@@ -167,8 +185,17 @@ namespace yyscamper.ProgCalc
 
         }
 
-        private void MouseClickEventHandle(object sender, System.EventArgs e)
+		private void ColorSchemeMenuMouseClickEventHandle(object sender, System.EventArgs e)
         {
+			ToolStripDropDownItem menuItem = (ToolStripDropDownItem)sender;
+			CalcBoardColorScheme sch = CalcBoardColorScheme.GetInstance()[menuItem.Text];
+			if (sch != null)
+			{
+				m_colorScheme = sch;
+				rtboxInputBoard.SelectionFont = m_colorScheme.Font;
+				rtboxInputBoard.Font = m_colorScheme.Font;
+				rtboxInputBoard.BackColor = m_colorScheme.BackColor;
+			}
         }
 
         private void rtboxInputBoard_SelectionChanged(object sender, EventArgs e)
@@ -182,8 +209,22 @@ namespace yyscamper.ProgCalc
 
         private void menuCalcBoardSettingFont_Click(object sender, EventArgs e)
         {
+			FontDialog fd = new FontDialog();
+			fd.Font = m_colorScheme.Font;
+			fd.ShowColor = false;
 
+			DialogResult res = fd.ShowDialog();
+			if (res == DialogResult.OK)
+			{
+				m_colorScheme.Font = fd.Font;
+				rtboxInputBoard.Font = m_colorScheme.Font;
+			}
         }
+
+		private void rtboxInputBoard_TextChanged(object sender, EventArgs e)
+		{
+
+		}
     }
 
     public class CalcBoardColorScheme
@@ -195,9 +236,9 @@ namespace yyscamper.ProgCalc
         public Color BackColor;
         public string name;
 
-        private static CalcBoardColorScheme DefaultScheme;
+        private CalcBoardColorScheme DefaultScheme;
 
-        private static Dictionary<string, CalcBoardColorScheme> AllSchemes;
+        private Dictionary<string, CalcBoardColorScheme> AllSchemes;
 
         private static CalcBoardColorScheme m_instance  = null;
 
@@ -246,16 +287,16 @@ namespace yyscamper.ProgCalc
             return all;
         }
 
-        static private void AddScheme(CalcBoardColorScheme scheme)
+        private void AddScheme(CalcBoardColorScheme scheme)
         {
             AllSchemes[scheme.name] = scheme;
         }
 
-        static private void AddScheme(string name, Font font, Color back, Color prompt, Color input, Color ans)
+        private void AddScheme(string name, Font font, Color back, Color prompt, Color input, Color ans)
         {
             CalcBoardColorScheme scheme = new CalcBoardColorScheme();
             scheme.name = name;
-            scheme.Font = new Font("Courier New", 14, FontStyle.Regular);
+            scheme.Font = new Font("Courier New", 10, FontStyle.Regular);
             scheme.BackColor = back;
             scheme.PromptColor = prompt;
             scheme.InputColor = input;
@@ -265,15 +306,14 @@ namespace yyscamper.ProgCalc
 
         public void LoadSchemes()
         {
-            Font font = null;
-            //Font font = new Font("Courier New", 14, FontStyle.Regular);
+            Font font = new Font("Courier New", 9, FontStyle.Regular);
             AllSchemes.Clear();
             AddScheme("light", font, Color.White, Color.DarkGray, Color.Black, Color.Black);
             AddScheme("dark", font, Color.Black, Color.White, Color.LightGreen, Color.Yellow);
             AddScheme("purple", font, Color.Purple, Color.Yellow, Color.White, Color.White);
 
             DefaultScheme = new CalcBoardColorScheme();
-            DefaultScheme.Font = new Font("Courier New", 16, FontStyle.Regular);
+            DefaultScheme.Font = new Font("Courier New", 9, FontStyle.Regular);
             DefaultScheme.BackColor = Color.Azure;
             DefaultScheme.InputColor = Color.Black;
             DefaultScheme.PromptColor = Color.Blue;

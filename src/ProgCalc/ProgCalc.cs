@@ -979,5 +979,11 @@ namespace yyscamper.ProgCalc
 		{
 
 		}
+
+		private void button9_Click(object sender, EventArgs e)
+		{
+			Input("CHKSUM8");
+			InputPar();
+		}
 	}
 }

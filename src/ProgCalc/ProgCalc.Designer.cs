@@ -147,6 +147,7 @@
 			this.menuViewCalcBoard = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuViewAsciiTable = new System.Windows.Forms.ToolStripMenuItem();
 			this.functionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.checksumToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuSetting = new System.Windows.Forms.ToolStripDropDownButton();
 			this.menuOptions = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuTopMost = new System.Windows.Forms.ToolStripMenuItem();
@@ -229,7 +230,6 @@
 			this.radioBtnIntegerUnsigned = new System.Windows.Forms.RadioButton();
 			this.radioBtnFloat = new System.Windows.Forms.RadioButton();
 			this.radioBtnIntegerSigned = new System.Windows.Forms.RadioButton();
-			this.checksumToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
 			this.statusProgCalc.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -1352,6 +1352,13 @@
 			this.functionToolStripMenuItem.Text = "Function";
 			this.functionToolStripMenuItem.Click += new System.EventHandler(this.functionToolStripMenuItem_Click);
 			// 
+			// checksumToolToolStripMenuItem
+			// 
+			this.checksumToolToolStripMenuItem.Name = "checksumToolToolStripMenuItem";
+			this.checksumToolToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.checksumToolToolStripMenuItem.Text = "Checksum Tool";
+			this.checksumToolToolStripMenuItem.Click += new System.EventHandler(this.checksumToolToolStripMenuItem_Click);
+			// 
 			// menuSetting
 			// 
 			this.menuSetting.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -1667,9 +1674,9 @@
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(40, 28);
 			this.button9.TabIndex = 3;
-			this.button9.Text = "n!";
+			this.button9.Text = "CS8";
 			this.button9.UseVisualStyleBackColor = true;
-			this.button9.Click += new System.EventHandler(this.btn_inputClick);
+			this.button9.Click += new System.EventHandler(this.button9_Click);
 			// 
 			// button20
 			// 
@@ -2369,13 +2376,6 @@
 			this.radioBtnIntegerSigned.Text = "Signed Integer";
 			this.radioBtnIntegerSigned.UseVisualStyleBackColor = true;
 			this.radioBtnIntegerSigned.CheckedChanged += new System.EventHandler(this.radioBtnInteger_CheckedChanged);
-			// 
-			// checksumToolToolStripMenuItem
-			// 
-			this.checksumToolToolStripMenuItem.Name = "checksumToolToolStripMenuItem";
-			this.checksumToolToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-			this.checksumToolToolStripMenuItem.Text = "Checksum Tool";
-			this.checksumToolToolStripMenuItem.Click += new System.EventHandler(this.checksumToolToolStripMenuItem_Click);
 			// 
 			// ProgCalc
 			// 
