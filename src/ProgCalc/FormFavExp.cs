@@ -104,11 +104,7 @@ namespace yyscamper.ProgCalc
 
 		private void listBoxFavExp_MouseClick(object sender, MouseEventArgs e)
 		{
-			ListBox lbox = (ListBox)sender;
-			if (lbox.SelectedIndex >= 0 && m_strInputListen != null)
-			{
-				m_strInputListen.AcceptInputString(lbox.SelectedItem.ToString());
-			}
+
 		}
 
 		private void btnFilter_Click(object sender, EventArgs e)
@@ -142,9 +138,9 @@ namespace yyscamper.ProgCalc
 			AddExpression(str);
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			if (DialogResult.OK != MessageBox.Show("Are you sure want to delete the selected items?",
+        private void RemoveItem()
+        {
+            if (DialogResult.OK != MessageBox.Show(this, "Are you sure want to delete the selected items?",
 				"Confirm", MessageBoxButtons.OKCancel,
 				MessageBoxIcon.Question,
 				MessageBoxDefaultButton.Button2))
@@ -165,11 +161,40 @@ namespace yyscamper.ProgCalc
 
 				listBoxFavExp.Items.RemoveAt(j);
 			}
+        }
+
+		private void btnRemove_Click(object sender, EventArgs e)
+		{
+            RemoveItem();
 		}
 
 		private void listBoxFavExp_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			btnRemove.Enabled = (listBoxFavExp.SelectedItems.Count > 0);
 		}
+
+        private void listBoxFavExp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                RemoveItem();
+        }
+
+        private void ctxMenuItemList_MouseClick(object sender, MouseEventArgs e)
+        {
+            RemoveItem();
+        }
+
+        private void ctxMenuItemList_VisibleChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void listBoxFavExp_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListBox lbox = (ListBox)sender;
+            if (lbox.SelectedIndex >= 0 && m_strInputListen != null)
+            {
+                m_strInputListen.AcceptInputString(lbox.SelectedItem.ToString());
+            }
+        }
 	}
 }

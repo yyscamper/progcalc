@@ -18,12 +18,23 @@ namespace yyscamper.ProgCalc
 		private IntegerBits m_intBits = IntegerBits.BITS_64;
 		private IntegerFormat m_intFmt = IntegerFormat.DEC;
 		private CalcMode m_calcMode = CalcMode.FLOAT;
-
-
+        private char m_binDelimiter = ',';
 
         public Setting()
         {
             SetDefault();
+        }
+
+        public char BinDelimiter
+        {
+            get
+            {
+                return m_binDelimiter;
+            }
+            set
+            {
+                m_binDelimiter = value;
+            }
         }
 
 		public CalcMode CurCalcMode
@@ -140,6 +151,15 @@ namespace yyscamper.ProgCalc
             subNode.InnerText = "Round";
             node.AppendChild(subNode);
 
+            subNode = xmlDoc.CreateElement(Properties.Resources.strBinDelimiter);
+            if (m_binDelimiter == (char)0)
+                subNode.InnerText = "NONE";
+            else if (m_binDelimiter == ' ')
+                subNode.InnerText = "SPACE";
+            else 
+                subNode.InnerText = m_binDelimiter.ToString();
+            node.AppendChild(subNode);
+
             /////////////////BEGIN Calc Board History //////////////////////////////
             node = xmlDoc.CreateElement("CalcBoardHistory");
             node.SetAttribute("max", "10");
@@ -152,6 +172,7 @@ namespace yyscamper.ProgCalc
             subNode = xmlDoc.CreateElement("NO.2");
             subNode.InnerText = "cos(2)+2/2 +2";
             node.AppendChild(subNode);
+
             /////////////////END Calc Board History //////////////////////////////
 
             /////////////////BEGIN Custom Result //////////////////////////////
@@ -233,48 +254,58 @@ namespace yyscamper.ProgCalc
                         {
                         }
                     }
+                    else if (ele.Name == Properties.Resources.strBinDelimiter)
+                    {
+                        if (ele.InnerText.Length == 0 || ele.InnerText == "NONE")
+                            m_binDelimiter = (char)0;
+                        else if (ele.InnerText == "SPACE")
+                            m_binDelimiter = ' ';
+                        else
+                            m_binDelimiter = ele.InnerText[0];
+                
+                    }
                     else if (ele.Name == Properties.Resources.strXmlCustomResultNodeName)
                     {
                         m_customResultExpression[0] = ele["NO.1"].InnerText;
                         m_customResultExpression[1] = ele["NO.2"].InnerText;
                         m_customResultExpression[2] = ele["NO.3"].InnerText;
                     }
-					else if (ele.Name == Properties.Resources.strXmlFavExpNodeName)
-					{
-						XmlNodeList allFavExpNode = ele.ChildNodes;
+                    else if (ele.Name == Properties.Resources.strXmlFavExpNodeName)
+                    {
+                        XmlNodeList allFavExpNode = ele.ChildNodes;
 
-						int len = allFavExpNode.Count;
-						m_allFavExp.Clear();
-						int i = 0;
+                        int len = allFavExpNode.Count;
+                        m_allFavExp.Clear();
+                        int i = 0;
 
-						foreach(XmlElement favNode in allFavExpNode)
-						{
-							m_allFavExp.Add(favNode.InnerText);
-							i++;
-						}
+                        foreach (XmlElement favNode in allFavExpNode)
+                        {
+                            m_allFavExp.Add(favNode.InnerText);
+                            i++;
+                        }
 
 
-					}
-					else if (ele.Name == Properties.Resources.strXmlVarNodeName)
-					{
-						XmlNodeList allVarNodes = ele.ChildNodes;
-						int len = allVarNodes.Count;
-						ExpTool.GetInstance().ClearVariables();
+                    }
+                    else if (ele.Name == Properties.Resources.strXmlVarNodeName)
+                    {
+                        XmlNodeList allVarNodes = ele.ChildNodes;
+                        int len = allVarNodes.Count;
+                        ExpTool.GetInstance().ClearVariables();
 
-						foreach (XmlElement varNode in allVarNodes)
-						{
-							try
-							{
-								string name = CalcVar.ValidateName(varNode.GetAttribute("name"));
-								object val = CalcVar.ParseValue(varNode.GetAttribute("value"));
-								ExpTool.GetInstance().AddVariable(name, val);
-							}
-							catch
-							{
-								continue;
-							}
-						}
-					}
+                        foreach (XmlElement varNode in allVarNodes)
+                        {
+                            try
+                            {
+                                string name = CalcVar.ValidateName(varNode.GetAttribute("name"));
+                                object val = CalcVar.ParseValue(varNode.GetAttribute("value"));
+                                ExpTool.GetInstance().AddVariable(name, val);
+                            }
+                            catch
+                            {
+                                continue;
+                            }
+                        }
+                    }
                 }
                 return true;
             }

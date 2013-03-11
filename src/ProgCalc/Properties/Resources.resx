@@ -160,4 +160,7 @@
   <data name="strXmlVarNodeName" xml:space="preserve">
     <value>Variables</value>
   </data>
+  <data name="strBinDelimiter" xml:space="preserve">
+    <value>BinDelimiter</value>
+  </data>
 </root>

@@ -173,9 +173,17 @@ namespace yyscamper.ProgCalc
 			new FormAddVar(this, "Add Variable", null, null, VarChangeMode.ADD_NEW).ShowDialog();
 		}
 
-		private void btnRemove_Click(object sender, EventArgs e)
-		{
-			if (DialogResult.OK != MessageBox.Show("Are you sure want to delete the selected items?",
+        private void RemoveItem()
+        {
+            if (lviewVar.SelectedIndices.Count > 0
+                && lviewVar.Items[lviewVar.SelectedIndices[0]].SubItems[0].Text == "ans")
+            {
+                MessageBox.Show(lviewVar, "Sorry, the \"ans\" variable should not be removed!",
+                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
+            if (DialogResult.OK != MessageBox.Show(lviewVar, "Are you sure want to delete the selected items?",
 				"Confirm", MessageBoxButtons.OKCancel,
 				MessageBoxIcon.Question,
 				MessageBoxDefaultButton.Button2))
@@ -192,6 +200,11 @@ namespace yyscamper.ProgCalc
 					lviewVar.Items.RemoveAt(j);
 				}
 			}
+        }
+
+		private void btnRemove_Click(object sender, EventArgs e)
+		{
+            RemoveItem();
 		}
 
 		private void btnFilter_Click(object sender, EventArgs e)
@@ -210,5 +223,16 @@ namespace yyscamper.ProgCalc
 			new FormAddVar(this, "Add Variable", 
 				name, val, VarChangeMode.UPDATE).ShowDialog();
 		}
+
+        private void lviewVar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                RemoveItem();
+        }
+
+        private void ctxMenuListItem_MouseClick(object sender, MouseEventArgs e)
+        {
+            RemoveItem();
+        }
 	}
 }

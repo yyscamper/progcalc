@@ -228,7 +228,6 @@ namespace yyscamper.ProgCalc
 
             //ToolTip timeTip = new ToolTip();
             //timeTip.SetToolTip(btnTime, "Date Time");
-
 			this.EvalExpression();
         }
 
@@ -392,13 +391,13 @@ namespace yyscamper.ProgCalc
             Input('.');
         }
 
-        private void SetBinBox(Int64 val)
+        private void SetBinBox(UInt64 val)
         {
-            Int64 flag = 0x01;
+            UInt64 flag = 0x01;
 
             foreach (Button btn in m_bntBinBox)
             {
-                if ((val & flag) != 0)
+                if ((val & flag) != (UInt64)0)
                 {
                     btn.BackColor = ASSERT_COLOR;
                 }
@@ -435,11 +434,67 @@ namespace yyscamper.ProgCalc
             return ce.Evaluate(str).ToString();
         }
 
+        private string FormatBinString(UInt64 val)
+        {
+            if (val == 0)
+                return "0";
+
+            char delimiter = Setting.GetInstance().BinDelimiter;
+
+            int nbit = (int)Setting.GetInstance().CurIntBits;
+            if (Setting.GetInstance().CurCalcMode == CalcMode.FLOAT)
+                nbit = 64;
+
+            int ptr = 0;
+            char[] binChars = new char[72];
+
+            UInt64 mask = (((UInt64)1) << (nbit - 1));
+
+            for (int i = (nbit - 1); i >= 0; i--, mask /= 2)
+            {
+                if ((val & mask) == 0)
+                {
+                    if (ptr == 0)
+                        continue;
+
+                    binChars[ptr] = '0';
+                }
+                else
+                {
+                    if (ptr == 0) //Padding for 8 bits
+                    {
+                        int padLen = 7 - i % 8;
+          
+
+                        for (int j = 0; j < padLen; j++)
+                        {
+                            binChars[ptr++] = '0';
+                        }
+                    }
+
+                    binChars[ptr] = '1';
+                }
+
+                ptr++;
+
+                if (i > 0 && (i % 8 == 0))
+                {
+                    if (delimiter != (char)0)
+                    {
+                        binChars[ptr++] = delimiter;
+                    }
+                }
+            }
+
+            return new string(binChars);
+        }
+
         private void UpdateResult(Int64 val)
         {
 			StringBuilder strDec = new StringBuilder(Convert.ToString(val, 10));
             StringBuilder strHex = new StringBuilder(Convert.ToString(val, 16).ToUpper());
-            StringBuilder strBin = new StringBuilder(Convert.ToString(val, 2));
+            StringBuilder strBin = new StringBuilder(FormatBinString((UInt64)val));
+            //StringBuilder strBin = new StringBuilder(Convert.ToString(val, 2));
 
 			int nbit = (int)Setting.GetInstance().CurIntBits;
 			if (Setting.GetInstance().CurCalcMode == CalcMode.FLOAT)
@@ -450,17 +505,12 @@ namespace yyscamper.ProgCalc
 				strHex.Remove(0, strHex.Length - nbit / 4);
 			}
 
-			if (strBin.Length > nbit)
-			{
-				strBin.Remove(0, strBin.Length - nbit);
-			}
-
 			tboxResultDec.Text = strDec.ToString();
 			tboxResultHex.Text = strHex.ToString();
 			tboxResultBin.Text = strBin.ToString();
 
 
-            SetBinBox(val);
+            SetBinBox((UInt64)val);
             SetCharResult(val);
         }
 
@@ -830,7 +880,14 @@ namespace yyscamper.ProgCalc
 
 		private void btnAddFav_Click(object sender, EventArgs e)
 		{
+
 			string strExp = tboxInput.Text.Trim();
+
+            if (DialogResult.No == MessageBox.Show(this, "Are you sure want to add \"" + strExp + "\" to your favoriates?",
+                "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                return;
+            }
 
 			if (strExp.Length > 0)
 			{
@@ -856,16 +913,7 @@ namespace yyscamper.ProgCalc
 
 		private void enableToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if (Setting.GetInstance().CurIntFmt == IntegerFormat.BIN)
-			{
-				Setting.GetInstance().CurIntFmt = IntegerFormat.DEC;
-				enableToolStripMenuItem.Checked = false;
-			}
-			else
-			{
-				Setting.GetInstance().CurIntFmt = IntegerFormat.BIN;
-				enableToolStripMenuItem.Checked = true;
-			}
+			
 
 		}
 
@@ -985,5 +1033,93 @@ namespace yyscamper.ProgCalc
 			Input("CHKSUM8");
 			InputPar();
 		}
+
+        private void ctxMenuGroupBinBox_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void ctxMenuGroupBinBox_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Text.StartsWith("Enable"))
+            {
+                if (Setting.GetInstance().CurIntFmt == IntegerFormat.BIN)
+                {
+                    Setting.GetInstance().CurIntFmt = IntegerFormat.DEC;
+                    enableToolStripMenuItem.Checked = false;
+                    panelBinxBox.BackColor = Color.LightGray;
+                    tboxInput.Enabled = true;
+
+                    for (int i = 1; i < ctxMenuGroupBinBox.Items.Count; i++)
+                    {
+                        ctxMenuGroupBinBox.Items[i].Enabled = false;
+                    }
+                }
+                else
+                {
+                    Setting.GetInstance().CurIntFmt = IntegerFormat.BIN;
+                    enableToolStripMenuItem.Checked = true;
+                    panelBinxBox.BackColor = Color.White;
+                    tboxInput.Text = string.Empty;
+                    tboxInput.Enabled = false;
+
+                    for (int i = 1; i < ctxMenuGroupBinBox.Items.Count; i++ )
+                    {
+                        ctxMenuGroupBinBox.Items[i].Enabled = true;
+                    }
+                }
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormAbout().ShowDialog();
+        }
+
+        private void menuOptions_Click(object sender, EventArgs e)
+        {
+            new FormOptions().ShowDialog();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            SetBinBox(0xFF);
+            UpdateResult(0xFF);
+        }
+
+        private void menuEnableBinBoxEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuAll1_Click(object sender, EventArgs e)
+        {
+               SetBinBox(0xFFFFFFFFFFFFFFFF);
+            UpdateResult(0xFFFFFFFFFFFFFFFF);
+        }
+
+        private void toolStripMenu16Bits1_Click(object sender, EventArgs e)
+        {
+            SetBinBox(0xFFFF);
+            UpdateResult(0xFFFF);
+        }
+
+        private void toolStripMenuAll0_Click(object sender, EventArgs e)
+        {
+            SetBinBox(0);
+            UpdateResult(0);
+        }
+
+        private void toolStripMenu32Bits1_Click(object sender, EventArgs e)
+        {
+            SetBinBox(0xFFFFFFFF);
+            UpdateResult(0xFFFFFFFF);
+        }
+
+        private void toolStripMenu64Bits1_Click(object sender, EventArgs e)
+        {
+               SetBinBox(0x7FFFFFFFFFFFFFFF);
+            UpdateResult(0x7FFFFFFFFFFFFFFF);
+        }
 	}
 }

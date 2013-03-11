@@ -155,7 +155,7 @@ namespace CalcEngine
 			// handle doubles
 			if (v is double)
 			{
-				return (UInt64)v;
+				return (UInt64)((double)v);
 			}
 
 			// handle booleans
@@ -188,7 +188,7 @@ namespace CalcEngine
 			// handle doubles
 			if (v is double)
 			{
-				return (Int64)v;
+				return (Int64)((double)v);
 			}
 
 			// handle booleans

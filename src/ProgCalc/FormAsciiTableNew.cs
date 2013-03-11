@@ -134,5 +134,10 @@ namespace yyscamper.ProgCalc
 
 			InitAsciiTable();
 		}
+
+        private void listviewAsciiTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 	}
 }
