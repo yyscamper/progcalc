@@ -19,6 +19,8 @@ namespace yyscamper.ProgCalc
 
         private  Color ASSERT_COLOR = Color.Black;
         private  Color DEASSERT_COLOR = Color.White;
+        private Color DISABLE_COLOR = Color.LightGray;
+
         private ExpTool m_expTool = null;
         private ToolStripDropDownMenu m_resultMenu;
 
@@ -226,6 +228,20 @@ namespace yyscamper.ProgCalc
             ToolTip gcdTip = new ToolTip();
             lcmTip.SetToolTip(btnGcd, "Greatest Common Divisor");
 
+            toolStripMenu8Bits0.Enabled = false;
+            toolStripMenu8Bits1.Enabled = false;
+            toolStripMenu16Bits0.Enabled = false;
+            toolStripMenu16Bits1.Enabled = false;
+            toolStripMenu32Bits0.Enabled = false;
+            toolStripMenu32Bits1.Enabled = false;
+            toolStripMenu64Bits0.Enabled = false;
+            toolStripMenu64Bits1.Enabled = false;
+            toolStripMenuAll0.Enabled = false;
+            toolStripMenuAll1.Enabled = false;
+
+            UpdateBinBoxVisual();
+
+
             //ToolTip timeTip = new ToolTip();
             //timeTip.SetToolTip(btnTime, "Date Time");
 			this.EvalExpression();
@@ -409,6 +425,24 @@ namespace yyscamper.ProgCalc
             }
         }
 
+        private void SetBinBox(Int64 val)
+        {
+            Int64 flag = 0x01;
+
+            foreach (Button btn in m_bntBinBox)
+            {
+                if ((val & flag) != (Int64)0)
+                {
+                    btn.BackColor = ASSERT_COLOR;
+                }
+                else
+                {
+                    btn.BackColor = DEASSERT_COLOR;
+                }
+                flag = flag << 1;
+            }
+        }
+
         private void SetCharResult(Int64 val)
         {
             char ch;
@@ -540,15 +574,24 @@ namespace yyscamper.ProgCalc
                     UpdateResult((string)val);
                 else
                 {
-
-                    long lval = (long)double.Parse(val.ToString());
-                    UpdateResult(lval);
+                    if (Setting.GetInstance().CurCalcMode == CalcMode.FLOAT
+                        || Setting.GetInstance().CurCalcMode == CalcMode.INTEGER_SIGNED)
+                    {
+                        long lval = (long)double.Parse(val.ToString());
+                        UpdateResult(lval);
+                    }
+                    else
+                    {
+                        ulong ulval = (ulong)double.Parse(val.ToString());
+                        UpdateResult(ulval);
+                    }
                 }
 			}
 			catch
 			{
 				UpdateResultToFaultStatus();
 			}
+
 		}
 
         private void UpdateResult(String str)
@@ -632,7 +675,8 @@ namespace yyscamper.ProgCalc
 					Setting.GetInstance().CurCalcMode,
 					Setting.GetInstance().CurIntFmt,
 					Setting.GetInstance().CurIntBits, true);
-				tboxResult.Text = val.ToString();
+
+                tboxResult.Text = val.ToString();
                 labelExpErrorMessage.Text = "";
 
 				if (FormCustomResult.GetInstance().Visible)
@@ -945,6 +989,27 @@ namespace yyscamper.ProgCalc
 			}
 		}
 
+        private void UpdateBinBoxVisual()
+        {
+            int nb = 64;
+            if (Setting.GetInstance().CurCalcMode != CalcMode.FLOAT)
+            {
+                nb = (int)Setting.GetInstance().CurIntBits;
+            }
+
+            foreach (Button btn in m_bntBinBox)
+            {
+                if (nb > 0)
+                {
+                    btn.Visible = true;
+                    nb--;
+                    continue;
+                }
+
+                btn.Visible = false;
+            }
+        }
+
 		private void cboxIntBits_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			ComboBox cbox = (ComboBox)sender;
@@ -956,6 +1021,8 @@ namespace yyscamper.ProgCalc
 				Setting.GetInstance().CurIntBits = IntegerBits.BITS_8;
 			else
 				Setting.GetInstance().CurIntBits = IntegerBits.BITS_64;
+
+            UpdateBinBoxVisual();
 
 			this.EvalExpression();
 		}
@@ -997,6 +1064,8 @@ namespace yyscamper.ProgCalc
 			}
 			else
 				Setting.GetInstance().CurCalcMode = CalcMode.INTEGER_SIGNED;
+
+            UpdateBinBoxVisual();
 
 			this.EvalExpression();
 
@@ -1041,7 +1110,7 @@ namespace yyscamper.ProgCalc
 
         private void ctxMenuGroupBinBox_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            if (e.ClickedItem.Text.StartsWith("Enable"))
+            if (e.ClickedItem == menuEnableBinBoxEdit)
             {
                 if (Setting.GetInstance().CurIntFmt == IntegerFormat.BIN)
                 {
@@ -1049,6 +1118,18 @@ namespace yyscamper.ProgCalc
                     enableToolStripMenuItem.Checked = false;
                     panelBinxBox.BackColor = Color.LightGray;
                     tboxInput.Enabled = true;
+                    e.ClickedItem.Text = "Enable Binary Edit";
+
+                    toolStripMenu8Bits0.Enabled = false;
+                    toolStripMenu8Bits1.Enabled = false;
+                    toolStripMenu16Bits0.Enabled = false;
+                    toolStripMenu16Bits1.Enabled = false;
+                    toolStripMenu32Bits0.Enabled = false;
+                    toolStripMenu32Bits1.Enabled = false;
+                    toolStripMenu64Bits0.Enabled = false;
+                    toolStripMenu64Bits1.Enabled = false;
+                    toolStripMenuAll0.Enabled = false;
+                    toolStripMenuAll1.Enabled = false;
 
                     for (int i = 1; i < ctxMenuGroupBinBox.Items.Count; i++)
                     {
@@ -1062,6 +1143,19 @@ namespace yyscamper.ProgCalc
                     panelBinxBox.BackColor = Color.White;
                     tboxInput.Text = string.Empty;
                     tboxInput.Enabled = false;
+                    e.ClickedItem.Text = "Disable Binary Edit";
+
+                    toolStripMenu8Bits0.Enabled = true;
+                    toolStripMenu8Bits1.Enabled = true;
+                    toolStripMenu16Bits0.Enabled = true;
+                    toolStripMenu16Bits1.Enabled = true;
+                    toolStripMenu32Bits0.Enabled = true;
+                    toolStripMenu32Bits1.Enabled = true;
+                    toolStripMenu64Bits0.Enabled = true;
+                    toolStripMenu64Bits1.Enabled = true;
+                    toolStripMenuAll0.Enabled = true;
+                    toolStripMenuAll1.Enabled = true;
+
 
                     for (int i = 1; i < ctxMenuGroupBinBox.Items.Count; i++ )
                     {
@@ -1094,8 +1188,8 @@ namespace yyscamper.ProgCalc
 
         private void toolStripMenuAll1_Click(object sender, EventArgs e)
         {
-               SetBinBox(0xFFFFFFFFFFFFFFFF);
-            UpdateResult(0xFFFFFFFFFFFFFFFF);
+            SetBinBox((Int64)(-1));
+            UpdateResult((Int64)(-1));
         }
 
         private void toolStripMenu16Bits1_Click(object sender, EventArgs e)
@@ -1118,8 +1212,8 @@ namespace yyscamper.ProgCalc
 
         private void toolStripMenu64Bits1_Click(object sender, EventArgs e)
         {
-               SetBinBox(0x7FFFFFFFFFFFFFFF);
-            UpdateResult(0x7FFFFFFFFFFFFFFF);
+            SetBinBox((Int64)(-1));
+            UpdateResult((Int64)(-1));
         }
 	}
 }

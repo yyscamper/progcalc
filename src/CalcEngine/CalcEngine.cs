@@ -628,8 +628,7 @@ namespace CalcEngine
 
 			// parse numbers
             if (isDigit || c == _decimal)
-			{        
-
+			{
                 var div = -1.0; // use double, not int (this may get really big)
                 var val = 0.0;
 

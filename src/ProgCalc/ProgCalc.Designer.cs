@@ -228,23 +228,23 @@
             this.panelBinxBox = new System.Windows.Forms.Panel();
             this.ctxMenuGroupBinBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuEnableBinBoxEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBinxbox = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuAll1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuAll0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenu8Bits1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenu16Bits1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenu32Bits1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenu64Bits1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenu8Bits0 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuAll1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuAll0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu8Bits0 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenu16Bits0 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenu32Bits0 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenu64Bits0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBinxbox = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.statusProgCalc.SuspendLayout();
             this.meuBinBox.SuspendLayout();
@@ -327,7 +327,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label36.Location = new System.Drawing.Point(486, 45);
+            this.label36.Location = new System.Drawing.Point(489, 45);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(19, 13);
             this.label36.TabIndex = 16;
@@ -337,7 +337,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label18.Location = new System.Drawing.Point(486, 7);
+            this.label18.Location = new System.Drawing.Point(491, 7);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(13, 13);
             this.label18.TabIndex = 16;
@@ -357,7 +357,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(465, 5);
+            this.label17.Location = new System.Drawing.Point(467, 5);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(15, 17);
             this.label17.TabIndex = 15;
@@ -367,7 +367,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label34.Location = new System.Drawing.Point(419, 43);
+            this.label34.Location = new System.Drawing.Point(420, 43);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(22, 17);
             this.label34.TabIndex = 14;
@@ -397,7 +397,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(397, 5);
+            this.label15.Location = new System.Drawing.Point(399, 5);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(15, 17);
             this.label15.TabIndex = 13;
@@ -407,7 +407,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label32.Location = new System.Drawing.Point(351, 43);
+            this.label32.Location = new System.Drawing.Point(352, 43);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(22, 17);
             this.label32.TabIndex = 12;
@@ -417,7 +417,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(351, 5);
+            this.label14.Location = new System.Drawing.Point(352, 5);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(22, 17);
             this.label14.TabIndex = 12;
@@ -427,7 +427,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label31.Location = new System.Drawing.Point(55, 43);
+            this.label31.Location = new System.Drawing.Point(56, 43);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(22, 17);
             this.label31.TabIndex = 11;
@@ -437,7 +437,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(52, 5);
+            this.label13.Location = new System.Drawing.Point(55, 5);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(22, 17);
             this.label13.TabIndex = 11;
@@ -447,7 +447,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(77, 43);
+            this.label30.Location = new System.Drawing.Point(79, 43);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(22, 17);
             this.label30.TabIndex = 10;
@@ -457,7 +457,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(77, 5);
+            this.label12.Location = new System.Drawing.Point(78, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(22, 17);
             this.label12.TabIndex = 10;
@@ -487,7 +487,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label28.Location = new System.Drawing.Point(145, 43);
+            this.label28.Location = new System.Drawing.Point(146, 43);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(22, 17);
             this.label28.TabIndex = 8;
@@ -507,7 +507,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(145, 5);
+            this.label10.Location = new System.Drawing.Point(146, 5);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(22, 17);
             this.label10.TabIndex = 8;
@@ -517,7 +517,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.Location = new System.Drawing.Point(213, 43);
+            this.label26.Location = new System.Drawing.Point(214, 43);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(22, 17);
             this.label26.TabIndex = 6;
@@ -537,7 +537,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(257, 43);
+            this.label25.Location = new System.Drawing.Point(258, 43);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(22, 17);
             this.label25.TabIndex = 5;
@@ -557,7 +557,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label24.Location = new System.Drawing.Point(327, 43);
+            this.label24.Location = new System.Drawing.Point(328, 43);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(22, 17);
             this.label24.TabIndex = 4;
@@ -577,7 +577,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(283, 43);
+            this.label23.Location = new System.Drawing.Point(284, 43);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(22, 17);
             this.label23.TabIndex = 4;
@@ -597,7 +597,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label22.Location = new System.Drawing.Point(531, 43);
+            this.label22.Location = new System.Drawing.Point(532, 43);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(22, 17);
             this.label22.TabIndex = 3;
@@ -627,7 +627,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(533, 5);
+            this.label5.Location = new System.Drawing.Point(534, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 17);
             this.label5.TabIndex = 3;
@@ -637,7 +637,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(8, 5);
+            this.label3.Location = new System.Drawing.Point(10, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 17);
             this.label3.TabIndex = 3;
@@ -2345,7 +2345,7 @@
             this.toolStripMenu32Bits0,
             this.toolStripMenu64Bits0});
             this.ctxMenuGroupBinBox.Name = "ctxMenuGroupBinBox";
-            this.ctxMenuGroupBinBox.Size = new System.Drawing.Size(160, 286);
+            this.ctxMenuGroupBinBox.Size = new System.Drawing.Size(160, 264);
             this.ctxMenuGroupBinBox.Opening += new System.ComponentModel.CancelEventHandler(this.ctxMenuGroupBinBox_Opening);
             this.ctxMenuGroupBinBox.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ctxMenuGroupBinBox_ItemClicked);
             // 
@@ -2355,6 +2355,87 @@
             this.menuEnableBinBoxEdit.Size = new System.Drawing.Size(159, 22);
             this.menuEnableBinBoxEdit.Text = "Enable Editing";
             this.menuEnableBinBoxEdit.Click += new System.EventHandler(this.menuEnableBinBoxEdit_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            // 
+            // toolStripMenuAll1
+            // 
+            this.toolStripMenuAll1.Name = "toolStripMenuAll1";
+            this.toolStripMenuAll1.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenuAll1.Text = "All \'1\'";
+            this.toolStripMenuAll1.Click += new System.EventHandler(this.toolStripMenuAll1_Click);
+            // 
+            // toolStripMenuAll0
+            // 
+            this.toolStripMenuAll0.Name = "toolStripMenuAll0";
+            this.toolStripMenuAll0.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenuAll0.Text = "All \'0\'";
+            this.toolStripMenuAll0.Click += new System.EventHandler(this.toolStripMenuAll0_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(156, 6);
+            // 
+            // toolStripMenu8Bits1
+            // 
+            this.toolStripMenu8Bits1.Name = "toolStripMenu8Bits1";
+            this.toolStripMenu8Bits1.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu8Bits1.Text = "8  Bits \'1\'";
+            this.toolStripMenu8Bits1.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenu16Bits1
+            // 
+            this.toolStripMenu16Bits1.Name = "toolStripMenu16Bits1";
+            this.toolStripMenu16Bits1.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu16Bits1.Text = "16 Bits \'1\'";
+            this.toolStripMenu16Bits1.Click += new System.EventHandler(this.toolStripMenu16Bits1_Click);
+            // 
+            // toolStripMenu32Bits1
+            // 
+            this.toolStripMenu32Bits1.Name = "toolStripMenu32Bits1";
+            this.toolStripMenu32Bits1.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu32Bits1.Text = "32 Bits \'1\'";
+            this.toolStripMenu32Bits1.Click += new System.EventHandler(this.toolStripMenu32Bits1_Click);
+            // 
+            // toolStripMenu64Bits1
+            // 
+            this.toolStripMenu64Bits1.Name = "toolStripMenu64Bits1";
+            this.toolStripMenu64Bits1.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu64Bits1.Text = "64 Bits \'1\'";
+            this.toolStripMenu64Bits1.Click += new System.EventHandler(this.toolStripMenu64Bits1_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(156, 6);
+            // 
+            // toolStripMenu8Bits0
+            // 
+            this.toolStripMenu8Bits0.Name = "toolStripMenu8Bits0";
+            this.toolStripMenu8Bits0.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu8Bits0.Text = "8  Bits \'0\'";
+            // 
+            // toolStripMenu16Bits0
+            // 
+            this.toolStripMenu16Bits0.Name = "toolStripMenu16Bits0";
+            this.toolStripMenu16Bits0.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu16Bits0.Text = "16 Bits \'0\'";
+            // 
+            // toolStripMenu32Bits0
+            // 
+            this.toolStripMenu32Bits0.Name = "toolStripMenu32Bits0";
+            this.toolStripMenu32Bits0.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu32Bits0.Text = "32 Bits \'0\'";
+            // 
+            // toolStripMenu64Bits0
+            // 
+            this.toolStripMenu64Bits0.Name = "toolStripMenu64Bits0";
+            this.toolStripMenu64Bits0.Size = new System.Drawing.Size(159, 22);
+            this.toolStripMenu64Bits0.Text = "64 Bits \'0\'";
             // 
             // groupBinxbox
             // 
@@ -2460,87 +2541,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(236, 156);
             this.panel2.TabIndex = 31;
-            // 
-            // toolStripMenu8Bits1
-            // 
-            this.toolStripMenu8Bits1.Name = "toolStripMenu8Bits1";
-            this.toolStripMenu8Bits1.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu8Bits1.Text = "8  Bits \'1\'";
-            this.toolStripMenu8Bits1.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // toolStripMenu16Bits1
-            // 
-            this.toolStripMenu16Bits1.Name = "toolStripMenu16Bits1";
-            this.toolStripMenu16Bits1.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu16Bits1.Text = "16 Bits \'1\'";
-            this.toolStripMenu16Bits1.Click += new System.EventHandler(this.toolStripMenu16Bits1_Click);
-            // 
-            // toolStripMenu32Bits1
-            // 
-            this.toolStripMenu32Bits1.Name = "toolStripMenu32Bits1";
-            this.toolStripMenu32Bits1.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu32Bits1.Text = "32 Bits \'1\'";
-            this.toolStripMenu32Bits1.Click += new System.EventHandler(this.toolStripMenu32Bits1_Click);
-            // 
-            // toolStripMenu64Bits1
-            // 
-            this.toolStripMenu64Bits1.Name = "toolStripMenu64Bits1";
-            this.toolStripMenu64Bits1.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu64Bits1.Text = "64 Bits \'1\'";
-            this.toolStripMenu64Bits1.Click += new System.EventHandler(this.toolStripMenu64Bits1_Click);
-            // 
-            // toolStripMenu8Bits0
-            // 
-            this.toolStripMenu8Bits0.Name = "toolStripMenu8Bits0";
-            this.toolStripMenu8Bits0.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu8Bits0.Text = "8  Bits \'0\'";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(189, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(189, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(189, 6);
-            // 
-            // toolStripMenuAll1
-            // 
-            this.toolStripMenuAll1.Name = "toolStripMenuAll1";
-            this.toolStripMenuAll1.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenuAll1.Text = "All \'1\'";
-            this.toolStripMenuAll1.Click += new System.EventHandler(this.toolStripMenuAll1_Click);
-            // 
-            // toolStripMenuAll0
-            // 
-            this.toolStripMenuAll0.Name = "toolStripMenuAll0";
-            this.toolStripMenuAll0.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenuAll0.Text = "All \'0\'";
-            this.toolStripMenuAll0.Click += new System.EventHandler(this.toolStripMenuAll0_Click);
-            // 
-            // toolStripMenu16Bits0
-            // 
-            this.toolStripMenu16Bits0.Name = "toolStripMenu16Bits0";
-            this.toolStripMenu16Bits0.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu16Bits0.Text = "16 Bits \'0\'";
-            // 
-            // toolStripMenu32Bits0
-            // 
-            this.toolStripMenu32Bits0.Name = "toolStripMenu32Bits0";
-            this.toolStripMenu32Bits0.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu32Bits0.Text = "32 Bits \'0\'";
-            // 
-            // toolStripMenu64Bits0
-            // 
-            this.toolStripMenu64Bits0.Name = "toolStripMenu64Bits0";
-            this.toolStripMenu64Bits0.Size = new System.Drawing.Size(159, 22);
-            this.toolStripMenu64Bits0.Text = "64 Bits \'0\'";
             // 
             // ProgCalc
             // 
