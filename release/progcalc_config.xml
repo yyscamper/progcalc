@@ -4,6 +4,7 @@
     </LastInputExpression>
     <InputMode>HEX</InputMode>
     <FormatResult>Round</FormatResult>
+    <BinDelimiter>,</BinDelimiter>
   </Home>
   <CalcBoardHistory max="10">
     <NO.1>Sin(2)+2/2 +2</NO.1>
